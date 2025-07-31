@@ -21,7 +21,7 @@ public class FishScript : MonoBehaviour
     private float _distanceFromCenter = 1f;
     private Vector2 _destination = new Vector2(0f,0f);
     private Vector2 _velocity = new Vector2(0f,0f);
-
+    private float _colidingTimer = 0.0f;
 
     public Vector2 Center 
     {
@@ -217,9 +217,22 @@ public class FishScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 direction = _destination - (Vector2)transform.position;
-        if (direction.magnitude < 0.2f) RecalculateGoal();
-        else MoveTowards(direction);
-        transform.position += new Vector3(_velocity.x, _velocity.y, 0) * Time.fixedDeltaTime;
+        if (_colidingTimer > 0) _colidingTimer -= Time.fixedDeltaTime;
+        if(_colidingTimer <= 0)
+        {
+            Vector2 direction = _destination - (Vector2)transform.position;
+            if (direction.magnitude < 0.2f) RecalculateGoal();
+            else MoveTowards(direction);
+            transform.position += new Vector3(_velocity.x, _velocity.y, 0) * Time.fixedDeltaTime;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision == null) return;
+        if (collision.gameObject.tag == "Buoy")
+        {
+            _colidingTimer = 0.2f;
+        }
     }
 }
