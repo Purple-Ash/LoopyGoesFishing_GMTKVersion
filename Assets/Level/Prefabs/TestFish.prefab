@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7862002679528428376}
   - component: {fileID: 4132430538305081965}
   - component: {fileID: 7348072835574992767}
+  - component: {fileID: 6067525564290845974}
   m_Layer: 0
   m_Name: TestFish
   m_TagString: Untagged
@@ -99,7 +100,45 @@ MonoBehaviour:
   _radious: 1
   _headDots: 6
   _bodyDots: 25
-  _bodyLength: 1
-  _frontFlatten: 0.3
+  _bodyLength: 0.3
+  _frontFlatten: 1
   _sideFlatten: 1
   _rotate: 0
+  _size: {x: 0.05, y: 0.05}
+  _maxVelocity: 1
+  _maxAcceleration: 1
+--- !u!70 &6067525564290845974
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530426190529337220}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11874999, y: -0.0006095328}
+  m_Size: {x: 0.3375, y: 0.07681262}
+  m_Direction: 1

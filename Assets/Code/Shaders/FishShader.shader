@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Unlit/FishShader"
 {
     Properties
@@ -51,17 +53,20 @@ Shader "Unlit/FishShader"
             float _Density;
             float _Frequency;
 
-            float4 transformVertex(float4 vertex){
-                vertex.y += sin(vertex.x*_Density + _Time.y*_Frequency )*_Wave;
+            float4 transformVertex(float4 vertex, float3 waveDir){
+                vertex.y += waveDir * sin(vertex.x*_Density + _Time.y*_Frequency )*_Wave;
                 return vertex;
             }
 
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = transformVertex(UnityObjectToClipPos(v.vertex));
+                //get object direction
+                float3 waveDir = normalize(mul((float3x3)unity_ObjectToWorld, float3(0,1,0)));
+
+                o.vertex = UnityObjectToClipPos(transformVertex(v.vertex, waveDir));
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                return o;
+                return o; 
             }
 
             fixed4 frag (v2f i) : SV_Target
