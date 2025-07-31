@@ -69,10 +69,15 @@ public class BoatMovement : MonoBehaviour
         }
 
         ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
+        int i = 0;
         foreach (ParticleSystem particle in particleSystems)
         {
-            var emission = particle.emission.rateOverTime;
-            emission = new ParticleSystem.MinMaxCurve(0);
+            var emission = particle.emission;
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(emissions[i] * (rb.velocity.magnitude/maxSpeedForward) * (rb.velocity.magnitude / maxSpeedForward));
+            var particleMain = particle.main;
+            particleMain.startSpeed = new ParticleSystem.MinMaxCurve(rb.velocity.magnitude / maxSpeedForward * 1.5f, rb.velocity.magnitude / maxSpeedForward * 2.5f) ; // Adjust particle speed based on boat speed
+            var shape = particle.shape;
+            shape.angle = rb.velocity.magnitude / (maxSpeedForward * 0.05f); // Adjust particle shape angle based on boat speed
         }
     }
 
