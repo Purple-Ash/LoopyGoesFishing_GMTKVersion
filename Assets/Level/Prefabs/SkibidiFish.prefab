@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
   m_Layer: 8
-  m_Name: TestFish
+  m_Name: SkibidiFish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,17 +98,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 1
+  _radious: 2.05
   _headDots: 6
-  _bodyDots: 25
-  _bodyLength: 0.3
+  _bodyDots: 33
+  _bodyLength: 0.37
   _frontFlatten: 1
   _sideFlatten: 1
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 1
-  _maxAcceleration: 1
-  _color: {r: 0.1764706, g: 0.18431373, b: 0.40392157, a: 1}
+  _maxVelocity: 0
+  _maxAcceleration: 0
+  _color: {r: 1, g: 0.04357361, b: 0, a: 1}
   _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
