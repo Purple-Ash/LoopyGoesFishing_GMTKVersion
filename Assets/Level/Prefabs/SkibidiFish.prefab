@@ -106,10 +106,10 @@ MonoBehaviour:
   _sideFlatten: 1
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 0
-  _maxAcceleration: 0
+  _maxVelocity: 3
+  _maxAcceleration: 1
   _color: {r: 1, g: 0.04357361, b: 0, a: 1}
-  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
+  _fishData: {fileID: 11400000, guid: ba905ac67e42cc74b9ca4a554091b311, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

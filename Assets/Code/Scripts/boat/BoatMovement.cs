@@ -16,12 +16,17 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] protected Material closedNet;
     [SerializeField] protected Texture closeNet;
     [SerializeField] protected float netTime = 2f;
+    protected List<float> emissions = new List<float>();
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        foreach (var emission in GetComponentsInChildren<ParticleSystem>())
+        {
+            emissions.Add(emission.emission.rateOverTime.constant);
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +66,13 @@ public class BoatMovement : MonoBehaviour
             // Turn the boat right
             transform.Rotate(Vector3.forward, -turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude));
             rb.velocity = Rotate(rb.velocity, -turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude) * Mathf.Deg2Rad);
+        }
+
+        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particle in particleSystems)
+        {
+            var emission = particle.emission.rateOverTime;
+            emission = new ParticleSystem.MinMaxCurve(0);
         }
     }
 

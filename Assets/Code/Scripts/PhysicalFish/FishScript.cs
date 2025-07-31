@@ -220,6 +220,11 @@ public class FishScript : MonoBehaviour
         CalculateMesh();
     }
 
+    private void Start()
+    {
+        GetComponent<MeshRenderer>().material.color = _color;
+    }
+
     private void FixedUpdate()
     {
         if (_colidingTimer > 0) _colidingTimer -= Time.fixedDeltaTime;
