@@ -54,6 +54,7 @@ public class EQFishLoader : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     //public void addFishEntity(Dictionary<NewFishData, int[]> caughtFishes)
     //{
     //    //Debug.Log("Adding caught fish data");
@@ -71,6 +72,25 @@ public class EQFishLoader : MonoBehaviour
     //        }
     //    }
     //}
+=======
+    public void addFishEntity(Dictionary<NewFishData, int[]> caughtFishes)
+    {
+        Debug.Log("Adding caught fish data");
+        foreach (NewFishData newFishData in caughtFishes.Keys)
+        {
+            if (fishDataDictionary.ContainsKey(newFishData))
+            {
+                Debug.Log("Adding numbers...." + "\n" + fishDataDictionary[newFishData] + "\n" + caughtFishes[newFishData]);
+                fishDataDictionary[newFishData][0] = caughtFishes[newFishData][0];
+                fishDataDictionary[newFishData][1] = caughtFishes[newFishData][1];
+                fishDataDictionary[newFishData][2] = caughtFishes[newFishData][2];
+            } else
+            {
+                fishDataDictionary.Add(newFishData, caughtFishes[newFishData]);
+            }
+        }
+    }
+>>>>>>> 8c89ead673b6ebdb73f6455818d6c76e9f331475
 
 
     void DestroyEntities()
@@ -86,7 +106,13 @@ public class EQFishLoader : MonoBehaviour
     void SpawnEntities()
     {
 
+<<<<<<< HEAD
         foreach (var f in GetComponent<EquipementScript>().fishDataDictionary)
+=======
+        Dictionary<NewFishData, int[]> fish_data = GetComponent<EquipementScript>().fishDataDictionary;
+
+        foreach (NewFishData f in fish_data.Keys)
+>>>>>>> 8c89ead673b6ebdb73f6455818d6c76e9f331475
         {
             Debug.Log("Instantiating equipment entities");
             GameObject inst = Instantiate(entityToSpawn, contentTransform.transform);
@@ -98,18 +124,21 @@ public class EQFishLoader : MonoBehaviour
 
             TMP_Text[] textFields = inst.GetComponentsInChildren<TMP_Text>();
 
+<<<<<<< HEAD
             textFields[0].SetText(f.Key.name);
             textFields[1].SetText(f.Key.description);
-            textFields[7].SetText(f.Value[2].ToString()); //XL Number
-            textFields[8].SetText(f.Value[1].ToString()); //L Number
-            textFields[9].SetText(f.Value[0].ToString()); //M Number
-            textFields[11].SetText(f.Value[2] * f.Key.weight * 2 + " kg"); // Total weight for XL
-            textFields[12].SetText(f.Value[1] * f.Key.weight * 1.5f + "kg"); // Total weight for L
-            textFields[13].SetText(f.Value[0] * f.Key.weight + "kg"); // Total weight for M
-            textFields[15].SetText(f.Value[2] * f.Key.price * 4 + "$"); // Total price for XL
-            textFields[16].SetText(f.Value[1] * f.Key.price * 2 + "$"); // Total price for L
-            textFields[17].SetText(f.Value[0] * f.Key.price + "$"); // Total price for M
-            textFields[19].SetText((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 4).ToString() + "$");
+            textFields[5].SetText(f.Value[2].ToString());
+            textFields[6].SetText(f.Value[1].ToString());
+            textFields[7].SetText(f.Value[0].ToString());
+            textFields[8].SetText(f.Key.price.ToString("C", new CultureInfo("en-US")));
+=======
+            textFields[0].SetText(f.name);
+            textFields[1].SetText(f.description);
+            textFields[5].SetText(fish_data[f][2].ToString());
+            textFields[6].SetText(fish_data[f][1].ToString());
+            textFields[7].SetText(fish_data[f][0].ToString());
+            textFields[8].SetText(f.price.ToString("C", new CultureInfo("en-US")));
+>>>>>>> 8c89ead673b6ebdb73f6455818d6c76e9f331475
 
         }
     }
