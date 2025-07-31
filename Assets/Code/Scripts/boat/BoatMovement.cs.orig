@@ -134,6 +134,11 @@ public class BoatMovement : MonoBehaviour
 
             // Add a MeshFilter to the fish catcher to visualize the collider
             MeshFilter meshFilter = fishCatcher.AddComponent<MeshFilter>();
+<<<<<<< HEAD
+            meshFilter.mesh = collider2D.CreateMesh(false, false);
+
+            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+=======
             Mesh mesh = collider2D.CreateMesh(false, false);
             meshFilter.mesh = mesh;
 
@@ -145,8 +150,8 @@ public class BoatMovement : MonoBehaviour
             mesh.uv = uvs;
             mesh.RecalculateBounds();
             
-
-            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+            // You can add more logic here, like stopping the boat or changing its behavior
+>>>>>>> 4985212cb9def13dbee05ffb6f42470721b7e6fa
         }
     }
 

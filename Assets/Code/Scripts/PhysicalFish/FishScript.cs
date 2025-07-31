@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
@@ -14,8 +12,42 @@ public class FishScript : MonoBehaviour
     [SerializeField] private float _frontFlatten = 1f;
     [SerializeField] private float _sideFlatten = 1f;
     [SerializeField] private bool _rotate = false;
+    [SerializeField] private Vector2 _size = new Vector2(0.05f, 0.05f);
 
+    [SerializeField] private float _maxVelocity = 0.1f;
+    [SerializeField] private float _maxAcceleration = 0.1f;
 
+    private Vector2 _center = new Vector2(0f,0f);
+    private float _distanceFromCenter = 1f;
+    private Vector2 _destination = new Vector2(0f,0f);
+    private Vector2 _velocity = new Vector2(0f,0f);
+    private float _colidingTimer = 0.0f;
+    [HideInInspector]internal FishSpawner _fishSpawner;
+    //[Header("Value and stuff")]
+    //[SerializeField] private FishData _fishData;
+
+    public Vector2 Center 
+    {
+        get => _center;
+        set 
+        {
+            _center = value;
+            RecalculateGoal();
+        } 
+    }
+
+    public float DistanceFromCenter {
+        get => _distanceFromCenter;
+        set
+        {
+            _distanceFromCenter = value;
+            RecalculateGoal();
+        }
+    }
+    private void RecalculateGoal()
+    {
+        _destination = _center + UnityEngine.Random.insideUnitCircle * _distanceFromCenter;
+    }
     private void EnforceConstraints()
     {
         if (_radious < 0.01) _radious = 0.01f;
@@ -30,8 +62,7 @@ public class FishScript : MonoBehaviour
             ((1 - (currentElement * currentElement) + maxElements * maxElements)) 
             / (maxElements * maxElements);
     }
-
-    void calculateMesh()
+    private void CalculateMesh()
     {
         EnforceConstraints();
         _meshFilter = GetComponent<MeshFilter>();
@@ -143,28 +174,79 @@ public class FishScript : MonoBehaviour
             }
         }
 
-        if (_rotate)
+
+        for(int i = 0; i < vertices.Count; i++)
         {
-            for(int i = 0; i < triangles.Count; i++)
+            if (_rotate)
             {
                 vertices[i] = new Vector3(
-                    vertices[i].x,
-                    vertices[i].y,
+                    -vertices[i].x * _size.x,
+                    vertices[i].y * _size.y,
+                    vertices[i].z);
+            }
+            else {
+                vertices[i] = new Vector3(
+                    vertices[i].x * _size.x,
+                    vertices[i].y * _size.y,
                     vertices[i].z);
             }
         }
+
 
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
         mesh.RecalculateNormals();
     }
 
-    void Awake()
+    private void MoveTowards(Vector2 direction)
     {
-        calculateMesh();
+        Vector2 normalised = direction.normalized;
+        //transform.root.LookAt(normalised);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_velocity.y, _velocity.x) * 180f / Mathf.PI);
+        _velocity += normalised * _maxAcceleration * Time.fixedDeltaTime;
+        float speedLimit = _velocity.magnitude / _maxAcceleration;
+        if (speedLimit > 1.0f)
+        {
+            _velocity /= speedLimit;
+        }
     }
 
-    void Update()
+    void Awake()
     {
+        Material mat = GetComponent<MeshRenderer>().material;
+        mat = new Material(mat);
+        CalculateMesh();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_colidingTimer > 0) _colidingTimer -= Time.fixedDeltaTime;
+        if(_colidingTimer <= 0)
+        {
+            Vector2 direction = _destination - (Vector2)transform.position;
+            if (direction.magnitude < 0.2f) RecalculateGoal();
+            else MoveTowards(direction);
+            transform.position += new Vector3(_velocity.x, _velocity.y, 0) * Time.fixedDeltaTime;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision == null) return;
+        if (collision.gameObject.tag == "Buoy")
+        {
+            _colidingTimer = 0.2f;
+        }
+    }
+
+    internal void Catch()
+    {
+        // Logic for catching the fish
+        Debug.Log("Fish caught: " + gameObject.name);
+
+        _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
+
+        // You can add additional logic here, such as playing an animation or sound
+        Destroy(gameObject); // Destroy the fish object after catching it
     }
 }
