@@ -16,3 +16,4 @@ MonoBehaviour:
   name: test
   description: 1234567890
   price: 111
+  weight: 0.5

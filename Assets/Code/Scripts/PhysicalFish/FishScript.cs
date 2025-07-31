@@ -274,12 +274,15 @@ public class FishScript : MonoBehaviour
 
     internal void Catch()
     {
+        if (!GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().AddFishData(_fishData))
+        {
+            return;
+        }
         // Logic for catching the fish
         //Debug.Log("Fish caught: " + gameObject.name);
 
         _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
-        GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().AddFishData(_fishData); // Add fish data to the equipment manager
-
+         // Add fish data to the equipment manager
         // You can add additional logic here, such as playing an animation or sound
         Destroy(gameObject); // Destroy the fish object after catching it
     }

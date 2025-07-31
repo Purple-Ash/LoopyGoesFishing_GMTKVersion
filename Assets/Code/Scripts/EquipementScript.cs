@@ -6,8 +6,10 @@ public class EquipementScript : MonoBehaviour
 {
     internal Dictionary<NewFishData, int[]> fishDataDictionary = new Dictionary<NewFishData, int[]>();
     [SerializeField] internal float[] probabilities;
+    [SerializeField] internal float capacity;
+    [SerializeField] internal float weight;
 
-    internal void AddFishData(NewFishData fishName)
+    internal bool AddFishData(NewFishData fishName)
     {
         if (fishDataDictionary.ContainsKey(fishName))
         {
@@ -23,15 +25,30 @@ public class EquipementScript : MonoBehaviour
 
         if (random < probabilities[0])
         {
-            fishDataDictionary[fishName][0] += 1; // Bad
+            if (weight + fishName.weight > capacity)
+            {
+                Debug.LogWarning($"Cannot add {fishName} due to weight limit. Current weight: {weight}, Fish weight: {fishName.weight}, Capacity: {capacity}");
+                return false;
+            }
+            fishDataDictionary[fishName][0] += 1; // M
         }
         else if (random < probabilities[1] + probabilities[0])
         {
-            fishDataDictionary[fishName][1] += 1; // Normal
+            if (weight + fishName.weight * 1.5f > capacity)
+            {
+                Debug.LogWarning($"Cannot add {fishName} due to weight limit. Current weight: {weight}, Fish weight: {fishName.weight}, Capacity: {capacity}");
+                return false;
+            }
+            fishDataDictionary[fishName][1] += 1; // L
         }
         else if (random < probabilities[2] + probabilities[1] + probabilities[0])
         {
-            fishDataDictionary[fishName][2] += 1; // Good
+            if (weight + fishName.weight * 2 > capacity)
+            {
+                Debug.LogWarning($"Cannot add {fishName} due to weight limit. Current weight: {weight}, Fish weight: {fishName.weight}, Capacity: {capacity}");
+                return false;
+            }
+            fishDataDictionary[fishName][2] += 1; // XL
         }
         else
         {
@@ -40,6 +57,7 @@ public class EquipementScript : MonoBehaviour
 
         Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");
 
+        return true;
         //GetComponent<EQFishLoader>().addFishEntity(fishDataDictionary);
     }
     // Start is called before the first frame update
