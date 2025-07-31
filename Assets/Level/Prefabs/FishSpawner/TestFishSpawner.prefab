@@ -49,3 +49,5 @@ MonoBehaviour:
   _spawnTryDelay: 1
   _spawnTryChance: 1
   _spawnRadious: 4
+  _fishWanderRadious: 4
+  _minimumDistance: 10

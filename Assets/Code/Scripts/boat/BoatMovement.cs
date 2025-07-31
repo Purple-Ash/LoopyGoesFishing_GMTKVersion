@@ -137,16 +137,19 @@ public class BoatMovement : MonoBehaviour
             Mesh mesh = collider2D.CreateMesh(false, false);
             meshFilter.mesh = mesh;
 
-            Vector3[] vertex = mesh.vertices;
-            Vector2[] uvs = new Vector2[vertex.Length];
-            Debug.Log(uvs.Length + " " + vertex.Length);
-            for(int i = 0; i < vertex.Length; i++)
-                uvs[i] = new Vector2(vertex[i].x, vertex[i].y);
-            mesh.uv = uvs;
-            mesh.RecalculateBounds();
-            
+            if(meshFilter != null)
+            {
+                Vector3[] vertex = mesh.vertices;
+                Vector2[] uvs = new Vector2[vertex.Length];
+                Debug.Log(uvs.Length + " " + vertex.Length);
+                for (int i = 0; i < vertex.Length; i++)
+                    uvs[i] = new Vector2(vertex[i].x, vertex[i].y);
+                mesh.uv = uvs;
+                mesh.RecalculateBounds();
 
-            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+
+                fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+            }
         }
     }
 

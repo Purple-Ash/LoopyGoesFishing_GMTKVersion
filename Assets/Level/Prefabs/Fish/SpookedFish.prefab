@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
   m_Layer: 8
-  m_Name: SkibidiFish
+  m_Name: SpookedFish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f42a731cca7229488c0452236366ef0, type: 2}
+  - {fileID: 2100000, guid: 522c4debc3a9e5a4fb0e280a80f6978b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,17 +98,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 2.05
-  _headDots: 6
-  _bodyDots: 33
-  _bodyLength: 0.37
-  _frontFlatten: 1
-  _sideFlatten: 1
+  _radious: 0.52
+  _headDots: 22
+  _bodyDots: 25
+  _bodyLength: 0.15
+  _frontFlatten: 1.16
+  _sideFlatten: 3.16
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 0
-  _maxAcceleration: 0
-  _color: {r: 1, g: 0.04357361, b: 0, a: 1}
+  _maxVelocity: 1.5
+  _maxAcceleration: 2
+  _color: {r: 0.071155205, g: 0.3679245, b: 0.13050908, a: 1}
   _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
@@ -142,8 +142,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11874999, y: -0.0006095328}
-  m_Size: {x: 0.3375, y: 0.07681262}
+  m_Offset: {x: -0.021932038, y: -0.00021111334}
+  m_Size: {x: 0.18530293, y: 0.045736182}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:

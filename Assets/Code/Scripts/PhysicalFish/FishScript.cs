@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
@@ -14,13 +15,13 @@ public class FishScript : MonoBehaviour
     [SerializeField] private bool _rotate = false;
     [SerializeField] private Vector2 _size = new Vector2(0.05f, 0.05f);
 
-    [SerializeField] private float _maxVelocity = 0.1f;
-    [SerializeField] private float _maxAcceleration = 0.1f;
+    [SerializeField] protected float _maxVelocity = 0.1f;
+    [SerializeField] protected float _maxAcceleration = 0.1f;
 
     private Vector2 _center = new Vector2(0f,0f);
     private float _distanceFromCenter = 1f;
     private Vector2 _destination = new Vector2(0f,0f);
-    private Vector2 _velocity = new Vector2(0f,0f);
+    protected Vector2 _velocity = new Vector2(0f,0f);
     private float _colidingTimer = 0.0f;
     [HideInInspector]internal FishSpawner _fishSpawner;
     [SerializeField] private Color _color = new Color(45f/255f, 47f/255f, 103f/255f);
@@ -199,7 +200,7 @@ public class FishScript : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    private void MoveTowards(Vector2 direction)
+    protected virtual void MoveTowards(Vector2 direction)
     {
         Vector2 normalised = direction.normalized;
         //transform.root.LookAt(normalised);
