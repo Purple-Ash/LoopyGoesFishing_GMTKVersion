@@ -1,10 +1,20 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
 {
     private MeshFilter _meshFilter;
+    private Vector2 _center = new Vector2(0f, 0f);
+    private float _distanceFromCenter = 1f;
+    private Vector2 _destination = new Vector2(0f, 0f);
+    protected Vector2 _velocity = new Vector2(0f, 0f);
+    private float _colidingTimer = 0.0f;
+    private GameObject boat;
+    [HideInInspector] internal FishSpawner _fishSpawner;
+
+    [Header("Shape")]
     [SerializeField] private float _radious = 1f;
     [SerializeField] private int _headDots = 6;
     [SerializeField] private int _bodyDots = 1;
@@ -14,16 +24,13 @@ public class FishScript : MonoBehaviour
     [SerializeField] private bool _rotate = false;
     [SerializeField] private Vector2 _size = new Vector2(0.05f, 0.05f);
 
-    [SerializeField] private float _maxVelocity = 0.1f;
-    [SerializeField] private float _maxAcceleration = 0.1f;
+    [Header("Movement")]
+    [SerializeField] protected float _maxVelocity = 0.1f;
+    [SerializeField] protected float _maxAcceleration = 0.1f;
 
-    private Vector2 _center = new Vector2(0f,0f);
-    private float _distanceFromCenter = 1f;
-    private Vector2 _destination = new Vector2(0f,0f);
-    private Vector2 _velocity = new Vector2(0f,0f);
-    private float _colidingTimer = 0.0f;
-    [HideInInspector]internal FishSpawner _fishSpawner;
-    [SerializeField] private Color _color = new Color(45f/255f, 47f/255f, 103f/255f);
+    [Header("Skedaddle")]
+    [SerializeField] private float _skedaddleRange;
+
     [Header("Value and stuff")]
     [SerializeField] private NewFishData _fishData;
 
@@ -199,12 +206,25 @@ public class FishScript : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    private void MoveTowards(Vector2 direction)
+    protected virtual void MoveTowards(Vector2 direction)
     {
-        Vector2 normalised = direction.normalized;
-        //transform.root.LookAt(normalised);
+        Vector2 normalised;
+        Vector2 acceleration;
+        if ((boat.transform.position - transform.position).magnitude < _skedaddleRange)
+        {
+            Debug.Log("Skedadling");
+            Vector2 boatDirection = transform.position - boat.transform.position;
+            normalised = boatDirection.normalized;
+            acceleration = normalised * _maxAcceleration * Time.fixedDeltaTime * 1/boatDirection.magnitude * _skedaddleRange;
+        }
+        else
+        {
+            normalised = direction.normalized;
+            acceleration = normalised * _maxAcceleration * Time.fixedDeltaTime;
+            //transform.root.LookAt(normalised);
+        }
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_velocity.y, _velocity.x) * 180f / Mathf.PI);
-        _velocity += normalised * _maxAcceleration * Time.fixedDeltaTime;
+        _velocity += acceleration;
         float speedLimit = _velocity.magnitude / _maxAcceleration;
         if (speedLimit > 1.0f)
         {
@@ -216,13 +236,14 @@ public class FishScript : MonoBehaviour
     {
         Material mat = GetComponent<MeshRenderer>().material;
         mat = new Material(mat);
-        mat.color = _color;
+        //mat.color = _color;
         CalculateMesh();
     }
 
-    private void Start()
+    protected void Start()
     {
-        GetComponent<MeshRenderer>().material.color = _color;
+        boat = GameObject.FindGameObjectWithTag("Boat");
+        //GetComponent<MeshRenderer>().material.color = _color;
     }
 
     private void FixedUpdate()
@@ -244,6 +265,11 @@ public class FishScript : MonoBehaviour
         {
             _colidingTimer = 0.2f;
         }
+    }
+
+    private void OnValidate()
+    {
+        CalculateMesh();
     }
 
     internal void Catch()

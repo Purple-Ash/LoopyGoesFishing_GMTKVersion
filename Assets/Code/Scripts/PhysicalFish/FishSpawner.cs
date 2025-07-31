@@ -10,12 +10,15 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float _spawnTryChance;
     [SerializeField] private float _spawnRadious;
     [SerializeField] private float _fishWanderRadious;
+    [SerializeField] private float _minimumDistance;
     private float _spawnTryDelayCounter;
     [HideInInspector]internal List<GameObject> _spawnedFish;
+    private GameObject _boat;
 
 
     void Start()
     {
+        _boat = GameObject.FindGameObjectWithTag("Boat");
         _spawnTryDelayCounter = 0;
         _spawnedFish = new List<GameObject>();
     }
@@ -46,6 +49,9 @@ public class FishSpawner : MonoBehaviour
     void Update()
     {
         if(_spawnTryDelayCounter > 0) _spawnTryDelayCounter -= Time.deltaTime;
-        if(_spawnedFish.Count < _maxFishToSpawn && _spawnTryDelayCounter <= 0) TrySpawning();
+        if(_spawnedFish.Count < _maxFishToSpawn &&
+            _spawnTryDelayCounter <= 0 &&
+            (_boat.transform.position - transform.position).magnitude > _minimumDistance) 
+            TrySpawning();
     }
 }

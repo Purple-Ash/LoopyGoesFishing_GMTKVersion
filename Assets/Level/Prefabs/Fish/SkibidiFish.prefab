@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f42a731cca7229488c0452236366ef0, type: 2}
+  - {fileID: 2100000, guid: 715ef375116ffa74baace7ba26bdf013, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,10 +106,10 @@ MonoBehaviour:
   _sideFlatten: 1
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 3
-  _maxAcceleration: 1
-  _color: {r: 1, g: 0.04357361, b: 0, a: 1}
-  _fishData: {fileID: 11400000, guid: ba905ac67e42cc74b9ca4a554091b311, type: 2}
+  _maxVelocity: 0.8
+  _maxAcceleration: 0.2
+  _skedaddleRange: 2.5
+  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,8 +142,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11874999, y: -0.0006095328}
-  m_Size: {x: 0.3375, y: 0.07681262}
+  m_Offset: {x: -0.11508715, y: -0.00027212623}
+  m_Size: {x: 0.4239441, y: 0.18883997}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:
