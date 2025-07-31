@@ -12,6 +12,7 @@ TagManager:
   - EquipmentView
   - FishName
   - FishWeight
+  - Island
   layers:
   - Default
   - TransparentFX
