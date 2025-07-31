@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Buoy
   - Boat
+  - FishMenuTemplate
   layers:
   - Default
   - TransparentFX
