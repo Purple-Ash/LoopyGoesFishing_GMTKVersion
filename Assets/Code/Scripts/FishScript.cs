@@ -200,7 +200,7 @@ public class FishScript : MonoBehaviour
         Vector2 normalised = direction.normalized;
         //transform.root.LookAt(normalised);
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_velocity.y, _velocity.x) * 180f / Mathf.PI);
-        _velocity += normalised * _maxAcceleration * Time.deltaTime;
+        _velocity += normalised * _maxAcceleration * Time.fixedDeltaTime;
         float speedLimit = _velocity.magnitude / _maxAcceleration;
         if (speedLimit > 1.0f)
         {
@@ -215,11 +215,11 @@ public class FishScript : MonoBehaviour
         CalculateMesh();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         Vector2 direction = _destination - (Vector2)transform.position;
-        if(direction.magnitude < 0.2f) RecalculateGoal();
+        if (direction.magnitude < 0.2f) RecalculateGoal();
         else MoveTowards(direction);
-        transform.position += new Vector3(_velocity.x, _velocity.y,0) * Time.deltaTime;
+        transform.position += new Vector3(_velocity.x, _velocity.y, 0) * Time.fixedDeltaTime;
     }
 }
