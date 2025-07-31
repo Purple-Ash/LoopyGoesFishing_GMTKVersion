@@ -1290,6 +1290,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2356062733347351522, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356062733347351522, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3447129746817778769, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1329,6 +1337,14 @@ PrefabInstance:
     - target: {fileID: 8385746267316697457, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064549048066376482, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064549048066376482, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1611,6 +1627,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470830323358380374, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922449949167139343, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218423329409387351, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.66435325
@@ -1655,14 +1679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: eqManager
       objectReference: {fileID: 0}
-    - target: {fileID: 9172347627051407981, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
-      propertyPath: capacity
-      value: 10
+    - target: {fileID: 5157147273402657758, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9172347627051407981, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
-      propertyPath: notification
-      value: 
-      objectReference: {fileID: 2069784939626420956, guid: 78b95ee05858faf4f883590909e9ac66, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
