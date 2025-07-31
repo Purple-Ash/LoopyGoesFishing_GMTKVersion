@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 194799427}
   - component: {fileID: 194799426}
   - component: {fileID: 194799425}
+  - component: {fileID: 194799428}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -214,6 +215,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194799428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194799424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26d5fe4888c0524eaa8c98de160e76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _positionZ: -10
+  _lerpStrength: 0.2
 --- !u!1001 &2086800396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,6 +301,10 @@ PrefabInstance:
     - target: {fileID: 1219058182545369249, guid: 044def87001e24c449d42665b8fd67ee, type: 3}
       propertyPath: _spawnRadious
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: 044def87001e24c449d42665b8fd67ee, type: 3}
+      propertyPath: _minimumDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: 044def87001e24c449d42665b8fd67ee, type: 3}
       propertyPath: _fishWanderRadious
