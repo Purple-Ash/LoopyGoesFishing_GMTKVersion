@@ -19,7 +19,6 @@ public class CameraScript : MonoBehaviour
 
     private void updateCameraPosition()
     {
-        /*
         transform.position = new Vector3(
             Mathf.Lerp(
                 _boat.transform.position.x,
@@ -30,11 +29,7 @@ public class CameraScript : MonoBehaviour
                 transform.position.y,
                 Mathf.Pow(_lerpStrength, Time.fixedDeltaTime)),
             _positionZ
-            );*/
-        transform.position = new Vector3(
-            _boat.transform.position.x,
-            _boat.transform.position.y,
-            -10);
+            );
     }
 
     private void FixedUpdate()
