@@ -16,12 +16,17 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] protected Material closedNet;
     [SerializeField] protected Texture closeNet;
     [SerializeField] protected float netTime = 2f;
+    protected List<float> emissions = new List<float>();
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        foreach (var emission in GetComponentsInChildren<ParticleSystem>())
+        {
+            emissions.Add(emission.emission.rateOverTime.constant);
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +66,13 @@ public class BoatMovement : MonoBehaviour
             // Turn the boat right
             transform.Rotate(Vector3.forward, -turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude));
             rb.velocity = Rotate(rb.velocity, -turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude) * Mathf.Deg2Rad);
+        }
+
+        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particle in particleSystems)
+        {
+            var emission = particle.emission.rateOverTime;
+            emission = new ParticleSystem.MinMaxCurve(0);
         }
     }
 
@@ -137,16 +149,19 @@ public class BoatMovement : MonoBehaviour
             Mesh mesh = collider2D.CreateMesh(false, false);
             meshFilter.mesh = mesh;
 
-            Vector3[] vertex = mesh.vertices;
-            Vector2[] uvs = new Vector2[vertex.Length];
-            Debug.Log(uvs.Length + " " + vertex.Length);
-            for(int i = 0; i < vertex.Length; i++)
-                uvs[i] = new Vector2(vertex[i].x, vertex[i].y);
-            mesh.uv = uvs;
-            mesh.RecalculateBounds();
-            
+            if(meshFilter != null)
+            {
+                Vector3[] vertex = mesh.vertices;
+                Vector2[] uvs = new Vector2[vertex.Length];
+                Debug.Log(uvs.Length + " " + vertex.Length);
+                for (int i = 0; i < vertex.Length; i++)
+                    uvs[i] = new Vector2(vertex[i].x, vertex[i].y);
+                mesh.uv = uvs;
+                mesh.RecalculateBounds();
 
-            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+
+                fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+            }
         }
     }
 
