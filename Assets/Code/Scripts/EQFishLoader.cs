@@ -62,9 +62,9 @@ public class EQFishLoader : MonoBehaviour
             if (fishDataDictionary.ContainsKey(newFishData))
             {
                 Debug.Log("Adding numbers...." + "\n" + fishDataDictionary[newFishData] + "\n" + caughtFishes[newFishData]);
-                fishDataDictionary[newFishData][0] += caughtFishes[newFishData][0];
-                fishDataDictionary[newFishData][1] += caughtFishes[newFishData][1];
-                fishDataDictionary[newFishData][2] += caughtFishes[newFishData][2];
+                fishDataDictionary[newFishData][0] = caughtFishes[newFishData][0];
+                fishDataDictionary[newFishData][1] = caughtFishes[newFishData][1];
+                fishDataDictionary[newFishData][2] = caughtFishes[newFishData][2];
             } else
             {
                 fishDataDictionary.Add(newFishData, caughtFishes[newFishData]);
@@ -86,7 +86,9 @@ public class EQFishLoader : MonoBehaviour
     void SpawnEntities()
     {
 
-        foreach (NewFishData f in fishDataDictionary.Keys)
+        Dictionary<NewFishData, int[]> fish_data = GetComponent<EquipementScript>().fishDataDictionary;
+
+        foreach (NewFishData f in fish_data.Keys)
         {
             Debug.Log("Instantiating equipment entities");
             GameObject inst = Instantiate(entityToSpawn, contentTransform.transform);
@@ -100,9 +102,9 @@ public class EQFishLoader : MonoBehaviour
 
             textFields[0].SetText(f.name);
             textFields[1].SetText(f.description);
-            textFields[5].SetText(fishDataDictionary[f][2].ToString());
-            textFields[6].SetText(fishDataDictionary[f][1].ToString());
-            textFields[7].SetText(fishDataDictionary[f][0].ToString());
+            textFields[5].SetText(fish_data[f][2].ToString());
+            textFields[6].SetText(fish_data[f][1].ToString());
+            textFields[7].SetText(fish_data[f][0].ToString());
             textFields[8].SetText(f.price.ToString("C", new CultureInfo("en-US")));
 
         }

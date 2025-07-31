@@ -161,7 +161,7 @@ public class BoatMovement : MonoBehaviour
             {
                 Vector3[] vertex = mesh.vertices;
                 Vector2[] uvs = new Vector2[vertex.Length];
-                Debug.Log(uvs.Length + " " + vertex.Length);
+                //Debug.Log(uvs.Length + " " + vertex.Length);
                 for (int i = 0; i < vertex.Length; i++)
                     uvs[i] = new Vector2(vertex[i].x, vertex[i].y);
                 mesh.uv = uvs;

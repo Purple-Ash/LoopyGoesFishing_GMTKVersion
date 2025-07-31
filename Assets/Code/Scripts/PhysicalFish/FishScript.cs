@@ -212,7 +212,7 @@ public class FishScript : MonoBehaviour
         Vector2 acceleration;
         if ((boat.transform.position - transform.position).magnitude < _skedaddleRange)
         {
-            Debug.Log("Skedadling");
+            //Debug.Log("Skedadling");
             Vector2 boatDirection = transform.position - boat.transform.position;
             normalised = boatDirection.normalized;
             acceleration = normalised * _maxAcceleration * Time.fixedDeltaTime * 1/boatDirection.magnitude * _skedaddleRange;
