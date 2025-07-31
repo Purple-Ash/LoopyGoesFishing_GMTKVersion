@@ -78,4 +78,30 @@ public class EquipementScript : MonoBehaviour
     {
         
     }
+
+    public void ClearFishData(string fishName, int type)
+    {
+        foreach (var skibid in fishDataDictionary)
+        {
+            if (skibid.Key.name == fishName)
+            {
+                if (type == 0)
+                {
+                    weight -= skibid.Key.weight * skibid.Value[0];
+                    skibid.Value[0] = 0;
+                }
+                else if (type == 1)
+                {
+                    weight -= skibid.Key.weight * 1.5f * skibid.Value[1];
+                    skibid.Value[1] = 0;
+                }
+                else if (type == 2)
+                {
+                    weight -= skibid.Key.weight * 2 * skibid.Value[2];
+                    skibid.Value[2] = 0;
+                }
+            }
+        }
+        GetComponent<EQFishLoader>().UpdateValues();
+    }
 }
