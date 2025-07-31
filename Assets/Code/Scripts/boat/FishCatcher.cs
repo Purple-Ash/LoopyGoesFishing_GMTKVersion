@@ -41,7 +41,7 @@ public class FishCatcher : MonoBehaviour
             if (fish != null)
             {
                 fish.Catch();
-                Destroy(collision.gameObject); // Destroy the fish object
+                //Destroy(collision.gameObject); // Destroy the fish object
             }
         }
     }

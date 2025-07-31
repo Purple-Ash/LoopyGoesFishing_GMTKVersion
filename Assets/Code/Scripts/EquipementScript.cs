@@ -8,6 +8,7 @@ public class EquipementScript : MonoBehaviour
     [SerializeField] internal float[] probabilities;
     [SerializeField] internal float capacity;
     [SerializeField] internal float weight;
+    [SerializeField] internal GameObject notification;
 
     internal bool AddFishData(NewFishData fishName)
     {
@@ -27,28 +28,31 @@ public class EquipementScript : MonoBehaviour
         {
             if (weight + fishName.weight > capacity)
             {
-                Debug.LogWarning($"Cannot add {fishName} due to weight limit. Current weight: {weight}, Fish weight: {fishName.weight}, Capacity: {capacity}");
+                Instantiate(notification, GameObject.FindGameObjectWithTag("Boat").transform.position, Quaternion.identity);
                 return false;
             }
             fishDataDictionary[fishName][0] += 1; // M
+            weight += fishName.weight; // Update the total weight
         }
         else if (random < probabilities[1] + probabilities[0])
         {
             if (weight + fishName.weight * 1.5f > capacity)
             {
-                Debug.LogWarning($"Cannot add {fishName} due to weight limit. Current weight: {weight}, Fish weight: {fishName.weight}, Capacity: {capacity}");
+                Instantiate(notification, GameObject.FindGameObjectWithTag("Boat").transform.position, Quaternion.identity);
                 return false;
             }
             fishDataDictionary[fishName][1] += 1; // L
+            weight += fishName.weight * 1.5f; // Update the total weight
         }
         else if (random < probabilities[2] + probabilities[1] + probabilities[0])
         {
             if (weight + fishName.weight * 2 > capacity)
             {
-                Debug.LogWarning($"Cannot add {fishName} due to weight limit. Current weight: {weight}, Fish weight: {fishName.weight}, Capacity: {capacity}");
+                Instantiate(notification, GameObject.FindGameObjectWithTag("Boat").transform.position, Quaternion.identity);
                 return false;
             }
             fishDataDictionary[fishName][2] += 1; // XL
+            weight += fishName.weight * 2; // Update the total weight
         }
         else
         {

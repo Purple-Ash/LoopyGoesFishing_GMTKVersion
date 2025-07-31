@@ -1339,6 +1339,10 @@ PrefabInstance:
       propertyPath: capacity
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9172347627051407981, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
+      propertyPath: notification
+      value: 
+      objectReference: {fileID: 2069784939626420956, guid: 78b95ee05858faf4f883590909e9ac66, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
