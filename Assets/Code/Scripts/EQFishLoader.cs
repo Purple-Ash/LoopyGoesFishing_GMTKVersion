@@ -1,0 +1,110 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EQFishLoader : MonoBehaviour
+{
+    // The GameObject to instantiate.
+    public GameObject entityToSpawn;
+
+    // Content container in which GameObjects are spawned
+    public Transform contentTransform;
+
+    // An instance of the ScriptableObject defined above.
+    public List<FishData> fishDataValues;
+
+    // The Equipment View UI object
+    public GameObject equipmentView;
+
+    // A Map to store the current equipment data
+    private Dictionary<NewFishData, int[]> fishDataDictionary;
+
+    void Start()
+    {
+        //SpawnEntities();
+        fishDataDictionary = new Dictionary<NewFishData, int[]>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Equipment button activated");
+            if (equipmentView != null)
+            {
+                Debug.Log("Equipment object found");
+                if(equipmentView.activeSelf)
+                {
+                    DestroyEntities();
+                    equipmentView.SetActive(false);
+                }
+                else
+                {
+                    SpawnEntities();
+                    equipmentView.SetActive(true);
+                }
+            }
+            else
+            {
+                Debug.Log("Equipment object not found");
+            }
+        }
+    }
+
+    public void addFishEntity(Dictionary<NewFishData, int[]> caughtFishes)
+    {
+        Debug.Log("Adding caught fish data");
+        foreach (NewFishData newFishData in caughtFishes.Keys)
+        {
+            if (fishDataDictionary.ContainsKey(newFishData))
+            {
+                Debug.Log("Adding numbers...." + "\n" + fishDataDictionary[newFishData] + "\n" + caughtFishes[newFishData]);
+                fishDataDictionary[newFishData][0] += caughtFishes[newFishData][0];
+                fishDataDictionary[newFishData][1] += caughtFishes[newFishData][1];
+                fishDataDictionary[newFishData][2] += caughtFishes[newFishData][2];
+            } else
+            {
+                fishDataDictionary.Add(newFishData, caughtFishes[newFishData]);
+            }
+        }
+    }
+
+
+    void DestroyEntities()
+    {
+        Debug.Log("Destroying Equipment entities");
+        for (int i = 0; i < contentTransform.childCount; i++)
+        {
+            Debug.Log("Destroying Equipment entities");
+            Destroy(contentTransform.GetChild(i).gameObject);
+        }
+    }
+
+    void SpawnEntities()
+    {
+
+        foreach (NewFishData f in fishDataDictionary.Keys)
+        {
+            Debug.Log("Instantiating equipment entities");
+            GameObject inst = Instantiate(entityToSpawn, contentTransform.transform);
+
+
+            Image[] fishImages = inst.GetComponentsInChildren<Image>();
+
+            fishImages[1].sprite = f.image;
+
+            TMP_Text[] textFields = inst.GetComponentsInChildren<TMP_Text>();
+
+            textFields[0].SetText(f.name);
+            textFields[1].SetText(f.description);
+            textFields[5].SetText(fishDataDictionary[f][2].ToString());
+            textFields[6].SetText(fishDataDictionary[f][1].ToString());
+            textFields[7].SetText(fishDataDictionary[f][0].ToString());
+            textFields[8].SetText(f.price.ToString("C", new CultureInfo("en-US")));
+
+        }
+    }
+}
