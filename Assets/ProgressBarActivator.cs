@@ -49,7 +49,7 @@ public class ProgressBarActivator : MonoBehaviour
         {
             Debug.Log("Entering the shop...");
             Time.timeScale = 0;
-            // Some script part to
+            // Some script part to Switch the shop UI on
         }
     }
 
