@@ -171,4 +171,4 @@ MonoBehaviour:
   _maxVelocity: 2
   _maxAcceleration: 1.5
   _skedaddleRange: 3
-  _fishData: {fileID: 0}
+  _fishData: {fileID: 11400000, guid: 617523a46a4034a45b998c24690a10ad, type: 2}

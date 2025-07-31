@@ -212,7 +212,7 @@ public class FishScript : MonoBehaviour
         Vector2 acceleration;
         if ((boat.transform.position - transform.position).magnitude < _skedaddleRange)
         {
-            Debug.Log("Skedadling");
+            //Debug.Log("Skedadling");
             Vector2 boatDirection = transform.position - boat.transform.position;
             normalised = boatDirection.normalized;
             acceleration = normalised * _maxAcceleration * Time.fixedDeltaTime * 1/boatDirection.magnitude * _skedaddleRange;
@@ -275,7 +275,7 @@ public class FishScript : MonoBehaviour
     internal void Catch()
     {
         // Logic for catching the fish
-        Debug.Log("Fish caught: " + gameObject.name);
+        //Debug.Log("Fish caught: " + gameObject.name);
 
         _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
         GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().AddFishData(_fishData); // Add fish data to the equipment manager

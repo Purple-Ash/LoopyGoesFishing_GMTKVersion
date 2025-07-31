@@ -54,23 +54,23 @@ public class EQFishLoader : MonoBehaviour
         }
     }
 
-    public void addFishEntity(Dictionary<NewFishData, int[]> caughtFishes)
-    {
-        Debug.Log("Adding caught fish data");
-        foreach (NewFishData newFishData in caughtFishes.Keys)
-        {
-            if (fishDataDictionary.ContainsKey(newFishData))
-            {
-                Debug.Log("Adding numbers...." + "\n" + fishDataDictionary[newFishData] + "\n" + caughtFishes[newFishData]);
-                fishDataDictionary[newFishData][0] += caughtFishes[newFishData][0];
-                fishDataDictionary[newFishData][1] += caughtFishes[newFishData][1];
-                fishDataDictionary[newFishData][2] += caughtFishes[newFishData][2];
-            } else
-            {
-                fishDataDictionary.Add(newFishData, caughtFishes[newFishData]);
-            }
-        }
-    }
+    //public void addFishEntity(Dictionary<NewFishData, int[]> caughtFishes)
+    //{
+    //    //Debug.Log("Adding caught fish data");
+    //    foreach (NewFishData newFishData in caughtFishes.Keys)
+    //    {
+    //        if (fishDataDictionary.ContainsKey(newFishData))
+    //        {
+    //            Debug.Log("Adding numbers...." + "\n" + fishDataDictionary[newFishData] + "\n" + caughtFishes[newFishData]);
+    //            fishDataDictionary[newFishData][0] += caughtFishes[newFishData][0];
+    //            fishDataDictionary[newFishData][1] += caughtFishes[newFishData][1];
+    //            fishDataDictionary[newFishData][2] += caughtFishes[newFishData][2];
+    //        } else
+    //        {
+    //            fishDataDictionary.Add(newFishData, caughtFishes[newFishData]);
+    //        }
+    //    }
+    //}
 
 
     void DestroyEntities()
@@ -86,7 +86,7 @@ public class EQFishLoader : MonoBehaviour
     void SpawnEntities()
     {
 
-        foreach (NewFishData f in fishDataDictionary.Keys)
+        foreach (var f in GetComponent<EquipementScript>().fishDataDictionary)
         {
             Debug.Log("Instantiating equipment entities");
             GameObject inst = Instantiate(entityToSpawn, contentTransform.transform);
@@ -94,16 +94,16 @@ public class EQFishLoader : MonoBehaviour
 
             Image[] fishImages = inst.GetComponentsInChildren<Image>();
 
-            fishImages[1].sprite = f.image;
+            fishImages[1].sprite = f.Key.image;
 
             TMP_Text[] textFields = inst.GetComponentsInChildren<TMP_Text>();
 
-            textFields[0].SetText(f.name);
-            textFields[1].SetText(f.description);
-            textFields[5].SetText(fishDataDictionary[f][2].ToString());
-            textFields[6].SetText(fishDataDictionary[f][1].ToString());
-            textFields[7].SetText(fishDataDictionary[f][0].ToString());
-            textFields[8].SetText(f.price.ToString("C", new CultureInfo("en-US")));
+            textFields[0].SetText(f.Key.name);
+            textFields[1].SetText(f.Key.description);
+            textFields[5].SetText(f.Value[2].ToString());
+            textFields[6].SetText(f.Value[1].ToString());
+            textFields[7].SetText(f.Value[0].ToString());
+            textFields[8].SetText(f.Key.price.ToString("C", new CultureInfo("en-US")));
 
         }
     }

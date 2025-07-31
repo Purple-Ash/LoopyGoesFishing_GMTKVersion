@@ -40,7 +40,7 @@ public class EquipementScript : MonoBehaviour
 
         Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");
 
-        GetComponent<EQFishLoader>().addFishEntity(fishDataDictionary);
+        //GetComponent<EQFishLoader>().addFishEntity(fishDataDictionary);
     }
     // Start is called before the first frame update
     void Start()
