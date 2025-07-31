@@ -128,10 +128,6 @@ public class BoatMovement : MonoBehaviour
             MeshRenderer meshRenderer = fishCatcher.AddComponent<MeshRenderer>();
             meshRenderer.material = closedNet; // Assign the closed net material to the fish catcher
             meshRenderer.material.mainTexture = closeNet; // Assign the closed net texture to the fish catcher
-            meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Disable shadow casting
-            meshRenderer.receiveShadows = false; // Disable receiving shadows
-            meshRenderer.material.GetTexture("_MainTex").wrapMode = TextureWrapMode.Repeat; // Set the texture wrap mode to repeat
-            meshRenderer.material.color = new Color(1f, 1f, 1f, 0.5f); // Set the color to white with some transparency
 
             // Add a MeshFilter to the fish catcher to visualize the collider
             MeshFilter meshFilter = fishCatcher.AddComponent<MeshFilter>();
