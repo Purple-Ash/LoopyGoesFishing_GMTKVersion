@@ -23,8 +23,9 @@ public class FishScript : MonoBehaviour
     private Vector2 _velocity = new Vector2(0f,0f);
     private float _colidingTimer = 0.0f;
     [HideInInspector]internal FishSpawner _fishSpawner;
-    //[Header("Value and stuff")]
-    //[SerializeField] private FishData _fishData;
+    [SerializeField] private Color _color = new Color(45f/255f, 47f/255f, 103f/255f);
+    [Header("Value and stuff")]
+    [SerializeField] private NewFishData _fishData;
 
     public Vector2 Center 
     {
@@ -215,6 +216,7 @@ public class FishScript : MonoBehaviour
     {
         Material mat = GetComponent<MeshRenderer>().material;
         mat = new Material(mat);
+        mat.color = _color;
         CalculateMesh();
     }
 
@@ -239,12 +241,18 @@ public class FishScript : MonoBehaviour
         }
     }
 
+    private void OnValidate()
+    {
+        CalculateMesh();
+    }
+
     internal void Catch()
     {
         // Logic for catching the fish
         Debug.Log("Fish caught: " + gameObject.name);
 
         _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
+        GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().AddFishData(_fishData); // Add fish data to the equipment manager
 
         // You can add additional logic here, such as playing an animation or sound
         Destroy(gameObject); // Destroy the fish object after catching it

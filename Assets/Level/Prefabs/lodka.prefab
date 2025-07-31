@@ -107,7 +107,8 @@ MonoBehaviour:
   turnSpeed: 100
   topTurnSpeed: 1
   closedNet: {fileID: 2100000, guid: 4366fefadabd48342af1610d5cd3db0c, type: 2}
-  closeNet: {fileID: 2800000, guid: 065b601879b9de644920823fcea5f2b9, type: 3}
+  closeNet: {fileID: 2800000, guid: 624896d2555812943a245ae7de3f4c0f, type: 3}
+  netTime: 2
 --- !u!50 &6228573398569231122
 Rigidbody2D:
   serializedVersion: 4
@@ -167,8 +168,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.68, y: 1.45}
+  m_Offset: {x: 0, y: -0.22013015}
+  m_Size: {x: 0.68, y: 1.0097398}
   m_Direction: 0
 --- !u!114 &298800128501582983
 MonoBehaviour:
