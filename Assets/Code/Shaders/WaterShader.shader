@@ -11,6 +11,8 @@ Shader "Unlit/WaterShader"
 
         _MainTex ("Texture", 2D) = "white" {}
         _Color ("Color", Color) = (1,1,1,1)
+        _Transformation ("Transformation", Vector) = (1,1,0,0)
+        
     }
     SubShader
     {
@@ -44,6 +46,7 @@ Shader "Unlit/WaterShader"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             fixed4 _Color;
+            float4 _Transformation;
 
             v2f vert (appdata v)
             {
@@ -56,7 +59,9 @@ Shader "Unlit/WaterShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float2 uv = i.worldPos.xy * 0.1;
+                float2 uv = i.worldPos.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                uv.x += sin(_Time.y) * _Transformation.x;
+                uv.y += cos(_Time.y/3) * _Transformation.y;
                 fixed4 col = tex2D(_MainTex, uv);
                 return col * _Color;
             }

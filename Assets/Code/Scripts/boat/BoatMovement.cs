@@ -157,7 +157,7 @@ public class BoatMovement : MonoBehaviour
             Mesh mesh = collider2D.CreateMesh(false, false);
             meshFilter.mesh = mesh;
 
-            if(meshFilter != null)
+            if(meshFilter != null && mesh != null)
             {
                 Vector3[] vertex = mesh.vertices;
                 Vector2[] uvs = new Vector2[vertex.Length];

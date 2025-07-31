@@ -276,14 +276,18 @@ public class FishScript : MonoBehaviour
     {
         if (!GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().AddFishData(_fishData))
         {
+            Debug.LogWarning("Failed to catch fish: " + _fishData.name + ". Equipment is full or fish data already exists.");
             return;
         }
-        // Logic for catching the fish
-        //Debug.Log("Fish caught: " + gameObject.name);
+        else
+        { 
+            // Logic for catching the fish
+            //Debug.Log("Fish caught: " + gameObject.name);
 
-        _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
-         // Add fish data to the equipment manager
-        // You can add additional logic here, such as playing an animation or sound
-        Destroy(gameObject); // Destroy the fish object after catching it
+            _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
+                                                          // Add fish data to the equipment manager
+                                                          // You can add additional logic here, such as playing an animation or sound
+            Destroy(gameObject); // Destroy the fish object after catching it
+        }
     }
 }
