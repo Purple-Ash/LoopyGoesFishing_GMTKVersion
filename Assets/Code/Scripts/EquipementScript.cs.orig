@@ -39,13 +39,15 @@ public class EquipementScript : MonoBehaviour
         }
 
         Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");
-
-        GetComponent<EQFishLoader>().addFishEntity(fishDataDictionary);
     }
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         for (int i = 0; i < probabilities.Length; i++)
+=======
+        for (int i = 0; i < 3; i++)
+>>>>>>> b3b20a1329d02034aeba0418dfe2269f7786c151
         {
             probabilities[i] = probabilities[i] / 100f;
         }
