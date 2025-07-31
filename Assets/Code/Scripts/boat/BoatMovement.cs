@@ -73,7 +73,10 @@ public class BoatMovement : MonoBehaviour
         foreach (ParticleSystem particle in particleSystems)
         {
             var emission = particle.emission;
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(emissions[i] * (rb.velocity.magnitude/maxSpeedForward) * (rb.velocity.magnitude / maxSpeedForward));
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(emissions[i] * 
+                (rb.velocity.magnitude/maxSpeedForward) * (rb.velocity.magnitude / maxSpeedForward) > 10 ?
+                emissions[i] * (rb.velocity.magnitude / maxSpeedForward) * (rb.velocity.magnitude / maxSpeedForward) :
+                emissions[i] * (rb.velocity.magnitude / maxSpeedForward) * (rb.velocity.magnitude / maxSpeedForward) >= 1? 10 : 0);
             var particleMain = particle.main;
             particleMain.startSpeed = new ParticleSystem.MinMaxCurve(rb.velocity.magnitude / maxSpeedForward * 1.5f, rb.velocity.magnitude / maxSpeedForward * 2.5f) ; // Adjust particle speed based on boat speed
             var shape = particle.shape;
