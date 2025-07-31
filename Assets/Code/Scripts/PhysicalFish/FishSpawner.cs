@@ -11,7 +11,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float _spawnRadious;
     [SerializeField] private float _fishWanderRadious;
     private float _spawnTryDelayCounter;
-    private List<GameObject> _spawnedFish;
+    [HideInInspector]internal List<GameObject> _spawnedFish;
 
 
     void Start()
@@ -38,6 +38,7 @@ public class FishSpawner : MonoBehaviour
             newFish.DistanceFromCenter = _fishWanderRadious;
             newFish.Center = transform.position;
             _spawnedFish.Add(newFish.gameObject);
+            newFish._fishSpawner = this;
         }
         Debug.Log("amogus");
     }

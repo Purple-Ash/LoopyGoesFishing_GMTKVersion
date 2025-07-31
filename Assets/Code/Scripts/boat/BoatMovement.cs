@@ -12,8 +12,10 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private float topTurnSpeed = 1f; // Maximum angle the boat can turn
     protected Rigidbody2D rb; // Rigidbody component for physics interactions
     protected bool collisioned = false; // Flag to check if the boat has collided with something
+    [Header("Net Settings")]
     [SerializeField] protected Material closedNet;
     [SerializeField] protected Texture closeNet;
+    [SerializeField] protected float netTime = 2f;
 
 
     // Start is called before the first frame update
@@ -125,6 +127,7 @@ public class BoatMovement : MonoBehaviour
             }
 
             collider2D.SetPath(0, path);
+            collider2D.excludeLayers = LayerMask.GetMask("buoy", "boat"); // Exclude the boat and fish catcher layers from the collider
             MeshRenderer meshRenderer = fishCatcher.AddComponent<MeshRenderer>();
             meshRenderer.material = closedNet; // Assign the closed net material to the fish catcher
             meshRenderer.material.mainTexture = closeNet; // Assign the closed net texture to the fish catcher
@@ -132,7 +135,8 @@ public class BoatMovement : MonoBehaviour
             // Add a MeshFilter to the fish catcher to visualize the collider
             MeshFilter meshFilter = fishCatcher.AddComponent<MeshFilter>();
             meshFilter.mesh = collider2D.CreateMesh(false, false);
-            // You can add more logic here, like stopping the boat or changing its behavior
+
+            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
         }
     }
 
