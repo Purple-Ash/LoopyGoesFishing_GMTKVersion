@@ -19,7 +19,8 @@ public class FishCatcher : MonoBehaviour
         if (timer < lifetime)
         {
             timer += Time.deltaTime;
-            GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, (lifetime - timer) / lifetime); // Fade out the net
+            Color c = GetComponent<MeshRenderer>().material.color;
+            GetComponent<MeshRenderer>().material.color = new Color(c.r, c.g, c.b, (lifetime - timer) / lifetime); // Fade out the net
             //TODO ustawiæ wygaszanie sieci
         }
         else
