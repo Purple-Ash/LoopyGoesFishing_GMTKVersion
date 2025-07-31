@@ -43,7 +43,7 @@ public class FishSpawner : MonoBehaviour
             _spawnedFish.Add(newFish.gameObject);
             newFish._fishSpawner = this;
         }
-        Debug.Log("amogus");
+        //Debug.Log("amogus");
     }
 
     void Update()
