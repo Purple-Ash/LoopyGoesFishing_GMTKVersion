@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5415524429168785496}
   - component: {fileID: 7862002679528428376}
   - component: {fileID: 4132430538305081965}
-  - component: {fileID: 7348072835574992767}
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
+  - component: {fileID: 1471052834311374645}
   m_Layer: 8
   m_Name: SpookedFish
   m_TagString: Fish
@@ -86,30 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7348072835574992767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530426190529337220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radious: 0.52
-  _headDots: 22
-  _bodyDots: 25
-  _bodyLength: 0.15
-  _frontFlatten: 1.16
-  _sideFlatten: 3.16
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 1.5
-  _maxAcceleration: 2
-  _color: {r: 0.071155205, g: 0.3679245, b: 0.13050908, a: 1}
-  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +148,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1471052834311374645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530426190529337220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radious: 1
+  _headDots: 10
+  _bodyDots: 23
+  _bodyLength: 0.27
+  _frontFlatten: 1.12
+  _sideFlatten: 2.24
+  _rotate: 0
+  _size: {x: 0.05, y: 0.05}
+  _maxVelocity: 2
+  _maxAcceleration: 1.5
+  _skedaddleRange: 3
+  _fishData: {fileID: 0}

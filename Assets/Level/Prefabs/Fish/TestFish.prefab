@@ -108,7 +108,7 @@ MonoBehaviour:
   _size: {x: 0.05, y: 0.05}
   _maxVelocity: 1
   _maxAcceleration: 1
-  _color: {r: 0.1764706, g: 0.18431373, b: 0.40392157, a: 1}
+  _skedaddleRange: 2
   _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
