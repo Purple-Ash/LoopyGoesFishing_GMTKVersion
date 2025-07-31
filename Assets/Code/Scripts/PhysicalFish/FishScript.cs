@@ -290,4 +290,10 @@ public class FishScript : MonoBehaviour
             Destroy(gameObject); // Destroy the fish object after catching it
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _skedaddleRange);
+    }
 }
