@@ -16,17 +16,12 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] protected Material closedNet;
     [SerializeField] protected Texture closeNet;
     [SerializeField] protected float netTime = 2f;
-    protected List<float> emissions = new List<float>();
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        foreach (var emission in GetComponentsInChildren<ParticleSystem>())
-        {
-            emissions.Add(emission.emission.rateOverTime.constant);
-        }
     }
 
     // Update is called once per frame
@@ -66,13 +61,6 @@ public class BoatMovement : MonoBehaviour
             // Turn the boat right
             transform.Rotate(Vector3.forward, -turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude));
             rb.velocity = Rotate(rb.velocity, -turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude) * Mathf.Deg2Rad);
-        }
-
-        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
-        foreach (ParticleSystem particle in particleSystems)
-        {
-            var emission = particle.emission.rateOverTime;
-            emission = new ParticleSystem.MinMaxCurve(0);
         }
     }
 
@@ -146,6 +134,11 @@ public class BoatMovement : MonoBehaviour
 
             // Add a MeshFilter to the fish catcher to visualize the collider
             MeshFilter meshFilter = fishCatcher.AddComponent<MeshFilter>();
+<<<<<<< HEAD
+            meshFilter.mesh = collider2D.CreateMesh(false, false);
+
+            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+=======
             Mesh mesh = collider2D.CreateMesh(false, false);
             meshFilter.mesh = mesh;
 
@@ -157,8 +150,8 @@ public class BoatMovement : MonoBehaviour
             mesh.uv = uvs;
             mesh.RecalculateBounds();
             
-
-            fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+            // You can add more logic here, like stopping the boat or changing its behavior
+>>>>>>> 4985212cb9def13dbee05ffb6f42470721b7e6fa
         }
     }
 

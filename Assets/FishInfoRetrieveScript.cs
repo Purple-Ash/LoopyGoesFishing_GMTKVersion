@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Globalization;
 
 public class FishInfoRetrieveScript : MonoBehaviour
 {
@@ -30,27 +31,22 @@ public class FishInfoRetrieveScript : MonoBehaviour
         foreach (FishData f in fishDataValues)
         {
             Debug.Log("Instantiating");
-            GameObject inst = Instantiate(entityToSpawn);
+            GameObject inst = Instantiate(entityToSpawn, scrollView.transform);
             
 
-            Image[] fishImage = inst.GetComponentsInChildren<Image>();
+            Image[] fishImages = inst.GetComponentsInChildren<Image>();
 
-            Debug.Log("Image retrieval: " + fishImage != null);
-
-            fishImage[2].sprite = f.image;
+            fishImages[1].sprite = f.image;
 
             TMP_Text[] textFields = inst.GetComponentsInChildren<TMP_Text>();
 
             Debug.Log("text fields retrieved: " + textFields.Length);
             textFields[0].SetText(f.name);
             textFields[1].SetText(f.description);
-            textFields[6].SetText(f.numBad.ToString());
-            textFields[7].SetText(f.numNormal.ToString());
-            textFields[8].SetText(f.numGood.ToString());
-            textFields[11].SetText(f.price.ToString());
-
-            inst.transform.SetParent(scrollView);
-            inst.transform.localScale = Vector2.one;
+            textFields[5].SetText(f.numGood.ToString());
+            textFields[6].SetText(f.numNormal.ToString());
+            textFields[7].SetText(f.numBad.ToString());
+            textFields[8].SetText(f.price.ToString("C", new CultureInfo("en-US")));
 
         }
     }
