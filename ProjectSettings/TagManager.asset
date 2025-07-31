@@ -9,6 +9,7 @@ TagManager:
   - FishMenuTemplate
   - Fish
   - EquipementManager
+  - EquipmentView
   layers:
   - Default
   - TransparentFX
