@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -23,6 +26,8 @@ public class OptionsManager : MonoBehaviour
         {
             Load();
         }
+
+        SetQualityLevel(5);
     }
 
     private void Update()
@@ -31,8 +36,26 @@ public class OptionsManager : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                ShowOptions();
+                SwitchOptions();
             }
+        }
+    }
+
+    public void SetQualityLevel(int level)
+    {
+        Debug.Log("Quality set to level" +  level);
+        QualitySettings.SetQualityLevel(level);
+    }
+
+    void SwitchOptions()
+    {
+        if(!optionsMenu.activeSelf)
+        {
+            ShowOptions();
+        }
+        else
+        {
+             CloseOptions();
         }
     }
 

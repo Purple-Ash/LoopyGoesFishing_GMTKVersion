@@ -112,10 +112,10 @@ public class EQFishLoader : MonoBehaviour
             textFields[11].SetText(f.Value[2] * f.Key.weight * 2 + " kg"); // Total weight for XL
             textFields[12].SetText(f.Value[1] * f.Key.weight * 1.5f + "kg"); // Total weight for L
             textFields[13].SetText(f.Value[0] * f.Key.weight + "kg"); // Total weight for M
-            textFields[15].SetText(f.Value[2] * f.Key.price * 4 + "$"); // Total price for XL
-            textFields[16].SetText(f.Value[1] * f.Key.price * 2 + "$"); // Total price for L
-            textFields[17].SetText(f.Value[0] * f.Key.price + "$"); // Total price for M
-            textFields[19].SetText((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 4).ToString() + "$");
+            textFields[15].SetText(f.Value[2] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 4 + "$"); // Total price for XL
+            textFields[16].SetText(f.Value[1] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 2 + "$"); // Total price for L
+            textFields[17].SetText(f.Value[0] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult + "$"); // Total price for M
+            textFields[19].SetText(((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 4) * FindObjectOfType<EquipementScript>().moneyMult).ToString() + "$");
 
             mass += f.Value[0] * f.Key.weight + f.Value[1] * f.Key.weight * 1.5f + f.Value[2] * f.Key.weight * 2;
         }

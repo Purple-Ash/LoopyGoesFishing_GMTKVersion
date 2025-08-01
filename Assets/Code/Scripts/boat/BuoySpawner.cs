@@ -10,10 +10,12 @@ public class BuoySpawner : MonoBehaviour
     [SerializeField] private float spacing = 2.0f; // Spacing between buoys
     [SerializeField] private float firstBuoyOffset = 1.0f; // Offset for the first buoy
 
+    protected NetExtension lastBuoy; // Reference to the last buoy spawned
+
     // Start is called before the first frame update
     void Start()
     {
-        NetExtension lastBuoy = null;
+        lastBuoy = null;
         for (int i = 0; i < numberOfBuoys; i++)
         {
             // Calculate position for each buoy
@@ -32,6 +34,30 @@ public class BuoySpawner : MonoBehaviour
             }
             
             lastBuoy = ne; // Update the last buoy reference
+        }
+    }
+
+    public void addBuoys(int numberOfBuoys, Color color)
+    {
+        for (int i = 0; i < numberOfBuoys; i++)
+        {
+            // Calculate position for each buoy
+            NetExtension ne = Instantiate(buoyPrefab, lastBuoy.transform.position, Quaternion.identity).GetComponent<NetExtension>();
+            ne.followedPoint = lastBuoy.gameObject; // Set the followed point to the last buoy
+            ne.length = spacing; // Set the length of the net extension
+            lastBuoy = ne; // Update the last buoy reference
+        }
+        this.numberOfBuoys += numberOfBuoys; // Update the total number of buoys
+
+        GameObject gameObject = lastBuoy.gameObject;
+        while (gameObject.CompareTag("Buoy"))
+        {
+            gameObject.GetComponent<LineRenderer>().colorGradient = new Gradient
+            {
+                colorKeys = new GradientColorKey[] { new GradientColorKey(color, 0.0f) },
+                alphaKeys = new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f) }
+            };
+            gameObject = gameObject.GetComponent<NetExtension>().followedPoint;
         }
     }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class BoatMovement : MonoBehaviour
 {
     [SerializeField] public float maxSpeedForward = 5f; // Speed of the boat
-    [SerializeField] public float maxSpeedBackward = 2f; // Speed of the boat when moving backward
     [SerializeField] public float acceleration = 2f; // Acceleration of the boat
     [SerializeField] public float deceleration = 1f; // Deceleration of the boat
     [SerializeField] public float turnSpeed = 100f; // Turn speed of the boat
@@ -47,9 +46,9 @@ public class BoatMovement : MonoBehaviour
             // Move the boat backward
             rb.velocity = Rotate(Vector2.down, transform.eulerAngles.z * Mathf.Deg2Rad) * deceleration * Time.deltaTime + rb.velocity;
             // Clamp the speed to MaxSpeedBackward
-            if (rb.velocity.magnitude > maxSpeedBackward)
+            if (rb.velocity.magnitude > maxSpeedForward)
             {
-                rb.velocity = rb.velocity.normalized * maxSpeedBackward;
+                rb.velocity = rb.velocity.normalized * maxSpeedForward;
             }
         }
 
@@ -131,18 +130,19 @@ public class BoatMovement : MonoBehaviour
             List<Vector2> path = new List<Vector2> { new Vector2(currentByoy.transform.position.x, currentByoy.transform.position.y) };
             while (true)
             {
-                currentByoy = currentByoy.GetComponent<NetExtension>().followedPoint;
-                if (currentByoy == null)
+                
+                if (currentByoy.GetComponent<NetExtension>().followedPoint == null)
                 {
                     Debug.LogWarning("No followed point found for the buoy. Stopping path creation.");
                     break;
                 }
-                if (currentByoy.CompareTag("Boat"))
+                if (currentByoy.GetComponent<NetExtension>().followedPoint.CompareTag("Boat"))
                 {
                     path.Add(new Vector2(currentByoy.transform.position.x, currentByoy.transform.position.y));
                     break;
                 }
                 path.Add(new Vector2(currentByoy.transform.position.x, currentByoy.transform.position.y));
+                currentByoy = currentByoy.GetComponent<NetExtension>().followedPoint;
             }
 
             collider2D.SetPath(0, path);
@@ -150,6 +150,7 @@ public class BoatMovement : MonoBehaviour
             MeshRenderer meshRenderer = fishCatcher.AddComponent<MeshRenderer>();
             meshRenderer.material = closedNet; // Assign the closed net material to the fish catcher
             meshRenderer.material.mainTexture = closeNet; // Assign the closed net texture to the fish catcher
+            meshRenderer.material.color = currentByoy.GetComponent<LineRenderer>().colorGradient.colorKeys[0].color; // Set the color of the fish catcher to be semi-transparent
 
             // Add a MeshFilter to the fish catcher to visualize the collider
             MeshFilter meshFilter = fishCatcher.AddComponent<MeshFilter>();

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
@@ -9,7 +8,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private float _positionZ = -10f;
     [SerializeField] private float _lerpStrength;
     [SerializeField] private float _minZoom = 6;
-    [SerializeField] private float _maxZoom = 12;
+    [SerializeField] public float _maxZoom = 12;
     [SerializeField] private float _zoomSpeed = 0.5f;
     [SerializeField] private float _zoomIncrement = 1;
     private float _targetZoom;
@@ -49,7 +48,6 @@ public class CameraScript : MonoBehaviour
             currentZoom,
             _targetZoom,
             _zoomSpeed * Time.fixedDeltaTime);
-        //Debug.Log(newZoom);
         _mainCamera.orthographicSize = newZoom;
     }
 
