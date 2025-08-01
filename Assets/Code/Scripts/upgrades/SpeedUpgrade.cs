@@ -14,7 +14,6 @@ public class SpeedUpgrade : UpgradeScript
     {
         BoatMovement boatMovement = FindObjectOfType<BoatMovement>();
         boatMovement.maxSpeedForward = newForwardMaxSpeed;
-        boatMovement.maxSpeedBackward = newBackwardsMaxSpeed;
         boatMovement.acceleration = newAcceleration;
         boatMovement.deceleration = newDeceleration;
         ShowNextUpgrade();

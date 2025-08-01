@@ -5,7 +5,6 @@ using UnityEngine;
 public class BoatMovement : MonoBehaviour
 {
     [SerializeField] public float maxSpeedForward = 5f; // Speed of the boat
-    [SerializeField] public float maxSpeedBackward = 2f; // Speed of the boat when moving backward
     [SerializeField] public float acceleration = 2f; // Acceleration of the boat
     [SerializeField] public float deceleration = 1f; // Deceleration of the boat
     [SerializeField] public float turnSpeed = 100f; // Turn speed of the boat
@@ -47,9 +46,9 @@ public class BoatMovement : MonoBehaviour
             // Move the boat backward
             rb.velocity = Rotate(Vector2.down, transform.eulerAngles.z * Mathf.Deg2Rad) * deceleration * Time.deltaTime + rb.velocity;
             // Clamp the speed to MaxSpeedBackward
-            if (rb.velocity.magnitude > maxSpeedBackward)
+            if (rb.velocity.magnitude > maxSpeedForward)
             {
-                rb.velocity = rb.velocity.normalized * maxSpeedBackward;
+                rb.velocity = rb.velocity.normalized * maxSpeedForward;
             }
         }
 

@@ -3160,6 +3160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrades
       objectReference: {fileID: 0}
+    - target: {fileID: 1922449949167139343, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2016833664854176804, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
       propertyPath: m_SizeDelta.x
       value: 765
@@ -5394,6 +5398,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb23fd3955ab1ca408c1ce56dc12feb2, type: 2}
   - {fileID: 11400000, guid: 3db7ca25eddf20e4c8bfd00242134aee, type: 2}
   - {fileID: 11400000, guid: 213885fc5c9ebeb4f9d75b981e1f3b26, type: 2}
+  - {fileID: 11400000, guid: af7efd4f75ee59c498f519d2f8955167, type: 2}
+  - {fileID: 11400000, guid: ec82aec942d724b429dd92086dd3d36f, type: 2}
   entityToSpawn: {fileID: 2458988754357810811, guid: 2a2436790ebbd644c9eb3b0f0c634360, type: 3}
   upgradeUIList: {fileID: 1536556769}
 --- !u!4 &472899457
@@ -18329,15 +18335,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 298800128501582983, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: numberOfBuoys
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18380,24 +18378,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3613478340296280675, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
-      propertyPath: turnSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613478340296280675, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: acceleration
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3613478340296280675, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: deceleration
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3613478340296280675, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: maxSpeedForward
-      value: 3.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3613478340296280675, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: maxSpeedBackward
-      value: 1
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7394374867672905376, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_Name
@@ -19535,14 +19529,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 470830323358380374, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922449949167139343, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4218423329409387351, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.66435325
@@ -19586,10 +19572,6 @@ PrefabInstance:
     - target: {fileID: 5157147273402657758, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
       propertyPath: m_Name
       value: eqManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157147273402657758, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
