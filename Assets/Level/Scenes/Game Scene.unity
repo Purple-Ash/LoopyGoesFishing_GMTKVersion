@@ -1850,6 +1850,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1138514771}
     m_Modifications:
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _fishToSpawn
+      value: 
+      objectReference: {fileID: 1530426190529337220, guid: ff38284bedf3e4e459c963ec51f66237, type: 3}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
       objectReference: {fileID: 0}
@@ -3468,6 +3472,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1138514771}
     m_Modifications:
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _fishToSpawn
+      value: 
+      objectReference: {fileID: 1530426190529337220, guid: ff38284bedf3e4e459c963ec51f66237, type: 3}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
@@ -5275,6 +5283,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1138514771}
     m_Modifications:
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _fishToSpawn
+      value: 
+      objectReference: {fileID: 1530426190529337220, guid: ff38284bedf3e4e459c963ec51f66237, type: 3}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
       objectReference: {fileID: 0}
@@ -5685,6 +5697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1138514771}
     m_Modifications:
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _fishToSpawn
+      value: 
+      objectReference: {fileID: 1530426190529337220, guid: ff38284bedf3e4e459c963ec51f66237, type: 3}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
@@ -8028,6 +8044,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1138514771}
     m_Modifications:
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _fishToSpawn
+      value: 
+      objectReference: {fileID: 1530426190529337220, guid: ff38284bedf3e4e459c963ec51f66237, type: 3}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
@@ -10669,6 +10689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1138514771}
     m_Modifications:
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _fishToSpawn
+      value: 
+      objectReference: {fileID: 1530426190529337220, guid: ff38284bedf3e4e459c963ec51f66237, type: 3}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
