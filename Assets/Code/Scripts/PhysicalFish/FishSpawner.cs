@@ -10,9 +10,10 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private uint _maxFishToSpawn;
     [SerializeField] private float _spawnTryDelay;
     [SerializeField] private float _spawnTryChance;
-    [SerializeField] private float _spawnRadious;
+    [SerializeField] private float _minSpawnRadious;
     [SerializeField] private float _fishWanderRadious;
     [SerializeField] private float _minimumDistance;
+    [SerializeField] private float _maximumDistance;
     [SerializeField] private float _cameraSpawnBuffer = 1f;
     [SerializeField] private int _instaSpawn = 0;
 
@@ -78,7 +79,7 @@ public class FishSpawner : MonoBehaviour
             int tryToSpawn = 10;
             do
             {
-                positionOffset = Random.insideUnitCircle * _spawnRadious;
+                positionOffset = Random.insideUnitCircle * _minSpawnRadious;
                 testPoint = transform.position + new Vector3(
                     positionOffset.x,
                     positionOffset.y,
@@ -110,16 +111,22 @@ public class FishSpawner : MonoBehaviour
         if(_spawnTryDelayCounter > 0) _spawnTryDelayCounter -= Time.deltaTime;
         if(_spawnedFish.Count < _maxFishToSpawn &&
             _spawnTryDelayCounter <= 0 &&
-            (_boat.transform.position - transform.position).magnitude > _minimumDistance) 
+            (_boat.transform.position - transform.position).magnitude > _minimumDistance &&
+            (_boat.transform.position - transform.position).magnitude < _maximumDistance) 
             TrySpawning();
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, _spawnRadious);
+        Gizmos.DrawWireSphere(transform.position, _minSpawnRadious);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _fishWanderRadious);
         Gizmos.DrawIcon(transform.position, _gizmoName);
+        /*
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _minimumDistance);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _maximumDistance);*/
     }
 }

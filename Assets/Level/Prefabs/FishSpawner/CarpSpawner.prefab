@@ -49,9 +49,10 @@ MonoBehaviour:
   _maxFishToSpawn: 10
   _spawnTryDelay: 1
   _spawnTryChance: 1
-  _spawnRadious: 5
+  _minSpawnRadious: 5
   _fishWanderRadious: 6
   _minimumDistance: 20
+  _maximumDistance: 50
   _cameraSpawnBuffer: 0.5
   _instaSpawn: 0
   _gizmoName: SkibidiFish

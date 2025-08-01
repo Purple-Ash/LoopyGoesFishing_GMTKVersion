@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
@@ -295,7 +294,7 @@ public class FishScript : MonoBehaviour
         if(collision == null) return;
         if (collision.gameObject.tag == "Buoy")
         {
-            RecalculateGoal();
+            if (UnityEngine.Random.Range(0f, 1f) < 0.02f) RecalculateGoal();
             _colidingTimer = 0.2f;
         }
     }

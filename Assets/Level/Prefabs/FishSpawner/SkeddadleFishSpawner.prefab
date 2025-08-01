@@ -49,9 +49,10 @@ MonoBehaviour:
   _maxFishToSpawn: 20
   _spawnTryDelay: 1
   _spawnTryChance: 1
-  _spawnRadious: 6
+  _minSpawnRadious: 6
   _fishWanderRadious: 7
   _minimumDistance: 20
+  _maximumDistance: 50
   _cameraSpawnBuffer: 0.5
   _instaSpawn: 0
   _gizmoName: SkedaddleFish
