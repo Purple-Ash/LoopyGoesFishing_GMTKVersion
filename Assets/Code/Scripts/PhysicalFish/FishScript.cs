@@ -27,6 +27,8 @@ public class FishScript : MonoBehaviour
     [Header("Movement")]
     [SerializeField] protected float _maxVelocity = 0.1f;
     [SerializeField] protected float _maxAcceleration = 0.1f;
+    [SerializeField] protected float _skedaddleVelocity = 0.2f;
+    [SerializeField] protected float _skedaddleAcceleration = 0.5f;
 
     [Header("Skedaddle")]
     [SerializeField] private float _skedaddleRange;
@@ -210,22 +212,32 @@ public class FishScript : MonoBehaviour
     {
         Vector2 normalised;
         Vector2 acceleration;
-        if ((boat.transform.position - transform.position).magnitude < _skedaddleRange)
+        Vector2 boatTransformPosition = new Vector2(
+                boat.transform.position.x,
+                boat.transform.position.y
+            );
+        Vector2 thisPosition = new Vector2(
+                transform.position.x,
+                transform.position.y
+            );
+        float actualMaxVelocity = 1;
+        if ((boatTransformPosition - thisPosition).magnitude < _skedaddleRange)
         {
-            //Debug.Log("Skedadling");
-            Vector2 boatDirection = transform.position - boat.transform.position;
+            Vector2 boatDirection = thisPosition - boatTransformPosition;
             normalised = boatDirection.normalized;
-            acceleration = normalised * _maxAcceleration * Time.fixedDeltaTime * 1/boatDirection.magnitude * _skedaddleRange;
+            acceleration = normalised * _skedaddleAcceleration * Time.fixedDeltaTime * 1/boatDirection.magnitude * _skedaddleRange;
+            actualMaxVelocity = _skedaddleVelocity;
         }
         else
         {
             normalised = direction.normalized;
             acceleration = normalised * _maxAcceleration * Time.fixedDeltaTime;
             //transform.root.LookAt(normalised);
+            actualMaxVelocity = _maxVelocity;
         }
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_velocity.y, _velocity.x) * 180f / Mathf.PI);
         _velocity += acceleration;
-        float speedLimit = _velocity.magnitude / _maxAcceleration;
+        float speedLimit = _velocity.magnitude / actualMaxVelocity;
         if (speedLimit > 1.0f)
         {
             _velocity /= speedLimit;
@@ -289,5 +301,11 @@ public class FishScript : MonoBehaviour
                                                           // You can add additional logic here, such as playing an animation or sound
             Destroy(gameObject); // Destroy the fish object after catching it
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _skedaddleRange);
     }
 }

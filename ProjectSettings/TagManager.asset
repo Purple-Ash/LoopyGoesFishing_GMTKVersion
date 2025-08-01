@@ -15,6 +15,7 @@ TagManager:
   - CheckButton
   - MoneyWeight
   - BensonManager
+  - Island
   layers:
   - Default
   - TransparentFX
