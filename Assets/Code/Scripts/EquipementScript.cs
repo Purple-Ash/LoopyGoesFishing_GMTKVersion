@@ -10,7 +10,8 @@ public class EquipementScript : MonoBehaviour
     [SerializeField] internal float capacity;
     [SerializeField] internal float weight;
     [SerializeField] internal GameObject notification;
-    [SerializeField] internal float money = 0; 
+    [SerializeField] internal float money = 0;
+    [SerializeField] internal float moneyMult = 1;
 
     internal bool AddFishData(NewFishData fishName)
     {

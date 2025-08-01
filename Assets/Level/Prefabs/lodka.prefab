@@ -19496,12 +19496,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100cbeb4d5998ec449561205658e0ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeedForward: 7
-  maxSpeedBackward: 2
-  acceleration: 4
-  deceleration: 2
-  turnSpeed: 150
-  topTurnSpeed: 1
+  maxSpeedForward: 3.5
+  maxSpeedBackward: 1
+  acceleration: 1.5
+  deceleration: 0.5
+  turnSpeed: 100
   closedNet: {fileID: 2100000, guid: 4366fefadabd48342af1610d5cd3db0c, type: 2}
   closeNet: {fileID: 2800000, guid: 624896d2555812943a245ae7de3f4c0f, type: 3}
   netTime: 2
@@ -19580,6 +19579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buoyPrefab: {fileID: 261943537452717854, guid: 68ef8b65cbf595f498642bfad7bfa1c3, type: 3}
-  numberOfBuoys: 100
+  numberOfBuoys: 50
   spacing: 0.3
   firstBuoyOffset: 1
