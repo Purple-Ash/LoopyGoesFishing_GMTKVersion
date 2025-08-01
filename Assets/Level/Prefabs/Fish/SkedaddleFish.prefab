@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5415524429168785496}
   - component: {fileID: 7862002679528428376}
   - component: {fileID: 4132430538305081965}
+  - component: {fileID: 1471052834311374645}
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
-  - component: {fileID: 1471052834311374645}
   m_Layer: 8
   m_Name: SkedaddleFish
   m_TagString: Fish
@@ -86,6 +86,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1471052834311374645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530426190529337220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radious: 1.2
+  _headDots: 8
+  _bodyDots: 29
+  _bodyLength: 0.24
+  _frontFlatten: 1.61
+  _sideFlatten: 2.68
+  _rotate: 0
+  _size: {x: 0.05, y: 0.05}
+  _maxVelocity: 3.5
+  _maxAcceleration: 1.75
+  _skedaddleVelocity: 4
+  _skedaddleAcceleration: 2
+  _skedaddleRange: 5
+  _fishData: {fileID: 11400000, guid: 617523a46a4034a45b998c24690a10ad, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,29 +174,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1471052834311374645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530426190529337220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radious: 1.2
-  _headDots: 8
-  _bodyDots: 29
-  _bodyLength: 0.24
-  _frontFlatten: 1.61
-  _sideFlatten: 2.68
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 3.5
-  _maxAcceleration: 1.75
-  _skedaddleVelocity: 4
-  _skedaddleAcceleration: 2
-  _skedaddleRange: 5
-  _fishData: {fileID: 11400000, guid: 617523a46a4034a45b998c24690a10ad, type: 2}

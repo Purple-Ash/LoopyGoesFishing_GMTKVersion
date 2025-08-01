@@ -111,7 +111,7 @@ MonoBehaviour:
   _skedaddleVelocity: 7
   _skedaddleAcceleration: 3.5
   _skedaddleRange: 6.5
-  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
+  _fishData: {fileID: 11400000, guid: a8e992de6b6a4be49941abb5a48e9956, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

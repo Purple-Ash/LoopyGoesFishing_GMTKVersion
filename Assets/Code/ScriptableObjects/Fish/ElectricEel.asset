@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d2064cc07f3d2c439ee5bd5da4d9fbd, type: 3}
-  m_Name: SkedaddleFish
+  m_Name: ElectricEel
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 6c1835d0042a16d43ad4494b34a77d13, type: 3}
-  name: Skedaddlefish
-  description: Lives near islands, instinctively runs away when approached with close
-    proximity
-  price: 5
-  weight: 1
+  image: {fileID: 21300000, guid: 185c24a32f3c3da4ca1dcabba31a6c8e, type: 3}
+  name: Electric Eel
+  description: Watch out, this rare specie will zap you if you don't insulate your
+    equipment properly
+  price: 48
+  weight: 6

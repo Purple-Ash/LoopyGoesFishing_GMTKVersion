@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2064cc07f3d2c439ee5bd5da4d9fbd, type: 3}
   m_Name: GooberFish
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 740b785cc0343d64491818f12ffb2d52, type: 3}
+  image: {fileID: 21300000, guid: 26905fd7603e24f4ca88f97d889632e7, type: 3}
   name: Gooberfish
-  description: 1234567890
-  price: 111
+  description: Small fish, that dwells in shallow waters
+  price: 2
   weight: 0.5

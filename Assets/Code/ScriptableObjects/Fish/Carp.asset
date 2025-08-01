@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2064cc07f3d2c439ee5bd5da4d9fbd, type: 3}
   m_Name: Carp
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: ec63bd850078c554987168c8d281388e, type: 3}
-  name: skibidi
-  description: skibidi
-  price: 1234
-  weight: 3
+  image: {fileID: 21300000, guid: 8f28c06b1b5e56540942721518cef553, type: 3}
+  name: Carp
+  description: Bensons favourite Christmas snack
+  price: 6
+  weight: 2
