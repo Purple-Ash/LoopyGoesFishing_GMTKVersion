@@ -659,6 +659,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044def87001e24c449d42665b8fd67ee, type: 3}
+--- !u!114 &849414445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5503237239092910576, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+  m_PrefabInstance: {fileID: 6736421376827608927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd37bfdd074b5746940012d7cea7a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &983659563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1785,6 +1796,34 @@ PrefabInstance:
     - target: {fileID: 620863603018719709, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
       propertyPath: m_Name
       value: FishShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 849414445}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sell
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BarryScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823763459032937749, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5185199612496567357, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
       propertyPath: m_SizeDelta.y

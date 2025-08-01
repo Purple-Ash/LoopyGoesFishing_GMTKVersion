@@ -22,6 +22,7 @@ public class BarryScript : MonoBehaviour
 
     public TMPro.TMP_Text TotalPrice;
     public TMPro.TMP_Text TotalPriceSmall;
+    public Button select;
 
     void Start()
     {
@@ -151,6 +152,16 @@ public class BarryScript : MonoBehaviour
         }
         TotalPrice.SetText(totalPrice.ToString() + "$");
         TotalPriceSmall.SetText(totalPrice.ToString());
+    }
+
+    public void Sell()
+    {
+        GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().SellFish();
+        UpdateValues();
+        UpdatePrice();
+        select.GetComponent<CheckScript>().isChecked = false;
+        select.GetComponent<UnityEngine.UI.Image>().color = new Color(0.8f, 0.2f, 0.2f, 1f); // Reset the color to unchecked
+        select.transform.GetChild(0).GetComponent<TMP_Text>().SetText("Select All"); // Reset the text to "Select All"
     }
 
     public void UpdateValues()

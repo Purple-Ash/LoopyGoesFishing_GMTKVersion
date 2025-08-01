@@ -122,6 +122,7 @@ MonoBehaviour:
   equipmentView: {fileID: 2010836436333565530}
   TotalPrice: {fileID: 5535531329972972314}
   TotalPriceSmall: {fileID: 1771635823243382317}
+  select: {fileID: 5699270301214335007}
 --- !u!1 &1531311607802419379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c32b417b623d3649ad1748a36bc1473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isChecked: 0
 --- !u!1 &7537711020095958161
 GameObject:
   m_ObjectHideFlags: 0

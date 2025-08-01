@@ -10,6 +10,7 @@ public class EquipementScript : MonoBehaviour
     [SerializeField] internal float capacity;
     [SerializeField] internal float weight;
     [SerializeField] internal GameObject notification;
+    [SerializeField] internal float money = 0; 
 
     internal bool AddFishData(NewFishData fishName)
     {
@@ -126,5 +127,36 @@ public class EquipementScript : MonoBehaviour
             }
         }
         GetComponent<EQFishLoader>().UpdateValues();
+    }
+
+    public void SellFish()
+    {
+        float totalPrice = 0f;
+        foreach (var skibid in fishCheckDictionary)
+        {
+            if (skibid.Value[0])
+            {
+                totalPrice += skibid.Key.price * fishDataDictionary[skibid.Key][0];
+                weight -= skibid.Key.weight * fishDataDictionary[skibid.Key][0]; // Update weight
+                fishDataDictionary[skibid.Key][0] = 0; // Reset the count
+                skibid.Value[0] = false; // Reset the check state
+            }
+            if (skibid.Value[1])
+            {
+                totalPrice += skibid.Key.price * 2 * fishDataDictionary[skibid.Key][1];
+                weight -= skibid.Key.weight * 1.5f * fishDataDictionary[skibid.Key][1]; // Update weight
+                fishDataDictionary[skibid.Key][1] = 0; // Reset the count
+                skibid.Value[1] = false; // Reset the check state
+            }
+            if (skibid.Value[2])
+            {
+                totalPrice += skibid.Key.price * 4 * fishDataDictionary[skibid.Key][2];
+                weight -= skibid.Key.weight * 2 * fishDataDictionary[skibid.Key][2]; // Update weight
+                fishDataDictionary[skibid.Key][2] = 0; // Reset the count
+                skibid.Value[2] = false; // Reset the check state
+            }
+        }
+        money += totalPrice;
+        Debug.Log($"Total money after selling fish: {money}");
     }
 }

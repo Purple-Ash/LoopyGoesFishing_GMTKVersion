@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckScript : MonoBehaviour
 {
-    bool isChecked = false;
+    public bool isChecked = false;
     Color checkedColor = new Color(0.2f, 0.8f, 0.2f, 1f);
     Color uncheckedColor = new Color(0.8f, 0.2f, 0.2f, 1f);
 
