@@ -14,6 +14,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float _fishWanderRadious;
     [SerializeField] private float _minimumDistance;
     [SerializeField] private float _cameraSpawnBuffer = 1f;
+    [SerializeField] private int _instaSpawn = 0;
 
     [SerializeField] private string _gizmoName;
     private float _spawnTryDelayCounter;
@@ -27,6 +28,10 @@ public class FishSpawner : MonoBehaviour
         _boat = GameObject.FindGameObjectWithTag("Boat");
         _spawnTryDelayCounter = 0;
         _spawnedFish = new List<GameObject>();
+        while(_instaSpawn > 0)
+        {
+            TrySpawning();
+        }
     }
 
     bool IsPointOnIsland(Vector2 point)
@@ -41,6 +46,7 @@ public class FishSpawner : MonoBehaviour
     
     bool IsPointOnCamera(Vector2 point)
     {
+        if(_instaSpawn > 0) return false;
         float height = _camera.orthographicSize;
         float aspektRatio = _camera.aspect;
         float width = aspektRatio * height;
@@ -94,6 +100,7 @@ public class FishSpawner : MonoBehaviour
             newFish.Center = transform.position;
             _spawnedFish.Add(newFish.gameObject);
             newFish._fishSpawner = this;
+            _instaSpawn--;
         }
         //Debug.Log("amogus");
     }

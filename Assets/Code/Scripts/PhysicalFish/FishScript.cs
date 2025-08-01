@@ -54,9 +54,22 @@ public class FishScript : MonoBehaviour
             RecalculateGoal();
         }
     }
+
+    bool IsPointOnIsland(Vector2 point)
+    {
+        var hits = Physics2D.OverlapPointAll(point);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Island")) return true;
+        }
+        return false;
+    }
     private void RecalculateGoal()
     {
-        _destination = _center + UnityEngine.Random.insideUnitCircle * _distanceFromCenter;
+        do
+        {
+            _destination = _center + UnityEngine.Random.insideUnitCircle * _distanceFromCenter;
+        } while(IsPointOnIsland(_destination));
     }
     private void EnforceConstraints()
     {

@@ -51,6 +51,7 @@ MonoBehaviour:
   _spawnTryChance: 1
   _spawnRadious: 40
   _fishWanderRadious: 50
-  _minimumDistance: 0
+  _minimumDistance: 20
   _cameraSpawnBuffer: 0.5
+  _instaSpawn: 0
   _gizmoName: TEST
