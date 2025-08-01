@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _fishToSpawn: {fileID: 1530426190529337220, guid: 6bf9fd754a532fd42ae2152619683418, type: 3}
+  _fishToSpawn: {fileID: 1530426190529337220, guid: 7d02d8e961655e24d9653a4e891f8a06, type: 3}
   _maxFishToSpawn: 10
   _spawnTryDelay: 1
   _spawnTryChance: 1
