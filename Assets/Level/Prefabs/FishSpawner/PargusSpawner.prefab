@@ -52,4 +52,5 @@ MonoBehaviour:
   _spawnRadious: 5
   _fishWanderRadious: 7
   _minimumDistance: 10
+  _cameraSpawnBuffer: 0.5
   _gizmoName: Pargus

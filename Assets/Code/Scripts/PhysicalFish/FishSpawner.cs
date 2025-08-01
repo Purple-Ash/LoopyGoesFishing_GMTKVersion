@@ -13,6 +13,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float _spawnRadious;
     [SerializeField] private float _fishWanderRadious;
     [SerializeField] private float _minimumDistance;
+    [SerializeField] private float _cameraSpawnBuffer = 1f;
 
     [SerializeField] private string _gizmoName;
     private float _spawnTryDelayCounter;
@@ -40,11 +41,24 @@ public class FishSpawner : MonoBehaviour
     
     bool IsPointOnCamera(Vector2 point)
     {
-        float size = _camera.orthographicSize;
+        float height = _camera.orthographicSize;
         float aspektRatio = _camera.aspect;
-        Debug.Log(size + ", " + aspektRatio);
-
-        return true;
+        float width = aspektRatio * height;
+        Debug.Log(height + ", " + width);
+        Vector2 leftBottom = new Vector2(
+            _camera.transform.position.x - width - _cameraSpawnBuffer,
+            _camera.transform.position.y - height - _cameraSpawnBuffer);
+        Vector2 rightTop = new Vector2(
+            _camera.transform.position.x + width + _cameraSpawnBuffer,
+            _camera.transform.position.y + height + _cameraSpawnBuffer);
+        if(point.x > leftBottom.x &&
+            point.y > leftBottom.y &&
+            point.x < rightTop.x &&
+            point.y < rightTop.y)
+        {
+            return true;
+        }
+        return false;
     }
 
     void TrySpawning()
@@ -62,8 +76,7 @@ public class FishSpawner : MonoBehaviour
                     positionOffset.x,
                     positionOffset.y,
                     1.5f);
-            } while (IsPointOnIsland(testPoint) && IsPointOnCamera(testPoint));
-            
+            } while (IsPointOnIsland(testPoint) || IsPointOnCamera(testPoint));
 
             //TODO potentially make it circle
             FishScript newFish = Instantiate(_fishToSpawn,

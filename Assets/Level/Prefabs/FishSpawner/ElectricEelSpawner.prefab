@@ -52,4 +52,5 @@ MonoBehaviour:
   _spawnRadious: 4
   _fishWanderRadious: 5
   _minimumDistance: 10
+  _cameraSpawnBuffer: 0.5
   _gizmoName: ElectricEel
