@@ -12,6 +12,9 @@ TagManager:
   - EquipmentView
   - FishName
   - FishWeight
+  - CheckButton
+  - MoneyWeight
+  - BensonManager
   - Island
   layers:
   - Default

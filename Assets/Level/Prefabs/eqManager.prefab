@@ -557,6 +557,7 @@ MonoBehaviour:
   capacity: 10
   weight: 0
   notification: {fileID: 2069784939626420956, guid: 78b95ee05858faf4f883590909e9ac66, type: 3}
+  money: 0
 --- !u!114 &3015947076796143869
 MonoBehaviour:
   m_ObjectHideFlags: 0

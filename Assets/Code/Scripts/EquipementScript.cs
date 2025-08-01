@@ -5,21 +5,24 @@ using UnityEngine;
 public class EquipementScript : MonoBehaviour
 {
     internal Dictionary<NewFishData, int[]> fishDataDictionary = new Dictionary<NewFishData, int[]>();
+    internal Dictionary<NewFishData, bool[]> fishCheckDictionary = new Dictionary<NewFishData, bool[]>();
     [SerializeField] internal float[] probabilities;
     [SerializeField] internal float capacity;
     [SerializeField] internal float weight;
     [SerializeField] internal GameObject notification;
+    [SerializeField] internal float money = 0; 
 
     internal bool AddFishData(NewFishData fishName)
     {
         if (fishDataDictionary.ContainsKey(fishName))
         {
-            Debug.LogWarning($"Fish data for {fishName} already exists. Overwriting.");
+            //Debug.LogWarning($"Fish data for {fishName} already exists. Overwriting.");
         }
         else
         {
             Debug.Log($"Adding fish data for {fishName}");
             fishDataDictionary.Add(fishName, new int[3] { 0, 0, 0 });
+            fishCheckDictionary.Add(fishName, new bool[3] { false, false, false });
         }
 
         float random = Random.Range(0f, 1f);
@@ -61,6 +64,8 @@ public class EquipementScript : MonoBehaviour
 
         Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");
 
+        UpdateMoneyAndWeight(); // Update money and weight display after adding fish data
+
         return true;
         //GetComponent<EQFishLoader>().addFishEntity(fishDataDictionary);
     }
@@ -71,12 +76,35 @@ public class EquipementScript : MonoBehaviour
         {
             probabilities[i] = probabilities[i] / 100f;
         }
+
+        UpdateMoneyAndWeight(); // Initialize money and weight display
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void CheckFishData(string fishName, int type)
+    {
+        foreach (var skibidi in fishDataDictionary)
+        {
+            if (skibidi.Key.name == fishName)
+            {
+                fishCheckDictionary[skibidi.Key][type] = !fishCheckDictionary[skibidi.Key][type];
+            }
+        }
+    }
+
+    public void CheckAllFish(bool state)
+    {
+        foreach (var skibid in fishCheckDictionary)
+        {
+            skibid.Value[0] = state;
+            skibid.Value[1] = state;
+            skibid.Value[2] = state;
+        }
     }
 
     public void ClearFishData(string fishName, int type)
@@ -103,5 +131,44 @@ public class EquipementScript : MonoBehaviour
             }
         }
         GetComponent<EQFishLoader>().UpdateValues();
+        UpdateMoneyAndWeight(); // Update money and weight display after clearing fish data
+    }
+
+    public void SellFish()
+    {
+        float totalPrice = 0f;
+        foreach (var skibid in fishCheckDictionary)
+        {
+            if (skibid.Value[0])
+            {
+                totalPrice += skibid.Key.price * fishDataDictionary[skibid.Key][0];
+                weight -= skibid.Key.weight * fishDataDictionary[skibid.Key][0]; // Update weight
+                fishDataDictionary[skibid.Key][0] = 0; // Reset the count
+                skibid.Value[0] = false; // Reset the check state
+            }
+            if (skibid.Value[1])
+            {
+                totalPrice += skibid.Key.price * 2 * fishDataDictionary[skibid.Key][1];
+                weight -= skibid.Key.weight * 1.5f * fishDataDictionary[skibid.Key][1]; // Update weight
+                fishDataDictionary[skibid.Key][1] = 0; // Reset the count
+                skibid.Value[1] = false; // Reset the check state
+            }
+            if (skibid.Value[2])
+            {
+                totalPrice += skibid.Key.price * 4 * fishDataDictionary[skibid.Key][2];
+                weight -= skibid.Key.weight * 2 * fishDataDictionary[skibid.Key][2]; // Update weight
+                fishDataDictionary[skibid.Key][2] = 0; // Reset the count
+                skibid.Value[2] = false; // Reset the check state
+            }
+        }
+        money += totalPrice;
+        Debug.Log($"Total money after selling fish: {money}");
+        UpdateMoneyAndWeight(); // Update money and weight display after selling fish
+    }
+
+    public void UpdateMoneyAndWeight()
+    {
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMPro.TMP_Text>().SetText(money + "$");
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMPro.TMP_Text>().SetText(weight + "/" + capacity); // Update total weight text
     }
 }
