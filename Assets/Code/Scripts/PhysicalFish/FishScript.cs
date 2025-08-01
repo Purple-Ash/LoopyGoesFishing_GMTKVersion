@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
 {
+    private GameObject player;
+
     private MeshFilter _meshFilter;
     private Vector2 _center = new Vector2(0f, 0f);
     private float _distanceFromCenter = 1f;
@@ -277,7 +280,7 @@ public class FishScript : MonoBehaviour
         if (_colidingTimer > 0)
         {
             _colidingTimer -= Time.fixedDeltaTime;
-            speedMultiplier = 0.2f;
+            speedMultiplier = 1f;
         }
         if(_colidingTimer <= 0)
         {
@@ -294,8 +297,7 @@ public class FishScript : MonoBehaviour
         if(collision == null) return;
         if (collision.gameObject.tag == "Buoy")
         {
-            if (UnityEngine.Random.Range(0f, 1f) < 0.02f) RecalculateGoal();
-            _colidingTimer = 0.2f;
+            _colidingTimer = 0.3f;
         }
     }
 
