@@ -221,7 +221,7 @@ public class FishScript : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    protected virtual void MoveTowards(Vector2 direction)
+    protected virtual void MoveTowards(Vector2 direction, float speedMultiplier)
     {
         Vector2 normalised;
         Vector2 acceleration;
@@ -249,7 +249,7 @@ public class FishScript : MonoBehaviour
             actualMaxVelocity = _maxVelocity;
         }
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_velocity.y, _velocity.x) * 180f / Mathf.PI);
-        _velocity += acceleration;
+        _velocity += acceleration * speedMultiplier;
         float speedLimit = _velocity.magnitude / actualMaxVelocity;
         if (speedLimit > 1.0f)
         {
@@ -273,14 +273,21 @@ public class FishScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_colidingTimer > 0) _colidingTimer -= Time.fixedDeltaTime;
+        _velocity = GetComponent<Rigidbody2D>().velocity;
+        float speedMultiplier = 0;
+        if (_colidingTimer > 0)
+        {
+            _colidingTimer -= Time.fixedDeltaTime;
+            speedMultiplier = 0.2f;
+        }
         if(_colidingTimer <= 0)
         {
-            Vector2 direction = _destination - (Vector2)transform.position;
-            if (direction.magnitude < 0.2f) RecalculateGoal();
-            else MoveTowards(direction);
-            transform.position += new Vector3(_velocity.x, _velocity.y, 0) * Time.fixedDeltaTime;
+            speedMultiplier = 1f;
         }
+        Vector2 direction = _destination - (Vector2)transform.position;
+        if (direction.magnitude < 0.2f) RecalculateGoal();
+        else MoveTowards(direction, speedMultiplier);
+        GetComponent<Rigidbody2D>().velocity = _velocity;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -288,6 +295,7 @@ public class FishScript : MonoBehaviour
         if(collision == null) return;
         if (collision.gameObject.tag == "Buoy")
         {
+            RecalculateGoal();
             _colidingTimer = 0.2f;
         }
     }
