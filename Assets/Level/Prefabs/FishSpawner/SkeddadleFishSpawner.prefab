@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4258334936135420209}
   - component: {fileID: 1219058182545369249}
   m_Layer: 0
-  m_Name: SkiddadleFishSpawner
+  m_Name: SkeddadleFishSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
