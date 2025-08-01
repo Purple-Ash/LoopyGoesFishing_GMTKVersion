@@ -5,6 +5,7 @@ using UnityEngine;
 public class EquipementScript : MonoBehaviour
 {
     internal Dictionary<NewFishData, int[]> fishDataDictionary = new Dictionary<NewFishData, int[]>();
+    internal Dictionary<NewFishData, bool[]> fishCheckDictionary = new Dictionary<NewFishData, bool[]>();
     [SerializeField] internal float[] probabilities;
     [SerializeField] internal float capacity;
     [SerializeField] internal float weight;
@@ -14,12 +15,13 @@ public class EquipementScript : MonoBehaviour
     {
         if (fishDataDictionary.ContainsKey(fishName))
         {
-            Debug.LogWarning($"Fish data for {fishName} already exists. Overwriting.");
+            //Debug.LogWarning($"Fish data for {fishName} already exists. Overwriting.");
         }
         else
         {
             Debug.Log($"Adding fish data for {fishName}");
             fishDataDictionary.Add(fishName, new int[3] { 0, 0, 0 });
+            fishCheckDictionary.Add(fishName, new bool[3] { false, false, false });
         }
 
         float random = Random.Range(0f, 1f);
@@ -77,6 +79,27 @@ public class EquipementScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CheckFishData(string fishName, int type)
+    {
+        foreach (var skibidi in fishDataDictionary)
+        {
+            if (skibidi.Key.name == fishName)
+            {
+                fishCheckDictionary[skibidi.Key][type] = !fishCheckDictionary[skibidi.Key][type];
+            }
+        }
+    }
+
+    public void CheckAllFish(bool state)
+    {
+        foreach (var skibid in fishCheckDictionary)
+        {
+            skibid.Value[0] = state;
+            skibid.Value[1] = state;
+            skibid.Value[2] = state;
+        }
     }
 
     public void ClearFishData(string fishName, int type)
