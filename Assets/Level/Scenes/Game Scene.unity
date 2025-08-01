@@ -2534,6 +2534,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f5c2ac1f4f1d6a45852b94e4539c456, type: 2}
   - {fileID: 11400000, guid: eb23fd3955ab1ca408c1ce56dc12feb2, type: 2}
   - {fileID: 11400000, guid: 3db7ca25eddf20e4c8bfd00242134aee, type: 2}
+  - {fileID: 11400000, guid: 213885fc5c9ebeb4f9d75b981e1f3b26, type: 2}
   entityToSpawn: {fileID: 2458988754357810811, guid: 2a2436790ebbd644c9eb3b0f0c634360, type: 3}
   upgradeUIList: {fileID: 1536556769}
 --- !u!4 &472899457
@@ -11018,18 +11019,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 298800128501582983, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
-      propertyPath: numberOfBuoys
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

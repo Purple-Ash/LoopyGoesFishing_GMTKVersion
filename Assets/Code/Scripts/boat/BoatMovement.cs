@@ -131,18 +131,19 @@ public class BoatMovement : MonoBehaviour
             List<Vector2> path = new List<Vector2> { new Vector2(currentByoy.transform.position.x, currentByoy.transform.position.y) };
             while (true)
             {
-                currentByoy = currentByoy.GetComponent<NetExtension>().followedPoint;
-                if (currentByoy == null)
+                
+                if (currentByoy.GetComponent<NetExtension>().followedPoint == null)
                 {
                     Debug.LogWarning("No followed point found for the buoy. Stopping path creation.");
                     break;
                 }
-                if (currentByoy.CompareTag("Boat"))
+                if (currentByoy.GetComponent<NetExtension>().followedPoint.CompareTag("Boat"))
                 {
                     path.Add(new Vector2(currentByoy.transform.position.x, currentByoy.transform.position.y));
                     break;
                 }
                 path.Add(new Vector2(currentByoy.transform.position.x, currentByoy.transform.position.y));
+                currentByoy = currentByoy.GetComponent<NetExtension>().followedPoint;
             }
 
             collider2D.SetPath(0, path);
@@ -150,6 +151,7 @@ public class BoatMovement : MonoBehaviour
             MeshRenderer meshRenderer = fishCatcher.AddComponent<MeshRenderer>();
             meshRenderer.material = closedNet; // Assign the closed net material to the fish catcher
             meshRenderer.material.mainTexture = closeNet; // Assign the closed net texture to the fish catcher
+            meshRenderer.material.color = currentByoy.GetComponent<LineRenderer>().colorGradient.colorKeys[0].color; // Set the color of the fish catcher to be semi-transparent
 
             // Add a MeshFilter to the fish catcher to visualize the collider
             MeshFilter meshFilter = fishCatcher.AddComponent<MeshFilter>();
