@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736418346e5a6034ea31bcb55550d695, type: 3}
   m_Name: SteeringUpgrade2
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  cost: 0
-  icon: {fileID: 0}
+  upgradeName: Extra rudder
+  description: Loopy, I seriously doubt you need an extra rudder on that boat. Where
+    did you even get it from?? Eh, but if you need sharper turning I'll do it...
+  cost: 300
+  icon: {fileID: 21300000, guid: 22a2d0c7e1f7cdd4a86c2cf9d17af94b, type: 3}
   nextUpgrade: {fileID: 0}
-  newSteering: 140
+  newSteering: 200
