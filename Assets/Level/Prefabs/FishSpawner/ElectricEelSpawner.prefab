@@ -49,7 +49,10 @@ MonoBehaviour:
   _maxFishToSpawn: 4
   _spawnTryDelay: 1
   _spawnTryChance: 1
-  _spawnRadious: 4
-  _fishWanderRadious: 5
-  _minimumDistance: 10
+  _minSpawnRadious: 10
+  _fishWanderRadious: 12
+  _minimumDistance: 20
+  _maximumDistance: 50
+  _cameraSpawnBuffer: 0.5
+  _instaSpawn: 0
   _gizmoName: ElectricEel

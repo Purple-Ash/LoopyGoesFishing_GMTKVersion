@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8208212662992128797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -558,6 +558,7 @@ MonoBehaviour:
   weight: 0
   notification: {fileID: 2069784939626420956, guid: 78b95ee05858faf4f883590909e9ac66, type: 3}
   money: 0
+  moneyMult: 1
 --- !u!114 &3015947076796143869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -399.99973}
-  m_SizeDelta: {x: -650, y: 0}
+  m_SizeDelta: {x: -650, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3544942783801702428
 MonoBehaviour:

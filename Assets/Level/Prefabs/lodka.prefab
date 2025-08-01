@@ -19500,7 +19500,7 @@ MonoBehaviour:
   maxSpeedBackward: 1
   acceleration: 1.5
   deceleration: 0.5
-  turnSpeed: 100
+  turnSpeed: 120
   closedNet: {fileID: 2100000, guid: 4366fefadabd48342af1610d5cd3db0c, type: 2}
   closeNet: {fileID: 2800000, guid: 624896d2555812943a245ae7de3f4c0f, type: 3}
   netTime: 2
