@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736418346e5a6034ea31bcb55550d695, type: 3}
   m_Name: SteeringUpgrade1
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  cost: 0
-  icon: {fileID: 0}
-  nextUpgrade: {fileID: 0}
+  upgradeName: Bigger Wheel
+  description: With this bigger wheel apllying force to the rudder is easier. Your
+    boat will become more maneuverable, Loopy.
+  cost: 75
+  icon: {fileID: 21300000, guid: 9dd3a975e80a0b84f84a8aef9d15f00b, type: 3}
+  nextUpgrade: {fileID: 11400000, guid: 32e3e7c334e6de74ab7b3e53f5b01e1c, type: 2}
   newSteering: 140

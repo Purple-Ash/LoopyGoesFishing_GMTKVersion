@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9f4d7c3c62ca643a5356a80f52cfa4, type: 3}
+  m_Name: RarityUpgrade1
+  m_EditorClassIdentifier: 
+  upgradeName: Fish food
+  description: I can make your boat slowly disperse fish food while driving. I'm
+    sure it'll make you catch bigger fish.
+  cost: 100
+  icon: {fileID: 21300000, guid: 3cc2e34f4599b134fa6b39c6f47f1dce, type: 3}
+  nextUpgrade: {fileID: 11400000, guid: a9ea3b1bd0c9f6e49903a0a1f282dc10, type: 2}
+  rarities:
+  - 60
+  - 25
+  - 15
