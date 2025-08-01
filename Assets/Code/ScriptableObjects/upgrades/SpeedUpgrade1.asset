@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad842b8c69014f45a4d4df3a110e577, type: 3}
   m_Name: SpeedUpgrade1
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  cost: 0
-  icon: {fileID: 0}
-  newForwardMaxSpeed: 1
-  newBackwardsMaxSpeed: 1
-  newAcceleration: 1
+  upgradeName: Yamaha outboard
+  description: Your poor little boat sure would appreciate some extra speed, though
+    with the size of that thing your steering might suffer a bit...  You know what
+    Loopy? I'll give you the 1st one with a discount.
+  cost: 25
+  icon: {fileID: 21300000, guid: 0904e818cbef7d647a08d66df4490679, type: 3}
+  nextUpgrade: {fileID: 11400000, guid: cc53b841d6f1a5346865af92a05ba618, type: 2}
+  newForwardMaxSpeed: 5
+  newBackwardsMaxSpeed: 2
+  newAcceleration: 2.25
   newDeceleration: 1

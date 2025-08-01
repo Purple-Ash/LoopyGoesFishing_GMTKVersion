@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3abd24a133d57f4c996bd58b4285efa, type: 3}
+  m_Name: InventoryUpgrade3
+  m_EditorClassIdentifier: 
+  upgradeName: Industrial crates
+  description: I don't think your boat can carry any more than this, Loopy, but if
+    you need more cargo space these bring more than enough.
+  cost: 600
+  icon: {fileID: 21300000, guid: 0f8e731ad56a40e468e4713bdec3137d, type: 3}
+  nextUpgrade: {fileID: 0}
+  inventoryIncrease: 100
