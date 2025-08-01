@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04b9e63d354a924d8ac400948e00ab4, type: 3}
   m_Name: BuoyUpgrade5
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  cost: 0
-  icon: {fileID: 0}
+  upgradeName: Steel rope
+  description: 'Silk may be cool, but nothing beats good ol'' stainless steel! The
+    structure of this rope allows it to extend it for 100 meters without breaking,
+    easy! '
+  cost: 2000
+  icon: {fileID: 21300000, guid: 6cae19e847edc634bad0ad294198c4e0, type: 3}
   nextUpgrade: {fileID: 0}
-  numberOfBuoys: 25
-  color: {r: 1, g: 1, b: 1, a: 1}
+  numberOfBuoys: 110
+  color: {r: 0.67058825, g: 0.69803923, b: 0.69803923, a: 1}
