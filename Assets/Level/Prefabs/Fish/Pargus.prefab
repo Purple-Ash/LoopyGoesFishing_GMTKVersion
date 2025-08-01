@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
   m_Layer: 8
-  m_Name: TestFish
+  m_Name: Pargus
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f42a731cca7229488c0452236366ef0, type: 2}
+  - {fileID: 2100000, guid: 114f03bd4884f5e4586023c003350f9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,19 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 1
-  _headDots: 22
-  _bodyDots: 25
-  _bodyLength: 0.3
+  _radious: 2.17
+  _headDots: 19
+  _bodyDots: 30
+  _bodyLength: 0.36
   _frontFlatten: 1
-  _sideFlatten: 1
+  _sideFlatten: 2.97
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 1
-  _maxAcceleration: 1
-  _skedaddleVelocity: 1.2
-  _skedaddleAcceleration: 1.3
-  _skedaddleRange: 2
+  _maxVelocity: 3
+  _maxAcceleration: 1.5
+  _skedaddleVelocity: 6
+  _skedaddleAcceleration: 3
+  _skedaddleRange: 5
   _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
@@ -144,8 +144,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11874999, y: -0.0006095328}
-  m_Size: {x: 0.3375, y: 0.07681262}
+  m_Offset: {x: -0.04913432, y: -0.0024484787}
+  m_Size: {x: 0.58259904, y: 0.19355932}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:

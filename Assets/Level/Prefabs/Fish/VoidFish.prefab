@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
   m_Layer: 8
-  m_Name: SkibidiFish
+  m_Name: VoidFish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 715ef375116ffa74baace7ba26bdf013, type: 2}
+  - {fileID: 2100000, guid: 3f5dc56c8abddb14bb85eec433d9f89d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,20 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 2.05
-  _headDots: 6
-  _bodyDots: 33
-  _bodyLength: 0.37
-  _frontFlatten: 1
-  _sideFlatten: 1
+  _radious: 2.13
+  _headDots: 19
+  _bodyDots: 30
+  _bodyLength: 0.27
+  _frontFlatten: 1.81
+  _sideFlatten: 3.54
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 0.8
-  _maxAcceleration: 0.2
-  _skedaddleVelocity: 1.6
-  _skedaddleAcceleration: 1
-  _skedaddleRange: 2.5
-  _fishData: {fileID: 11400000, guid: ba905ac67e42cc74b9ca4a554091b311, type: 2}
+  _maxVelocity: 8
+  _maxAcceleration: 4
+  _skedaddleVelocity: 13
+  _skedaddleAcceleration: 7.5
+  _skedaddleRange: 8
+  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,8 +144,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11508715, y: -0.00027212623}
-  m_Size: {x: 0.4239441, y: 0.18883997}
+  m_Offset: {x: 0.06325496, y: 0.000536941}
+  m_Size: {x: 0.6073463, y: 0.17863016}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4258334936135420209}
   - component: {fileID: 1219058182545369249}
   m_Layer: 0
-  m_Name: TestFishSpawner
+  m_Name: PargusSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _fishToSpawn: {fileID: 1530426190529337220, guid: 6bf9fd754a532fd42ae2152619683418, type: 3}
+  _fishToSpawn: {fileID: 1530426190529337220, guid: 56309422270e9184caeb7f34c01c53b3, type: 3}
   _maxFishToSpawn: 10
   _spawnTryDelay: 1
   _spawnTryChance: 1
-  _spawnRadious: 4
-  _fishWanderRadious: 5
+  _spawnRadious: 5
+  _fishWanderRadious: 7
   _minimumDistance: 10
-  _gizmoName: TestFish
+  _gizmoName: Pargus

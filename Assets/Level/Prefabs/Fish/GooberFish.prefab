@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5415524429168785496}
   - component: {fileID: 7862002679528428376}
   - component: {fileID: 4132430538305081965}
+  - component: {fileID: 7348072835574992767}
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
-  - component: {fileID: 1471052834311374645}
   m_Layer: 8
-  m_Name: SpookedFish
+  m_Name: GooberFish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 522c4debc3a9e5a4fb0e280a80f6978b, type: 2}
+  - {fileID: 2100000, guid: 5f42a731cca7229488c0452236366ef0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,6 +86,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7348072835574992767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530426190529337220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radious: 1.09
+  _headDots: 9
+  _bodyDots: 19
+  _bodyLength: 0.3
+  _frontFlatten: 1
+  _sideFlatten: 2.25
+  _rotate: 0
+  _size: {x: 0.05, y: 0.05}
+  _maxVelocity: 2
+  _maxAcceleration: 1
+  _skedaddleVelocity: 2.5
+  _skedaddleAcceleration: 1.25
+  _skedaddleRange: 2
+  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -118,8 +144,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021932038, y: -0.00021111334}
-  m_Size: {x: 0.18530293, y: 0.045736182}
+  m_Offset: {x: -0.027553651, y: -0.0006095288}
+  m_Size: {x: 0.27186465, y: 0.09838249}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:
@@ -148,29 +174,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1471052834311374645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530426190529337220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radious: 1
-  _headDots: 10
-  _bodyDots: 23
-  _bodyLength: 0.27
-  _frontFlatten: 1.12
-  _sideFlatten: 2.24
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 2
-  _maxAcceleration: 1.5
-  _skedaddleVelocity: 2.5
-  _skedaddleAcceleration: 2
-  _skedaddleRange: 4
-  _fishData: {fileID: 11400000, guid: 617523a46a4034a45b998c24690a10ad, type: 2}
