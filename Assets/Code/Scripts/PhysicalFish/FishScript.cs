@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class FishScript : MonoBehaviour
 {
-    private GameObject player;
-
     private MeshFilter _meshFilter;
     private Vector2 _center = new Vector2(0f, 0f);
     private float _distanceFromCenter = 1f;
@@ -37,6 +35,7 @@ public class FishScript : MonoBehaviour
 
     [Header("Value and stuff")]
     [SerializeField] private NewFishData _fishData;
+    [SerializeField] private float _despawnDistance = 70f;
 
     public Vector2 Center 
     {
@@ -292,6 +291,19 @@ public class FishScript : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = _velocity;
     }
 
+    void RemoveIfFar()
+    {
+
+    }
+
+    private void Update()
+    {
+        if((boat.transform.position - transform.position).magnitude > _despawnDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision == null) return;
@@ -318,11 +330,16 @@ public class FishScript : MonoBehaviour
             // Logic for catching the fish
             //Debug.Log("Fish caught: " + gameObject.name);
 
-            _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
-                                                          // Add fish data to the equipment manager
+
                                                           // You can add additional logic here, such as playing an animation or sound
             Destroy(gameObject); // Destroy the fish object after catching it
         }
+    }
+
+    private void OnDestroy()
+    {
+        _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
+                                                      // Add fish data to the equipment manager
     }
 
     private void OnDrawGizmos()
