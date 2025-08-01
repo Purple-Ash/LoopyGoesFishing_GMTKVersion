@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class FishSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _camera;
-    private Vector2 _cameraBan;
-
+    [SerializeField] private Camera _camera;
 
     [SerializeField] private GameObject _fishToSpawn;
     [SerializeField] private uint _maxFishToSpawn;
@@ -24,7 +22,7 @@ public class FishSpawner : MonoBehaviour
 
     void Start()
     {
-        _camera = GameObject.FindGameObjectWithTag("MainCamera");
+        _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         _boat = GameObject.FindGameObjectWithTag("Boat");
         _spawnTryDelayCounter = 0;
         _spawnedFish = new List<GameObject>();
@@ -39,6 +37,15 @@ public class FishSpawner : MonoBehaviour
         }
         return false;
     }
+    
+    bool IsPointOnCamera(Vector2 point)
+    {
+        float size = _camera.orthographicSize;
+        float aspektRatio = _camera.aspect;
+        Debug.Log(size + ", " + aspektRatio);
+
+        return true;
+    }
 
     void TrySpawning()
     {
@@ -47,16 +54,15 @@ public class FishSpawner : MonoBehaviour
         if (randomNumber < _spawnTryChance)
         {
             Vector2 positionOffset;
+            Vector2 testPoint;
             do
             {
                 positionOffset = Random.insideUnitCircle * _spawnRadious;
-            } while (IsPointOnIsland(
-                transform.position + 
-                new Vector3(
+                testPoint = transform.position + new Vector3(
                     positionOffset.x,
                     positionOffset.y,
-                    1.5f))
-            );
+                    1.5f);
+            } while (IsPointOnIsland(testPoint) && IsPointOnCamera(testPoint));
             
 
             //TODO potentially make it circle
