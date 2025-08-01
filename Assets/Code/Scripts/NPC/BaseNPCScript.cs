@@ -17,12 +17,12 @@ public class BaseNPCScript : MonoBehaviour
     {
         
     }
-    public void setShopUIActive()
+    public virtual void setShopUIActive()
     {
         NPCUI.SetActive(true);
     }
 
-    public void setShopUIInactive()
+    public virtual void setShopUIInactive()
     {
         NPCUI.SetActive(false);
         Time.timeScale = 1.0f;

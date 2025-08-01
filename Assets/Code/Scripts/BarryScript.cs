@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BarryScript : MonoBehaviour
+public class BarryScript : BaseNPCScript
 {
     // The GameObject to instantiate.
     public GameObject entityToSpawn;
@@ -30,34 +30,34 @@ public class BarryScript : MonoBehaviour
         fishDataDictionary = new Dictionary<NewFishData, int[]>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Debug.Log("Equipment button activated");
-            if (imageView != null)
-            {
-                Debug.Log("Equipment object found");
-                if (imageView.activeSelf)
-                {
-                    DestroyEntities();
-                    imageView.SetActive(false);
-                    equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
-                }
-                else
-                {
-                    imageView.SetActive(true);
-                    equipmentView.SetActive(true); // Show the equipment view when the image view is opened
-                    SpawnEntities();
-                    UpdatePrice();
-                }
-            }
-            else
-            {
-                Debug.Log("Equipment object not found");
-            }
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Tab))
+    //    {
+    //        Debug.Log("Equipment button activated");
+    //        if (imageView != null)
+    //        {
+    //            Debug.Log("Equipment object found");
+    //            if (imageView.activeSelf)
+    //            {
+    //                DestroyEntities();
+    //                imageView.SetActive(false);
+    //                equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
+    //            }
+    //            else
+    //            {
+    //                imageView.SetActive(true);
+    //                equipmentView.SetActive(true); // Show the equipment view when the image view is opened
+    //                SpawnEntities();
+    //                UpdatePrice();
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Equipment object not found");
+    //        }
+    //    }
+    //}
 
     //public void addFishEntity(Dictionary<NewFishData, int[]> caughtFishes)
     //{
@@ -77,6 +77,29 @@ public class BarryScript : MonoBehaviour
     //    }
     //}
 
+    public override void setShopUIActive()
+    {
+        imageView.SetActive(true);
+        equipmentView.SetActive(true); // Show the equipment view when the image view is opened
+        SpawnEntities();
+        UpdatePrice();
+    }
+
+    public override void setShopUIInactive()
+    {
+        select.GetComponent<CheckScript>().isChecked = false;
+        select.GetComponent<UnityEngine.UI.Image>().color = new Color(0.8f, 0.2f, 0.2f, 1f); // Reset the color to unchecked
+        select.transform.GetChild(0).GetComponent<TMP_Text>().SetText("Select All"); // Reset the text to "Select All"
+
+        imageView.SetActive(false);
+        equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
+
+        DestroyEntities();
+        
+        Time.timeScale = 1.0f; // Resume the game time
+
+        GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().CheckAllFish(false);
+    }
 
     void DestroyEntities()
     {
