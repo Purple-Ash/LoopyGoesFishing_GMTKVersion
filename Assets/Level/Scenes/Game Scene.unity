@@ -2447,7 +2447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c742b1cbb9850644b2807a0e4f231af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopUI: {fileID: 2129679572}
+  NPCUI: {fileID: 2129679572}
+  entityToSpawn: {fileID: 2458988754357810811, guid: 2a2436790ebbd644c9eb3b0f0c634360, type: 3}
+  upgradeUIList: {fileID: 2056422123}
 --- !u!4 &472899457
 Transform:
   m_ObjectHideFlags: 0
@@ -2991,7 +2993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6173487182590859024, guid: 78665d5ee5f851e47b1662b834528aaf, type: 3}
       propertyPath: m_Name
-      value: shop (1)
+      value: BarryShop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8402,9 +8404,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4290945908025182434, guid: 78665d5ee5f851e47b1662b834528aaf, type: 3}
+      propertyPath: calledEvent
+      value: 
+      objectReference: {fileID: 472899455}
     - target: {fileID: 6173487182590859024, guid: 78665d5ee5f851e47b1662b834528aaf, type: 3}
       propertyPath: m_Name
-      value: shop
+      value: BensonShop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11371,6 +11377,7 @@ PrefabInstance:
     - {fileID: 3015947076796143869, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1711201429468609968, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
+    - {fileID: 2749675022542586514, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 470830323358380374, guid: 5356998e1b481d1408118a1963bf6498, type: 3}
       insertIndex: -1
