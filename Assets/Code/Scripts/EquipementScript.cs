@@ -64,6 +64,8 @@ public class EquipementScript : MonoBehaviour
 
         Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");
 
+        UpdateMoneyAndWeight(); // Update money and weight display after adding fish data
+
         return true;
         //GetComponent<EQFishLoader>().addFishEntity(fishDataDictionary);
     }
@@ -74,6 +76,8 @@ public class EquipementScript : MonoBehaviour
         {
             probabilities[i] = probabilities[i] / 100f;
         }
+
+        UpdateMoneyAndWeight(); // Initialize money and weight display
     }
 
     // Update is called once per frame
@@ -127,6 +131,7 @@ public class EquipementScript : MonoBehaviour
             }
         }
         GetComponent<EQFishLoader>().UpdateValues();
+        UpdateMoneyAndWeight(); // Update money and weight display after clearing fish data
     }
 
     public void SellFish()
@@ -158,5 +163,12 @@ public class EquipementScript : MonoBehaviour
         }
         money += totalPrice;
         Debug.Log($"Total money after selling fish: {money}");
+        UpdateMoneyAndWeight(); // Update money and weight display after selling fish
+    }
+
+    public void UpdateMoneyAndWeight()
+    {
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMPro.TMP_Text>().SetText(money + "$");
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMPro.TMP_Text>().SetText(weight + "/" + capacity); // Update total weight text
     }
 }
