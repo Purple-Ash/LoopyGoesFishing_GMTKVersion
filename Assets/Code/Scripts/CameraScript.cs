@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private float _positionZ = -10f;
     [SerializeField] private float _lerpStrength;
     [SerializeField] private float _minZoom = 6;
-    [SerializeField] private float _maxZoom = 12;
+    [SerializeField] public float _maxZoom = 12;
     [SerializeField] private float _zoomSpeed = 0.5f;
     [SerializeField] private float _zoomIncrement = 1;
     private float _targetZoom;

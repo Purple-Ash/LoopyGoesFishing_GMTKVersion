@@ -7652,6 +7652,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishShop
       objectReference: {fileID: 0}
+    - target: {fileID: 2010836436333565530, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062642650368834499, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185199612496567357, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8520655838098528376, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
       propertyPath: m_Pivot.x
       value: 0
