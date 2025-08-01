@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level/Scenes/EquipmentView.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Level/Scenes/Game Scene.unity
+    guid: d52c61411f9fe2440a24f75e2578913c
+  - enabled: 1
+    path: Assets/Level/Scenes/Main Menu.unity
+    guid: 706fbe22f4e3c7b45bed7b86cb7858bf
   m_configObjects: {}
