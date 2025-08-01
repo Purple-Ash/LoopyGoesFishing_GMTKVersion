@@ -69,6 +69,7 @@ public class FishSpawner : MonoBehaviour
         {
             Vector2 positionOffset;
             Vector2 testPoint;
+            int tryToSpawn = 10;
             do
             {
                 positionOffset = Random.insideUnitCircle * _spawnRadious;
@@ -76,6 +77,9 @@ public class FishSpawner : MonoBehaviour
                     positionOffset.x,
                     positionOffset.y,
                     1.5f);
+                tryToSpawn--;
+                if (tryToSpawn == 0)
+                    return;
             } while (IsPointOnIsland(testPoint) || IsPointOnCamera(testPoint));
 
             //TODO potentially make it circle
