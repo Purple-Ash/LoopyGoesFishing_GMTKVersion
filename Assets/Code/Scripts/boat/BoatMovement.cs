@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BoatMovement : MonoBehaviour
 {
-    [SerializeField] private float maxSpeedForward = 5f; // Speed of the boat
-    [SerializeField] private float maxSpeedBackward = 2f; // Speed of the boat when moving backward
-    [SerializeField] private float acceleration = 2f; // Acceleration of the boat
-    [SerializeField] private float deceleration = 1f; // Deceleration of the boat
-    [SerializeField] private float turnSpeed = 100f; // Turn speed of the boat
-    [SerializeField] private float topTurnSpeed = 1f; // Maximum angle the boat can turn
+    [SerializeField] public float maxSpeedForward = 5f; // Speed of the boat
+    [SerializeField] public float maxSpeedBackward = 2f; // Speed of the boat when moving backward
+    [SerializeField] public float acceleration = 2f; // Acceleration of the boat
+    [SerializeField] public float deceleration = 1f; // Deceleration of the boat
+    [SerializeField] public float turnSpeed = 100f; // Turn speed of the boat
     protected Rigidbody2D rb; // Rigidbody component for physics interactions
     protected bool collisioned = false; // Flag to check if the boat has collided with something
     [Header("Net Settings")]

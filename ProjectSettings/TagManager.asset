@@ -12,6 +12,8 @@ TagManager:
   - EquipmentView
   - FishName
   - FishWeight
+  - CheckButton
+  - MoneyWeight
   layers:
   - Default
   - TransparentFX
