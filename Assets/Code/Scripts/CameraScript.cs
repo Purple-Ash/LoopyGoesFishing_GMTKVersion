@@ -49,7 +49,6 @@ public class CameraScript : MonoBehaviour
             currentZoom,
             _targetZoom,
             _zoomSpeed * Time.fixedDeltaTime);
-        //Debug.Log(newZoom);
         _mainCamera.orthographicSize = newZoom;
     }
 

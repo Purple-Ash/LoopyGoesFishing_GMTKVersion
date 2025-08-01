@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4258334936135420209}
   - component: {fileID: 1219058182545369249}
   m_Layer: 0
-  m_Name: RainbowFishSpawner
+  m_Name: TRASH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _fishToSpawn: {fileID: 1530426190529337220, guid: 04cbe8400925de14f86a990b7c011fc7, type: 3}
-  _maxFishToSpawn: 10
-  _spawnTryDelay: 1
+  _fishToSpawn: {fileID: 1530426190529337220, guid: 81904e313c96b5b45ad600cc9ddbdad5, type: 3}
+  _maxFishToSpawn: 10000
+  _spawnTryDelay: 0.001
   _spawnTryChance: 1
-  _spawnRadious: 4
-  _fishWanderRadious: 5
+  _spawnRadious: 40
+  _fishWanderRadious: 50
   _minimumDistance: 20
   _cameraSpawnBuffer: 0.5
   _instaSpawn: 0
-  _gizmoName: TestFish
+  _gizmoName: TEST

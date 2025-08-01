@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _fishToSpawn: {fileID: 1530426190529337220, guid: 2dbc2202f40a61f459998666c14c362c, type: 3}
-  _maxFishToSpawn: 20
+  _fishToSpawn: {fileID: 1530426190529337220, guid: a26dcb714e963874d9858e411b76c5ff, type: 3}
+  _maxFishToSpawn: 7
   _spawnTryDelay: 1
   _spawnTryChance: 1
   _spawnRadious: 4
   _fishWanderRadious: 5
-  _minimumDistance: 10
+  _minimumDistance: 20
+  _cameraSpawnBuffer: 0.5
+  _instaSpawn: 0
   _gizmoName: SkedaddleFish
