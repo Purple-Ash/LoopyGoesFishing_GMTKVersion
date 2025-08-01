@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad842b8c69014f45a4d4df3a110e577, type: 3}
   m_Name: SpeedUpgrade3
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  cost: 0
-  icon: {fileID: 0}
+  upgradeName: V8 engine
+  description: You want me to install THAT on your boat?! I'd call that overoveroverkill,
+    but you do you Loopy...
+  cost: 800
+  icon: {fileID: 21300000, guid: b3bc1c10eb3e2ba4c9afa718348bb239, type: 3}
   nextUpgrade: {fileID: 0}
-  newForwardMaxSpeed: 1
-  newBackwardsMaxSpeed: 1
-  newAcceleration: 1
-  newDeceleration: 1
+  newForwardMaxSpeed: 11
+  newBackwardsMaxSpeed: 5
+  newAcceleration: 5
+  newDeceleration: 2

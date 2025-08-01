@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad842b8c69014f45a4d4df3a110e577, type: 3}
   m_Name: SpeedUpgrade2
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  cost: 0
+  upgradeName: Two Yamaha outboards
+  description: Two is sure better than one. You know the drill - more speed, bit
+    less steering.
+  cost: 150
   icon: {fileID: 0}
-  nextUpgrade: {fileID: 0}
-  newForwardMaxSpeed: 1
-  newBackwardsMaxSpeed: 1
-  newAcceleration: 1
-  newDeceleration: 1
+  nextUpgrade: {fileID: 11400000, guid: 6486c92e2cc33564f8e996c898c0c197, type: 2}
+  newForwardMaxSpeed: 7
+  newBackwardsMaxSpeed: 3.5
+  newAcceleration: 3
+  newDeceleration: 1.5
