@@ -9,10 +9,6 @@ public class RarityUpgrade : UpgradeScript
 
     public override void ApplyUpgrade()
     {
-        for (int i = 0; i < rarities.Length; i++)
-        {
-            rarities[i] = rarities[i] / 100f; // Convert percentages to probabilities
-        }
         GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().probabilities = rarities;
     }
 }

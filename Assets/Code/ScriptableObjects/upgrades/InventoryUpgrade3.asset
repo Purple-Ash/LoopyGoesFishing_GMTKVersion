@@ -17,5 +17,5 @@ MonoBehaviour:
     you need more cargo space these bring more than enough.
   cost: 600
   icon: {fileID: 21300000, guid: 0f8e731ad56a40e468e4713bdec3137d, type: 3}
-  nextUpgrade: {fileID: 0}
+  nextUpgrade: {fileID: 11400000, guid: 2d5daa37515ae3d4b8830e731be7cf5a, type: 2}
   inventoryIncrease: 100
