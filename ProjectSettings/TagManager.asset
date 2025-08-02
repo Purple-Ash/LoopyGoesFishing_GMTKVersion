@@ -19,6 +19,7 @@ TagManager:
   - Center
   - Arrow
   - Maps
+  - AudioManager
   layers:
   - Default
   - TransparentFX

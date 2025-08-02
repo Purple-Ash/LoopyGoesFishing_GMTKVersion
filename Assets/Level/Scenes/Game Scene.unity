@@ -12088,6 +12088,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 211ba06a0bed2c94dab7796bcc659db3, type: 3}
+--- !u!1 &874039354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874039355}
+  - component: {fileID: 874039356}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874039355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874039354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -50.94285, y: -50.28145, z: 1.5398927}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874039356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874039354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80000c1d07f234a45aa15542861055d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicVolume: 1
+  _sfxVolume: 1
+  _ambientVolume: 1
+  _mainMusic: {fileID: 8300000, guid: b4798586d0a4bce48ab11a453032d633, type: 3}
 --- !u!1001 &887329979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27463,7 +27511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202679903715143996, guid: 875d30392be459140abb7295655e6a9a, type: 3}
       propertyPath: _waveOffset
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202679903715143996, guid: 875d30392be459140abb7295655e6a9a, type: 3}
       propertyPath: _worldBorder
@@ -27556,3 +27604,4 @@ SceneRoots:
   - {fileID: 1399827371}
   - {fileID: 150666209}
   - {fileID: 1381182007}
+  - {fileID: 874039355}
