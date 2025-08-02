@@ -20,5 +20,21 @@ public class MinimapDotscript : MonoBehaviour
     {
         _position = (Vector2)_boat.transform.position * _scale + _offset;
         GetComponent<RectTransform>().localPosition = _position; 
+        if (transform.localPosition.x > 160)
+        {
+            transform.localPosition = new Vector3(160, transform.localPosition.y, transform.localPosition.z);
+        }
+        if (transform.localPosition.x < -160)
+        {
+            transform.localPosition = new Vector3(-160, transform.localPosition.y, transform.localPosition.z);
+        }
+        if (transform.localPosition.y > 160)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, 160, transform.localPosition.z);
+        }
+        if (transform.localPosition.y < -160)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, -160, transform.localPosition.z);
+        }
     }
 }

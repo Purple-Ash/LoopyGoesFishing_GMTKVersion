@@ -84,6 +84,8 @@ public class BoatMovement : MonoBehaviour
             var shape = particle.shape;
             shape.angle = rb.velocity.magnitude / (maxSpeedForward * 0.05f); // Adjust particle shape angle based on boat speed
         }
+
+        GameObject.FindGameObjectWithTag("Speedometer").transform.GetChild(1).rotation = Quaternion.Euler(0, 0, -rb.velocity.magnitude / maxSpeedForward * 170f + 85); // Update the speedometer needle rotation based on boat speed
     }
 
     internal Vector2 Rotate(Vector2 v, float delta)
