@@ -6,6 +6,7 @@ public class FishCatcher : MonoBehaviour
 {
     internal float lifetime;
     internal float timer = 0;
+    internal GameObject colliderByoy;
 
     // Start is called before the first frame update
     void Start()

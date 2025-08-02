@@ -123,6 +123,7 @@ public class BoatMovement : MonoBehaviour
         // Check if the boat collides with a buoy
         if (collision.gameObject.CompareTag("Buoy"))
         {
+            GameObject gameObject = collision.gameObject;
             collisioned = true; // Set the collision flag to true
             StartCoroutine(CollisionedBack()); // Start the coroutine to reset the collision flag after a delay
             // Handle buoy collision logic here
@@ -175,6 +176,7 @@ public class BoatMovement : MonoBehaviour
 
 
                 fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+                fishCatcher.GetComponent<FishCatcher>().colliderByoy = gameObject; // Set the collider buoy reference
             }
         }
     }
