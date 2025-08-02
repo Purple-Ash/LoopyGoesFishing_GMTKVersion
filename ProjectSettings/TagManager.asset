@@ -18,6 +18,7 @@ TagManager:
   - Island
   - Center
   - Arrow
+  - Maps
   layers:
   - Default
   - TransparentFX

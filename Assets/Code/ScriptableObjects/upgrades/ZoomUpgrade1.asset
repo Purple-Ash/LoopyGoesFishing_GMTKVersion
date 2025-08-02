@@ -17,4 +17,5 @@ MonoBehaviour:
   cost: 40
   icon: {fileID: 21300000, guid: ba81e03e2c46c3141b5b1145a5c78ee7, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 5529859c9abe21a4590ee17b16d3da62, type: 2}
-  maxZoom: 17
+  maxZoom: 15
+  mapType: 1

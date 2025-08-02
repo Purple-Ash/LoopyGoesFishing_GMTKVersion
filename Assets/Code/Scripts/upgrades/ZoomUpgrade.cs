@@ -6,9 +6,20 @@ using UnityEngine;
 public class ZoomUpgrade : UpgradeScript
 {
     [SerializeField] private float maxZoom = 20f;
+    [SerializeField] private int mapType = 1;
 
     public override void ApplyUpgrade()
     {
         FindObjectOfType<CameraScript>()._maxZoom = maxZoom;
+
+        if (mapType == 1)
+        {
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else if (mapType == 2)
+        {
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(1).gameObject.SetActive(true);
+        }
     }
 }
