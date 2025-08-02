@@ -83,6 +83,7 @@ public class BarryScript : BaseNPCScript
         equipmentView.SetActive(true); // Show the equipment view when the image view is opened
         SpawnEntities();
         UpdatePrice();
+        equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
     }
 
     public override void setShopUIInactive()

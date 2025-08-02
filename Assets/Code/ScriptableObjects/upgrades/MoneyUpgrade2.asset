@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd627705490d5f47a64d2a1a2515de5, type: 3}
   m_Name: MoneyUpgrade2
   m_EditorClassIdentifier: 
-  upgradeName: Insulated bag
+  upgradeName: Travel fridge
   description: This will help you keep your fish fresh, increasing their sell value.
     Also grants a bit of extra space
   cost: 800
