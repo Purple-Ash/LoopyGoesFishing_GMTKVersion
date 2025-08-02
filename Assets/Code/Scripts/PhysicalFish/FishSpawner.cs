@@ -51,7 +51,6 @@ public class FishSpawner : MonoBehaviour
         float height = _camera.orthographicSize;
         float aspektRatio = _camera.aspect;
         float width = aspektRatio * height;
-        Debug.Log(height + ", " + width);
         Vector2 leftBottom = new Vector2(
             _camera.transform.position.x - width - _cameraSpawnBuffer,
             _camera.transform.position.y - height - _cameraSpawnBuffer);

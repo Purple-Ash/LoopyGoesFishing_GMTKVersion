@@ -83,6 +83,7 @@ public class BarryScript : BaseNPCScript
         equipmentView.SetActive(true); // Show the equipment view when the image view is opened
         SpawnEntities();
         UpdatePrice();
+        equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
     }
 
     public override void setShopUIInactive()
@@ -99,6 +100,11 @@ public class BarryScript : BaseNPCScript
         Time.timeScale = 1.0f; // Resume the game time
 
         GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().CheckAllFish(false);
+        TutorialScript script = FindAnyObjectByType<TutorialScript>(); // Reset the flag when entering the shop
+        if (script != null)
+        {
+            script.exitedShop = true; // Reset the flag when exiting the shop
+        }
     }
 
     void DestroyEntities()

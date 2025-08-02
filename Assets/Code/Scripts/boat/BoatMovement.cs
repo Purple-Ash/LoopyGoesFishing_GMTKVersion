@@ -8,6 +8,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] public float acceleration = 2f; // Acceleration of the boat
     [SerializeField] public float deceleration = 1f; // Deceleration of the boat
     [SerializeField] public float turnSpeed = 100f; // Turn speed of the boat
+
     protected Rigidbody2D rb; // Rigidbody component for physics interactions
     protected bool collisioned = false; // Flag to check if the boat has collided with something
     [Header("Net Settings")]
@@ -15,6 +16,9 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] protected Texture closeNet;
     [SerializeField] protected float netTime = 2f;
     protected List<float> emissions = new List<float>();
+
+
+
 
 
     // Start is called before the first frame update

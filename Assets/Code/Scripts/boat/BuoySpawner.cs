@@ -57,6 +57,7 @@ public class BuoySpawner : MonoBehaviour
                 colorKeys = new GradientColorKey[] { new GradientColorKey(color, 0.0f) },
                 alphaKeys = new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f) }
             };
+            gameObject.GetComponent<SpriteRenderer>().color = color;
             gameObject = gameObject.GetComponent<NetExtension>().followedPoint;
         }
     }

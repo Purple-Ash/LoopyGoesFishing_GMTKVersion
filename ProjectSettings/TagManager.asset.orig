@@ -4,12 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Buoy
   - Boat
-=======
   - FishMenuTemplate
->>>>>>> cb05e61b4b4271451bda88a7f3979d6d4c7da75f
+  - Fish
+  - EquipementManager
+  - EquipmentView
+  - FishName
+  - FishWeight
+  - CheckButton
+  - MoneyWeight
+  - BensonManager
+  - Island
+<<<<<<< HEAD
+  - Arrow
+=======
+  - Center
+>>>>>>> fe2b502f3621360a1027bb97d96b5ec2ca5a9184
   layers:
   - Default
   - TransparentFX
@@ -19,7 +30,7 @@ TagManager:
   - UI
   - buoy
   - boat
-  - 
+  - fish
   - 
   - 
   - 
