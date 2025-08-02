@@ -25,4 +25,9 @@ public class SceneChanger : MonoBehaviour
         Debug.Log("Changing Scene");
         SceneManager.LoadScene("Game Scene");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
