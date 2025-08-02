@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
 
-    public Scene gameScene;
+    public string currentGameScene;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class SceneChanger : MonoBehaviour
     public void PlayButtonScene()
     {
         Debug.Log("Changing Scene");
+        PlayerPrefs.SetString("StartingMenu", currentGameScene);
         SceneManager.LoadScene("Game Scene");
     }
 
