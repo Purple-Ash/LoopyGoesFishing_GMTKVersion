@@ -110,8 +110,9 @@ MonoBehaviour:
   _maxAcceleration: 0.5
   _skedaddleVelocity: 3
   _skedaddleAcceleration: 1.5
-  _skedaddleRange: 4
+  _skedaddleRange: 3
   _fishData: {fileID: 11400000, guid: ba905ac67e42cc74b9ca4a554091b311, type: 2}
+  _despawnDistance: 70
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

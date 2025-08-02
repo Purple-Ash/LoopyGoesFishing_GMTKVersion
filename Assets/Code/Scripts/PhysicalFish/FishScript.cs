@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
@@ -34,6 +35,7 @@ public class FishScript : MonoBehaviour
 
     [Header("Value and stuff")]
     [SerializeField] private NewFishData _fishData;
+    [SerializeField] private float _despawnDistance = 70f;
 
     public Vector2 Center 
     {
@@ -277,7 +279,7 @@ public class FishScript : MonoBehaviour
         if (_colidingTimer > 0)
         {
             _colidingTimer -= Time.fixedDeltaTime;
-            speedMultiplier = 0.2f;
+            speedMultiplier = 1f;
         }
         if(_colidingTimer <= 0)
         {
@@ -289,13 +291,25 @@ public class FishScript : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = _velocity;
     }
 
+    void RemoveIfFar()
+    {
+
+    }
+
+    private void Update()
+    {
+        if((boat.transform.position - transform.position).magnitude > _despawnDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision == null) return;
         if (collision.gameObject.tag == "Buoy")
         {
-            if (UnityEngine.Random.Range(0f, 1f) < 0.02f) RecalculateGoal();
-            _colidingTimer = 0.2f;
+            _colidingTimer = 0.3f;
         }
     }
 
@@ -316,11 +330,16 @@ public class FishScript : MonoBehaviour
             // Logic for catching the fish
             //Debug.Log("Fish caught: " + gameObject.name);
 
-            _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
-                                                          // Add fish data to the equipment manager
+
                                                           // You can add additional logic here, such as playing an animation or sound
             Destroy(gameObject); // Destroy the fish object after catching it
         }
+    }
+
+    private void OnDestroy()
+    {
+        _fishSpawner._spawnedFish.Remove(gameObject); // Remove the fish from the spawner's list
+                                                      // Add fish data to the equipment manager
     }
 
     private void OnDrawGizmos()
