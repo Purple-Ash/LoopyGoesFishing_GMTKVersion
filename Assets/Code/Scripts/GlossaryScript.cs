@@ -46,15 +46,16 @@ public class GlossaryScript : MonoBehaviour
         }
     }
 
-    void Open()
+    public void Open()
     {
+        Debug.Log("Opening Glossary");
         SpawnEntities();
         contentTransform.transform.position = new Vector3(contentTransform.transform.position.x, contentTransform.transform.position.y - 2000, contentTransform.transform.position.z);
         GlossaryPopup.SetActive(true);
         isOpen = true;
     }
 
-    void Close()
+    public void Close()
     {
         DestroyEntities();
         GlossaryPopup.SetActive(false);
