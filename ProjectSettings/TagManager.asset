@@ -16,6 +16,7 @@ TagManager:
   - MoneyWeight
   - BensonManager
   - Island
+  - Center
   - Arrow
   layers:
   - Default

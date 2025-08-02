@@ -12,6 +12,7 @@ public class FishScript : MonoBehaviour
     protected Vector2 _velocity = new Vector2(0f, 0f);
     private float _colidingTimer = 0.0f;
     private GameObject boat;
+    private CenterOfTheWorld _centerOfTheWorld;
     [HideInInspector] internal FishSpawner _fishSpawner;
 
     [Header("Shape")]
@@ -268,6 +269,7 @@ public class FishScript : MonoBehaviour
 
     protected void Start()
     {
+        _centerOfTheWorld = GameObject.FindGameObjectWithTag("Center").GetComponent<CenterOfTheWorld>();
         boat = GameObject.FindGameObjectWithTag("Boat");
         //GetComponent<MeshRenderer>().material.color = _color;
     }
