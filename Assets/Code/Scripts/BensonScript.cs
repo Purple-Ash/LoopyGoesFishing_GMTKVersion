@@ -60,6 +60,11 @@ public class BensonScript : BaseNPCScript
     {
         destroyEntities();
         base.setShopUIInactive();
+        TutorialScript script = FindAnyObjectByType<TutorialScript>(); // Reset the flag when entering the shop
+        if (script != null)
+        {
+            script.exitedShop = true; // Reset the flag when exiting the shop
+        }
     }
 
     private void createEntities()

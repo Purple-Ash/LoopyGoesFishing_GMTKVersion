@@ -100,6 +100,11 @@ public class BarryScript : BaseNPCScript
         Time.timeScale = 1.0f; // Resume the game time
 
         GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().CheckAllFish(false);
+        TutorialScript script = FindAnyObjectByType<TutorialScript>(); // Reset the flag when entering the shop
+        if (script != null)
+        {
+            script.exitedShop = true; // Reset the flag when exiting the shop
+        }
     }
 
     void DestroyEntities()
