@@ -703,8 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4ba676f64f4984d90e5266d899a747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene:
-    m_Handle: 0
+  currentGameScene: Online Main Menu
 --- !u!1 &1659044891
 GameObject:
   m_ObjectHideFlags: 0

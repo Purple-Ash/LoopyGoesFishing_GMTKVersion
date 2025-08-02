@@ -40,11 +40,13 @@ public class EQFishLoader : MonoBehaviour
                 Debug.Log("Equipment object found");
                 if(equipmentView.activeSelf)
                 {
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
                     DestroyEntities();
                     equipmentView.SetActive(false);
                 }
                 else
                 {
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
                     equipmentView.SetActive(true);
                     SpawnEntities();
                     transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.z);

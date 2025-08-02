@@ -27,6 +27,7 @@ public class GlossaryScript : MonoBehaviour
             if (f1.price == f2.price) return 0;
             return -1;
         });
+        contentTransform.transform.position = new Vector3(contentTransform.transform.position.x, contentTransform.transform.position.y - 2000, contentTransform.transform.position.z);
     }
 
     // Update is called once per frame
@@ -46,16 +47,19 @@ public class GlossaryScript : MonoBehaviour
         }
     }
 
-    void Open()
+    public void Open()
     {
+        Debug.Log("Opening Glossary");
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
         contentTransform.transform.position = new Vector3(contentTransform.transform.position.x, contentTransform.transform.position.y - 2000, contentTransform.transform.position.z);
         GlossaryPopup.SetActive(true);
         isOpen = true;
     }
 
-    void Close()
+    public void Close()
     {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
         DestroyEntities();
         GlossaryPopup.SetActive(false);
         isOpen = false;
