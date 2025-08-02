@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b717717fb7fa2a44ea2e727fd3accedf, type: 3}
   m_Name: ZoomUpgrade1
   m_EditorClassIdentifier: 
-  upgradeName: Compass
-  description: Navigation is important to not get lost! With this compass you'll
-    be able to see more of your surroundings. I'll also throw in a hand-drawn map
-    for free.
+  upgradeName: Radar
+  description: Navigation is important to not get lost! With this radar you'll be
+    able to see more of your surroundings.
   cost: 40
-  icon: {fileID: 21300000, guid: ba81e03e2c46c3141b5b1145a5c78ee7, type: 3}
+  icon: {fileID: 21300000, guid: 110446eb9cece914f83e955c70a0d6cc, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 5529859c9abe21a4590ee17b16d3da62, type: 2}
   maxZoom: 15
   mapType: 1

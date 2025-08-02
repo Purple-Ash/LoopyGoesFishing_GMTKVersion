@@ -14,7 +14,6 @@ public class ChrisScript : BaseNPCScript
     public List<string> responses;
     public List<NewFishData> fishDataList;
     public int fishIndex;
-    public int fishSize;
     public float fishPrice;
 
     public bool isChitchatting = true;
@@ -31,8 +30,7 @@ public class ChrisScript : BaseNPCScript
     void Start()
     {
         fishIndex = Random.Range(0, fishDataList.Count);
-        fishSize = Random.Range(0, 3); // Random size between 1 and 2
-        fishPrice = fishDataList[fishIndex].price * (fishSize == 0 ? 1 : fishSize == 1 ? 2 : 4) * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
+        fishPrice = fishDataList[fishIndex].price * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
     }
 
     public void onBlueButton()
@@ -43,8 +41,7 @@ public class ChrisScript : BaseNPCScript
         if(!isResponding)
         {
             isChitchatting = false;
-            textbox.text = "Anyway I am, like, totally starving man. Any chance could get me any, like, " + fishDataList[fishIndex].name + " ? The " + (fishSize == 0 ? "M" : fishSize == 1 ? "L" : "XL") + " one specifically. I'll give you, like, " + fishPrice + "$ for it.";
-            
+            textbox.text = "Anyway I am, like, totally starving man. Any chance could get me any, like, " + fishDataList[fishIndex].name + " ? Like, no one size specifically. I'll give you, like, " + fishPrice + "$ for it.";
         }
         else
         {
@@ -61,20 +58,36 @@ public class ChrisScript : BaseNPCScript
         isResponding = true;
         textbox.text = "Yeah, that's like, totally cool, man. Come back in, like, a few minutes and maybe I'll get a taste for a different fish, you know? I can, like, just talk for now tho, man.";
 
+        StartCoroutine(waitForFish()); // Start the coroutine to wait for fish
         setShopUIActive();
     }
 
     public void onGreenButton()
     {
         EquipementScript equipementScript = FindAnyObjectByType<EquipementScript>();
-        if (equipementScript.fishDataDictionary.ContainsKey(fishDataList[fishIndex]) && equipementScript.fishDataDictionary[fishDataList[fishIndex]][fishSize] != 0)
+        if (equipementScript.fishDataDictionary.ContainsKey(fishDataList[fishIndex]) && (FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][0] != 0 || FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][1] != 0 || FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][2] != 0))
         {
-            equipementScript.fishDataDictionary[fishDataList[fishIndex]][fishSize] -= 1;
+            if (equipementScript.fishDataDictionary[fishDataList[fishIndex]][0] > 0)
+            {
+                equipementScript.fishDataDictionary[fishDataList[fishIndex]][0] -= 1; // Remove one fish of size M
+                equipementScript.weight -= fishDataList[fishIndex].weight; // Update the total weight based on size
+            }
+            else if (equipementScript.fishDataDictionary[fishDataList[fishIndex]][1] > 0)
+            {
+                equipementScript.fishDataDictionary[fishDataList[fishIndex]][1] -= 1; // Remove one fish of size L
+                equipementScript.weight -= fishDataList[fishIndex].weight * 1.5f; // Update the total weight based on size
+            }
+            else if (equipementScript.fishDataDictionary[fishDataList[fishIndex]][2] > 0)
+            {
+                equipementScript.fishDataDictionary[fishDataList[fishIndex]][2] -= 1; // Remove one fish of size XL
+                equipementScript.weight -= fishDataList[fishIndex].weight * 2; // Update the total weight based on size
+            }
             equipementScript.money += fishPrice; // Add the price to the player's money
+            
+            equipementScript.UpdateMoneyAndWeight();
 
             fishIndex = Random.Range(0, fishDataList.Count);
-            fishSize = Random.Range(0, 3); // Random size between 1 and 2
-            fishPrice = fishDataList[fishIndex].price * (fishSize == 0 ? 1 : fishSize == 1 ? 2 : 4) * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f;
+            fishPrice = fishDataList[fishIndex].price * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f;
             textbox.text = "Ay, man, like, totally thank you. Here's your chash, man.";
         }
         else
@@ -89,11 +102,10 @@ public class ChrisScript : BaseNPCScript
 
     public IEnumerator waitForFish()
     {
-        yield return new WaitForSeconds(90f); // Wait for 5 seconds
+        yield return new WaitForSecondsRealtime(90f); // Wait for 5 seconds
         isWaiting = false;
         fishIndex = Random.Range(0, fishDataList.Count);
-        fishSize = Random.Range(0, 3); // Random size between 1 and 2
-        fishPrice = fishDataList[fishIndex].price * (fishSize == 0 ? 1 : fishSize == 1 ? 2 : 4) * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
+        fishPrice = fishDataList[fishIndex].price * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
     }
 
     public override void setShopUIActive()
@@ -113,7 +125,7 @@ public class ChrisScript : BaseNPCScript
             greenButton.SetActive(true);
             redButton.SetActive(true);
             blueButton.SetActive(false);
-            if (FindAnyObjectByType<EquipementScript>().fishDataDictionary.ContainsKey(fishDataList[fishIndex]) && FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][fishSize] != 0)
+            if (FindAnyObjectByType<EquipementScript>().fishDataDictionary.ContainsKey(fishDataList[fishIndex]) && (FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][0] != 0 || FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][1] != 0 || FindAnyObjectByType<EquipementScript>().fishDataDictionary[fishDataList[fishIndex]][2] != 0))
             {
                 greenButton.transform.GetChild(0).GetComponent<TMP_Text>().text = "Sure, no problem!";
             }

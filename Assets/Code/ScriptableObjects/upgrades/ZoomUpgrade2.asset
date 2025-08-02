@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b717717fb7fa2a44ea2e727fd3accedf, type: 3}
   m_Name: ZoomUpgrade2
   m_EditorClassIdentifier: 
-  upgradeName: Radar
+  upgradeName: Ultra Pro NavSat 7500-R++
   description: The newest in navigation technology! Loopy, I can guarantee you'll
     never lose yourself again with this cutting eadge gps!
   cost: 500

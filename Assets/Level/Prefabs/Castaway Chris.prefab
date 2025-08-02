@@ -143,6 +143,8 @@ MonoBehaviour:
   fishPrice: 0
   isChitchatting: 1
   firstVisit: 0
+  isWaiting: 0
+  isResponding: 0
   redButton: {fileID: 7740586677470292426}
   blueButton: {fileID: 4542564838220571661}
   greenButton: {fileID: 6968924899185508956}
@@ -444,8 +446,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8432432003297083352}
+  m_Children: []
   m_Father: {fileID: 6720864255259246886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -651,13 +652,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971445419584202971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4951974580424191924}
-  m_Father: {fileID: 8531811159144592466}
+  m_Father: {fileID: 1467106474541097672}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1168,6 +1169,7 @@ RectTransform:
   - {fileID: 5748737776384657868}
   - {fileID: 7975357866534324644}
   - {fileID: 7565365234247049505}
+  - {fileID: 8432432003297083352}
   m_Father: {fileID: 6720864255259246886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

@@ -20,6 +20,7 @@ TagManager:
   - Arrow
   - Maps
   - Speedometer
+  - AudioManager
   layers:
   - Default
   - TransparentFX
