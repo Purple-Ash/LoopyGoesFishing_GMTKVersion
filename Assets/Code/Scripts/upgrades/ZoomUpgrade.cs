@@ -14,12 +14,13 @@ public class ZoomUpgrade : UpgradeScript
 
         if (mapType == 1)
         {
-            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(1).gameObject.SetActive(true);
         }
         else if (mapType == 2)
         {
-            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(0).gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(1).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(1).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Maps").transform.GetChild(2).gameObject.SetActive(true);
         }
     }
 }
