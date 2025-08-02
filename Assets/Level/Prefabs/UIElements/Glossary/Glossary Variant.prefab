@@ -92,6 +92,22 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Caught: 0/0'
       objectReference: {fileID: 0}
+    - target: {fileID: 4335161119054530771, guid: bdef1510748eeb243a6e92705524bf75, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 64f77a76528c5554d9ed6afef0e0875f, type: 2}
+    - target: {fileID: 4335161119054530771, guid: bdef1510748eeb243a6e92705524bf75, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8623053681352189844, guid: 64f77a76528c5554d9ed6afef0e0875f, type: 2}
+    - target: {fileID: 4335161119054530771, guid: bdef1510748eeb243a6e92705524bf75, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335161119054530771, guid: bdef1510748eeb243a6e92705524bf75, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5042838800174903394, guid: bdef1510748eeb243a6e92705524bf75, type: 3}
       propertyPath: m_Name
       value: List_Popup

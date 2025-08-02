@@ -16,7 +16,7 @@ public class BensonScript : BaseNPCScript
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.upgrades.Sort((x, y) => x.name.CompareTo(y.name)); // Sort upgrades by cost
     }
 
     // Update is called once per frame
@@ -107,6 +107,8 @@ public class BensonScript : BaseNPCScript
 
     private void refreshUpgradeItems()
     {
+        this.upgrades.Sort((x, y) => x.name.CompareTo(y.name)); // Sort upgrades by cost
+
         destroyEntities();
         createEntities();
     }
