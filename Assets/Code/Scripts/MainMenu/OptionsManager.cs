@@ -14,9 +14,14 @@ public class OptionsManager : MonoBehaviour
 
     [SerializeField] GameObject optionsMenu;
 
+    [SerializeField] GameObject optionsBoard;
+
+    [SerializeField] GameObject confirmationPopup;
+
     // Start is called before the first frame update
     void Start()
     {
+        AudioListener.volume = 1f;
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 1);
@@ -55,36 +60,80 @@ public class OptionsManager : MonoBehaviour
         }
         else
         {
-             CloseOptions();
+            CloseOptions();
         }
     }
 
     public void ShowOptions()
     {
+        CameraScript script = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+        if (script != null)
+        {
+            script.blockZoom();
+        }
+
         optionsMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void CloseOptions() 
     {
+        CameraScript script = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+        if (script != null)
+        {
+            script.unlockZoom();
+        }
         optionsMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
+    public void ShowQuitConfirmationPopup()
+    {
+        if (optionsMenu.activeSelf)
+        {
+            confirmationPopup.SetActive(true);
+            Selectable[] elements = optionsBoard.GetComponentsInChildren<Selectable>();
+            foreach (Selectable el in elements)
+            {
+                el.interactable = false;
+            }
+
+        }
+    }
+
+    public void CancelQuitConfirmation()
+    {
+        confirmationPopup.SetActive(false);
+        Selectable[] elements = optionsBoard.GetComponentsInChildren<Selectable>();
+        foreach (Selectable el in elements)
+        {
+            el.interactable = true;
+        }
+    }
+
+    public void QuitToMainMenu()
+    {
+        Debug.Log("Quitting to Main Menu");
+        CloseOptions();
+        SceneManager.LoadScene(PlayerPrefs.GetString("StartingMenu"));
+    }
+
+
     public void ChangeVolume()
     {
+        /*   
         AudioListener.volume = volumeSlider.value;
         Save();
-        Debug.Log("Volume changed to " +  volumeSlider.value);
+        Debug.Log("Volume changed to " +  volumeSlider.value);*/
     }
 
     private void Load()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        //volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
     private void Save()
     {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        //PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }

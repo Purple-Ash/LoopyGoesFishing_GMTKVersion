@@ -84,6 +84,8 @@ public class BoatMovement : MonoBehaviour
             var shape = particle.shape;
             shape.angle = rb.velocity.magnitude / (maxSpeedForward * 0.05f); // Adjust particle shape angle based on boat speed
         }
+
+        GameObject.FindGameObjectWithTag("Speedometer").transform.GetChild(1).rotation = Quaternion.Euler(0, 0, -rb.velocity.magnitude / maxSpeedForward * 170f + 85); // Update the speedometer needle rotation based on boat speed
     }
 
     internal Vector2 Rotate(Vector2 v, float delta)
@@ -121,6 +123,7 @@ public class BoatMovement : MonoBehaviour
         // Check if the boat collides with a buoy
         if (collision.gameObject.CompareTag("Buoy"))
         {
+            GameObject gameObject = collision.gameObject;
             collisioned = true; // Set the collision flag to true
             StartCoroutine(CollisionedBack()); // Start the coroutine to reset the collision flag after a delay
             // Handle buoy collision logic here
@@ -173,6 +176,7 @@ public class BoatMovement : MonoBehaviour
 
 
                 fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
+                fishCatcher.GetComponent<FishCatcher>().colliderByoy = gameObject; // Set the collider buoy reference
             }
         }
     }

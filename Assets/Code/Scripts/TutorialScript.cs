@@ -89,11 +89,13 @@ public class TutorialScript : MonoBehaviour
             // Set the sprite for the current step
             image.GetComponent<Image>().sprite = expressions[currentStep];
             text.text = texts[currentStep];
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
             Time.timeScale = 0.0f; // Pause the game time
         }
         else
         {
             tutorialPanel.SetActive(false);
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
             Time.timeScale = 1.0f; // Resume the game time if no expression is set
         }
 
@@ -121,6 +123,7 @@ public class TutorialScript : MonoBehaviour
     public void SkipTutorial()
     {
         Time.timeScale = 1.0f; // Resume the game time
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
         this.gameObject.SetActive(false); // Hide the tutorial script GameObject
         // Hide the tutorial panel and arrow
         tutorialPanel.SetActive(false);

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04b9e63d354a924d8ac400948e00ab4, type: 3}
+  m_Name: zzzzIslandCatcher
+  m_EditorClassIdentifier: 
+  upgradeName: ????????
+  description: Hey, Loopy, have you ever heard about a little boy who went sailing
+    17 years and disappeared? Maybe he survived and is stuck somewhere. If you ever
+    find him I have something that might help, but it's really gonna cost ya.
+  cost: 9999
+  icon: {fileID: 21300000, guid: 254d67c954304a243833f8c129f48ed1, type: 3}
+  nextUpgrade: {fileID: 11400000, guid: 66f7eb9dfab740b4aa043def3125da25, type: 2}
+  numberOfBuoys: 670
+  color: {r: 0, g: 1, b: 1, a: 1}

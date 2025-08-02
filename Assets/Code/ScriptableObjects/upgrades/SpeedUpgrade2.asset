@@ -22,3 +22,6 @@ MonoBehaviour:
   newBackwardsMaxSpeed: 3.5
   newAcceleration: 3
   newDeceleration: 1.5
+  speedometerBottom: {fileID: 21300000, guid: 10a11843d8394b64a8d829a3074cef55, type: 3}
+  speedometerMid: {fileID: 21300000, guid: b2e125ada7ef960478874be9b63ee269, type: 3}
+  speedometerTop: {fileID: 21300000, guid: 8835fcad88e21c54db0f8036f7932c81, type: 3}

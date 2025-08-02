@@ -13,6 +13,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private float _zoomIncrement = 1;
     private float _targetZoom;
     private GameObject _boat;
+    private bool _blockedZoom = false;
 
     void Start()
     {
@@ -43,33 +44,49 @@ public class CameraScript : MonoBehaviour
 
     private void updateCameraZoom()
     {
-        float currentZoom = _mainCamera.orthographicSize;
-        float newZoom = Mathf.Lerp(
-            currentZoom,
-            _targetZoom,
-            _zoomSpeed * Time.fixedDeltaTime);
-        _mainCamera.orthographicSize = newZoom;
+        if (!_blockedZoom)
+        {
+            float currentZoom = _mainCamera.orthographicSize;
+            float newZoom = Mathf.Lerp(
+                currentZoom,
+                _targetZoom,
+                _zoomSpeed * Time.fixedDeltaTime);
+            _mainCamera.orthographicSize = newZoom;
+        }
+    }
+
+    public void blockZoom()
+    {
+        _blockedZoom = true;
+    }
+
+    public void unlockZoom()
+    {
+        _blockedZoom = false;
     }
 
     private void FixedUpdate()
     {
         updateCameraPosition();
         updateCameraZoom();
+
     }
 
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f) // zoom in
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f && !_blockedZoom) // zoom in
         {
             _targetZoom += _zoomIncrement;
             if(_targetZoom > _maxZoom)
                 _targetZoom = _maxZoom;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") > 0f) // zoom out
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0f && !_blockedZoom) // zoom out
         {
             _targetZoom -= _zoomIncrement;
             if(_targetZoom < _minZoom)
                 _targetZoom = _minZoom;
         }
+
+
     }
 }

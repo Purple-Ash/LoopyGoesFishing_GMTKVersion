@@ -14,6 +14,7 @@ public class ZoomUpgrade : UpgradeScript
 
         if (mapType == 1)
         {
+            Debug.Log(GameObject.FindGameObjectWithTag("Maps").name);
             GameObject.FindGameObjectWithTag("Maps").transform.GetChild(0).gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("Maps").transform.GetChild(1).gameObject.SetActive(true);
         }

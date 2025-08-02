@@ -10,7 +10,9 @@ public class BuoySpawner : MonoBehaviour
     [SerializeField] private float spacing = 2.0f; // Spacing between buoys
     [SerializeField] private float firstBuoyOffset = 1.0f; // Offset for the first buoy
 
-    protected NetExtension lastBuoy; // Reference to the last buoy spawned
+    private NetExtension lastBuoy; // Reference to the last buoy spawned
+
+    public NetExtension LastBuoy { get => lastBuoy; set => lastBuoy = value; }
 
     // Start is called before the first frame update
     void Start()
