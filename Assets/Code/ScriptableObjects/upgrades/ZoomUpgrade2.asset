@@ -16,7 +16,7 @@ MonoBehaviour:
   description: The newest in navigation technology! Loopy, I can guarantee you'll
     never lose yourself again with this cutting eadge gps!
   cost: 500
-  icon: {fileID: 21300000, guid: 110446eb9cece914f83e955c70a0d6cc, type: 3}
+  icon: {fileID: 21300000, guid: 3876e50d11182e648ba460257124213a, type: 3}
   nextUpgrade: {fileID: 0}
   maxZoom: 18
   mapType: 2
