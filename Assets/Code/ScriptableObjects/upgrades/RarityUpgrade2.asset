@@ -19,6 +19,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9ccc367f100dbd74ba2aed7c44445afb, type: 3}
   nextUpgrade: {fileID: 0}
   rarities:
-  - 35
-  - 35
-  - 30
+  - 0.35
+  - 0.35
+  - 0.3

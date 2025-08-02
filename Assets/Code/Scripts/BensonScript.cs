@@ -16,7 +16,7 @@ public class BensonScript : BaseNPCScript
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.upgrades.Sort((x, y) => x.name.CompareTo(y.name)); // Sort upgrades by cost
     }
 
     // Update is called once per frame
@@ -29,6 +29,7 @@ public class BensonScript : BaseNPCScript
     {
         createEntities();
         base.setShopUIActive();
+        transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.z);
     }
 
     void buyItem(string upgradeName)
@@ -59,6 +60,11 @@ public class BensonScript : BaseNPCScript
     {
         destroyEntities();
         base.setShopUIInactive();
+        TutorialScript script = FindAnyObjectByType<TutorialScript>(); // Reset the flag when entering the shop
+        if (script != null)
+        {
+            script.exitedShop = true; // Reset the flag when exiting the shop
+        }
     }
 
     private void createEntities()
@@ -101,6 +107,8 @@ public class BensonScript : BaseNPCScript
 
     private void refreshUpgradeItems()
     {
+        this.upgrades.Sort((x, y) => x.name.CompareTo(y.name)); // Sort upgrades by cost
+
         destroyEntities();
         createEntities();
     }

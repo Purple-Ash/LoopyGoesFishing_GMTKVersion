@@ -12,5 +12,6 @@ public class MoneyUpgrade : UpgradeScript
     {
         FindObjectOfType<EquipementScript>().moneyMult = moneyMultiplier;
         FindObjectOfType<EquipementScript>().capacity += extraSpace;
+        GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().UpdateMoneyAndWeight();
     }
 }

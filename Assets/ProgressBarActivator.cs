@@ -48,6 +48,11 @@ public class ProgressBarActivator : MonoBehaviour
             // Some script part to Switch the shop UI on
 
             calledEvent.GetComponent<BaseNPCScript>().setShopUIActive();
+            TutorialScript tutorialScript = FindObjectOfType<TutorialScript>();
+            if (tutorialScript != null)
+            {
+                tutorialScript.enterredShop = true; // Set the flag to true when entering the shop
+            }
         }
     }
 

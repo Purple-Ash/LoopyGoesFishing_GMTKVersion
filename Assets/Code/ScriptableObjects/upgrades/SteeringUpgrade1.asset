@@ -18,4 +18,4 @@ MonoBehaviour:
   cost: 75
   icon: {fileID: 21300000, guid: 9dd3a975e80a0b84f84a8aef9d15f00b, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 32e3e7c334e6de74ab7b3e53f5b01e1c, type: 2}
-  newSteering: 140
+  newSteering: 150

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd627705490d5f47a64d2a1a2515de5, type: 3}
   m_Name: MoneyUpgrade3
   m_EditorClassIdentifier: 
-  upgradeName: Insulated bag
+  upgradeName: Transport refridgerator
   description: This will help you keep your fish fresh, increasing their sell value.
     Also grants a bit of extra space
   cost: 2000
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 4e8f4435b8ed87648ae8caabb3d70cf2, type: 3}
   nextUpgrade: {fileID: 0}
   moneyMultiplier: 2
   extraSpace: 30

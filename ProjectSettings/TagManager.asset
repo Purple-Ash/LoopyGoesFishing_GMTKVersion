@@ -17,6 +17,8 @@ TagManager:
   - BensonManager
   - Island
   - Center
+  - Arrow
+  - Maps
   layers:
   - Default
   - TransparentFX
