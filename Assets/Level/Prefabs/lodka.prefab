@@ -29232,8 +29232,11 @@ MonoBehaviour:
   closedNet: {fileID: 2100000, guid: 4366fefadabd48342af1610d5cd3db0c, type: 2}
   closeNet: {fileID: 2800000, guid: 624896d2555812943a245ae7de3f4c0f, type: 3}
   netTime: 2
-  boatSoundBad: {fileID: 8300000, guid: 733df6e15b0a82f40af9dd68e8aec502, type: 3}
-  boatSoundGood: {fileID: 8300000, guid: dece2ab5636155c45a1fb61e77562afa, type: 3}
+  boatSoundBad: {fileID: 8300000, guid: dece2ab5636155c45a1fb61e77562afa, type: 3}
+  boatSoundGood: {fileID: 8300000, guid: 688bd455154cc1c4f9b5b2cb07361070, type: 3}
+  boatVolumeMultip: 0.6
+  caught: {fileID: 8300000, guid: d44a9a67299718943bc12fa8e97d62ee, type: 3}
+  caughtMultip: 1
 --- !u!50 &6228573398569231122
 Rigidbody2D:
   serializedVersion: 4
