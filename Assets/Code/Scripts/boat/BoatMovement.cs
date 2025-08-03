@@ -48,10 +48,8 @@ public class BoatMovement : MonoBehaviour
     {
         motorSound.transform.position = transform.position;
 
-        Debug.Log("pre volume: " + rb.velocity.magnitude / maxSpeedForward);
         //motorSound.volume = rb.velocity.magnitude / maxSpeedForward;
         audioManager.SetRelativeVolume(motorSound, rb.velocity.magnitude / maxSpeedForward * boatVolumeMultip);
-        Debug.Log("volume: " + motorSound.volume);
 
         if (Input.GetKey(KeyCode.W))
         {

@@ -18,10 +18,17 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Clip")]
     [SerializeField] private AudioClip _mainMusic;
+    [SerializeField] private float _musicMultiplier = 1f;
+    [SerializeField] private AudioClip _buttonSound;
+    [SerializeField] private float _buttonVolumeMultiplier = 0.8f;
+
+    [SerializeField] private AudioClip _seagullAmbient;
+    [SerializeField] private float _seagullMultiplier = 0.2f;
+
 
     private AudioSource _musicSource;
     private List<AudioSource> _sfxSources;
-    private AudioSource _ambientSource;
+    private List<AudioSource> _ambientSource;
 
     private float GetVolume(Audio volumeSetting)
     {
@@ -46,7 +53,11 @@ public class AudioManager : MonoBehaviour
 
     private void UpdateAmbientVolume()
     {
-       _ambientSource.volume = _ambientVolume;
+        _ambientSource.RemoveAll(src => src == null);
+        foreach (var source in _sfxSources)
+        {
+            source.volume = _sfxVolume;
+        }
     }
 
     private void UpdateMusicVolume()
@@ -104,6 +115,11 @@ public class AudioManager : MonoBehaviour
         source.volume = relativeVolume * _sfxVolume;
     }
 
+    public void PlayButtonSound()
+    {
+        PlayCenter(_buttonSound, _buttonVolumeMultiplier);
+    }
+
     public AudioSource PlayLoopAtPosition(AudioClip clip, Vector3 position, float relativeVolume)
     {
         GameObject sourceObject = new GameObject("TempAudio");
@@ -118,9 +134,28 @@ public class AudioManager : MonoBehaviour
         return src;
     }
 
+    private void PlayAmbientSound(AudioClip clip, float relativeVolume)
+    {
+        GameObject sourceObject = new GameObject("TempAmbient");
+        AudioSource src = sourceObject.AddComponent<AudioSource>();
+        src.clip = clip;
+        src.volume = relativeVolume * _ambientVolume;
+        src.spatialBlend = 0f; // 2D
+        src.loop= true;
+        src.Play();
+        _ambientSource.Add(src);
+        Debug.Log("Ambient Source Added");
+    }
+
+    private void PlayAmbientSounds()
+    {
+        PlayAmbientSound(_seagullAmbient, _seagullMultiplier);
+    }
+
     private void Awake()
     {
         _sfxSources = new List<AudioSource>();
+        _ambientSource = new List<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -130,12 +165,10 @@ public class AudioManager : MonoBehaviour
         _musicSource.clip = _mainMusic;
         _musicSource.loop = true;
         _musicSource.spatialBlend = 0f; // 2D
-        _musicSource.volume = _musicVolume;
+        _musicSource.volume = _musicVolume * _musicMultiplier;
         _musicSource.Play();
         Debug.Log("Playing music");
 
-        _ambientSource = gameObject.AddComponent<AudioSource>();
-        _ambientSource.volume = _ambientVolume;
-        _ambientSource.spatialBlend = 0f;
+        PlayAmbientSounds();
     }
 }
