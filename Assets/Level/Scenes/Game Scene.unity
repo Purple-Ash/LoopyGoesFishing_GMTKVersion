@@ -2443,6 +2443,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _maxFishToSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _fishWanderRadious
       value: 12
       objectReference: {fileID: 0}
@@ -4477,6 +4481,10 @@ PrefabInstance:
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _maxFishToSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _fishWanderRadious
@@ -7201,6 +7209,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _maxFishToSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _fishWanderRadious
       value: 12
       objectReference: {fileID: 0}
@@ -7861,6 +7873,10 @@ PrefabInstance:
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _maxFishToSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _fishWanderRadious
@@ -11347,6 +11363,10 @@ PrefabInstance:
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _maxFishToSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _fishWanderRadious
@@ -15026,6 +15046,10 @@ PrefabInstance:
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _spawnRadious
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
+      propertyPath: _maxFishToSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219058182545369249, guid: be7896a27ef9d49489d62a6177a3c635, type: 3}
       propertyPath: _fishWanderRadious
