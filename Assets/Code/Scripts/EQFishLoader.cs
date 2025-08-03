@@ -34,27 +34,27 @@ public class EQFishLoader : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Equipment button activated");
             if (equipmentView != null)
             {
-                Debug.Log("Equipment object found");
                 if(equipmentView.activeSelf)
                 {
-                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
-                    DestroyEntities();
-                    equipmentView.SetActive(false);
+                    Close();
+                    GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuClose();
                 }
                 else
                 {
-                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
-                    equipmentView.SetActive(true);
-                    SpawnEntities();
-                    transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.z);
+                    GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuOpen();
+                    Open();
                 }
             }
-            else
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (equipmentView.activeSelf)
             {
-                Debug.Log("Equipment object not found");
+                Close();
+                GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuClose();
             }
         }
     }
@@ -77,6 +77,20 @@ public class EQFishLoader : MonoBehaviour
     //    }
     //}
 
+    void Open()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
+        equipmentView.SetActive(true);
+        SpawnEntities();
+        transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.z);
+    }
+
+    void Close()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
+        DestroyEntities();
+        equipmentView.SetActive(false);
+    }
 
     void DestroyEntities()
     {
