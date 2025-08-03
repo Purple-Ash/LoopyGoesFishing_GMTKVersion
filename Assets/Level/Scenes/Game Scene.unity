@@ -14159,6 +14159,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 89667914718810955, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.91870165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.39495236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 46.526
+      objectReference: {fileID: 0}
     - target: {fileID: 298800128501582983, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: numberOfBuoys
       value: 330
@@ -14274,50 +14318,6 @@ PrefabInstance:
     - target: {fileID: 7394374867672905376, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_Name
       value: lodka (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 89667914718810955, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 70.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.91870165
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.39495236
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253606830918095035, guid: 67398ed374d276f438d177bce9caf552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 46.526
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20398,6 +20398,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 298800128501582983, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
+      propertyPath: numberOfBuoys
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 1103687954009220557, guid: 3e675e3d0d3f107478c47d6bad557b83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.98
@@ -20956,7 +20960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4258334936135420209, guid: 044def87001e24c449d42665b8fd67ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.03
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 4258334936135420209, guid: 044def87001e24c449d42665b8fd67ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21147,6 +21151,7 @@ MonoBehaviour:
   holdTime: 0.5
   fadeInTime: 1.5
   textFadeTime: 2
+  buttonFadeTime: 2
   ending: {fileID: 633087506}
 --- !u!4 &1550319168 stripped
 Transform:
@@ -23734,11 +23739,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -24142,11 +24147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
