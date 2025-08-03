@@ -20,3 +20,4 @@ MonoBehaviour:
   nextUpgrade: {fileID: 0}
   numberOfBuoys: 1
   color: {r: 0, g: 1, b: 1, a: 1}
+  islandCatcher: 1

@@ -13,16 +13,18 @@ public class IslandTowScript : MonoBehaviour
     public float holdTime = 1f; // Time to hold the island before fading out
     public float fadeInTime = 2f;
     public float textFadeTime = 2f;
+    public float buttonFadeTime = 2f;
     bool triggerEnd = false; // Flag to check if the trigger has ended
     bool triggerHold = false; // Flag to check if the trigger is holding
     bool triggerIn = false; // Flag to check if the trigger is in
     bool triggerText = false; // Flag to check if the trigger text is activated
     bool triggered = false; // Flag to check if the trigger has been activated
+    bool triggerButton = false; // Flag to check if the button is triggered
     float timer = 0;
     public GameObject ending; // Reference to the ending GameObject
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<FishCatcher>() != null && !isTowed)
+        if (collision.GetComponent<FishCatcher>() != null && !isTowed && FindObjectOfType<BuoySpawner>().isIslandCatcher)
         {
             GetComponent<PolygonCollider2D>().enabled = false; // Disable the collider to prevent further collisions
 
@@ -114,7 +116,21 @@ public class IslandTowScript : MonoBehaviour
             if (timer >= textFadeTime)
             {
                 triggerText = false; // Reset the trigger text flag
+                triggerButton = true; // Set the trigger button flag to true after the text fade time
+                timer = 0; // Reset the timer
                 ending.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().color = ending.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().color + new Color(0, 0, 0, 1 - ending.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().color.a); // Fade in the text
+            }
+        }
+        if(triggerButton)
+        {
+            timer += Time.deltaTime; // Increment the timer
+            ending.transform.GetChild(2).GetChild(1).GetComponent<Button>().GetComponent<Image>().color = new Color(1, 88f/255f, 0, timer / buttonFadeTime); // Fade in the button
+            ending.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<TMP_Text>().color = new Color(0.2f, 0.2f, 0.2f, timer / buttonFadeTime); // Fade in the button
+            if (timer >= buttonFadeTime)
+            {
+                triggerButton = false; // Reset the trigger button flag
+                ending.transform.GetChild(2).GetChild(1).GetComponent<Button>().GetComponent<Image>().color = new Color(1, 88f/255f, 0, 1); // Set the button color to fully opaque
+                ending.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<TMP_Text>().color = new Color(0.2f, 0.2f, 0.2f, 1); // Fade in the button
             }
         }
     }

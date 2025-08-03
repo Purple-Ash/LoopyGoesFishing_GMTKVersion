@@ -7,6 +7,7 @@ public class BuoyUpgrade : UpgradeScript
 {
     [SerializeField] private int numberOfBuoys = 25; // Number of buoys to spawn
     [SerializeField] private Color color = Color.white; // Color of the buoys
+    [SerializeField] private bool islandCatcher = false; // Flag to indicate if the buoys are for an island catcher
 
     public override void ApplyUpgrade()
     {
@@ -14,6 +15,7 @@ public class BuoyUpgrade : UpgradeScript
         if (buoySpawner != null)
         {
             buoySpawner.addBuoys(numberOfBuoys, color);
+            buoySpawner.isIslandCatcher = islandCatcher; // Set the island catcher flag
         }
         else
         {
