@@ -48,5 +48,8 @@ MonoBehaviour:
   _sfxVolume: 1
   _ambientVolume: 1
   _mainMusic: {fileID: 8300000, guid: b4798586d0a4bce48ab11a453032d633, type: 3}
+  _musicMultiplier: 1
   _buttonSound: {fileID: 8300000, guid: 0860a737c689e3743a89be03fd35e9cf, type: 3}
-  _buttonVolumeMultiplier: 0.8
+  _buttonVolumeMultiplier: 1
+  _seagullAmbient: {fileID: 8300000, guid: 9e0f3ada998e9b34a8230527dab990ee, type: 3}
+  _seagullMultiplier: 0.25

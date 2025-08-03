@@ -25,10 +25,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _seagullAmbient;
     [SerializeField] private float _seagullMultiplier = 0.2f;
 
+    protected struct CorrectedVolumeAudio {
+        public AudioSource audioSource;
+        public float volume;
+    }
 
     private AudioSource _musicSource;
-    private List<AudioSource> _sfxSources;
-    private List<AudioSource> _ambientSource;
+    private List<CorrectedVolumeAudio> _sfxSources;
+    private List<CorrectedVolumeAudio> _ambientSource;
 
     private float GetVolume(Audio volumeSetting)
     {
@@ -44,19 +48,19 @@ public class AudioManager : MonoBehaviour
 
     private void UpdateSFXVolume()
     {
-        _sfxSources.RemoveAll(src => src == null);
+        _sfxSources.RemoveAll(src => src.audioSource == null);
         foreach (var source in _sfxSources)
         {
-            source.volume = _sfxVolume;
+            source.audioSource.volume = source.volume * _sfxVolume;
         }
     }
 
     private void UpdateAmbientVolume()
     {
-        _ambientSource.RemoveAll(src => src == null);
-        foreach (var source in _sfxSources)
+        _ambientSource.RemoveAll(src => src.audioSource == null);
+        foreach (var source in _ambientSource)
         {
-            source.volume = _sfxVolume;
+            source.audioSource.volume = source.volume * _ambientVolume;
         }
     }
 
@@ -94,7 +98,10 @@ public class AudioManager : MonoBehaviour
         src.volume = relativeVolume * _sfxVolume;
         src.spatialBlend = 1f; // 3D
         src.Play();
-        _sfxSources.Add(src);
+        CorrectedVolumeAudio audio = new CorrectedVolumeAudio();
+        audio.audioSource = src;
+        audio.volume = relativeVolume;
+        _sfxSources.Add(audio);
         Destroy(sourceObject, clip.length);
     }
 
@@ -106,7 +113,10 @@ public class AudioManager : MonoBehaviour
         src.volume = relativeVolume * _sfxVolume;
         src.spatialBlend = 0f; // 2D
         src.Play();
-        _sfxSources.Add(src);
+        CorrectedVolumeAudio audio = new CorrectedVolumeAudio();
+        audio.audioSource = src;
+        audio.volume = relativeVolume;
+        _sfxSources.Add(audio);
         Destroy(sourceObject, clip.length);
     }
 
@@ -130,7 +140,10 @@ public class AudioManager : MonoBehaviour
         src.spatialBlend = 1f; // 3D
         src.loop = true;
         src.Play();
-        _sfxSources.Add(src);
+        CorrectedVolumeAudio audio = new CorrectedVolumeAudio();
+        audio.audioSource = src;
+        audio.volume = relativeVolume;
+        _sfxSources.Add(audio);
         return src;
     }
 
@@ -143,7 +156,10 @@ public class AudioManager : MonoBehaviour
         src.spatialBlend = 0f; // 2D
         src.loop= true;
         src.Play();
-        _ambientSource.Add(src);
+        CorrectedVolumeAudio audio = new CorrectedVolumeAudio();
+        audio.audioSource = src;
+        audio.volume = relativeVolume;
+        _ambientSource.Add(audio);
         Debug.Log("Ambient Source Added");
     }
 
@@ -154,14 +170,14 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        _sfxSources = new List<AudioSource>();
-        _ambientSource = new List<AudioSource>();
+        _sfxSources = new List<CorrectedVolumeAudio>();
+        _ambientSource = new List<CorrectedVolumeAudio>();
+        _musicSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _musicSource = gameObject.AddComponent<AudioSource>();
         _musicSource.clip = _mainMusic;
         _musicSource.loop = true;
         _musicSource.spatialBlend = 0f; // 2D
