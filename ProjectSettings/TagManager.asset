@@ -23,6 +23,7 @@ TagManager:
   - AudioManager
   - VillageCenter
   - Ending
+  - OptionsManager
   layers:
   - Default
   - TransparentFX

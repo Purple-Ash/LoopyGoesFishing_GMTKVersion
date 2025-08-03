@@ -18736,6 +18736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2567391498864931669, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_TagString
+      value: OptionsManager
+      objectReference: {fileID: 0}
     - target: {fileID: 3954924902583729117, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

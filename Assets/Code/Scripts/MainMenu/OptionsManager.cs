@@ -18,6 +18,8 @@ public class OptionsManager : MonoBehaviour
 
     [SerializeField] GameObject confirmationPopup;
 
+    private bool isOtherMenuOpen = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +41,8 @@ public class OptionsManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Main Menu")
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
+            if(Input.GetKeyDown(KeyCode.Escape) && !isOtherMenuOpen)
+            { 
                 SwitchOptions();
             }
         }
@@ -118,6 +120,15 @@ public class OptionsManager : MonoBehaviour
         SceneManager.LoadScene(PlayerPrefs.GetString("StartingMenu"));
     }
 
+    public void OtherMenuOpen()
+    {
+        isOtherMenuOpen = true;
+    }
+
+    public void OtherMenuClose()
+    {
+        isOtherMenuOpen = false;
+    }
 
     public void ChangeVolume()
     {
