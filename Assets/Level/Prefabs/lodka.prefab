@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1004,8 +1004,8 @@ ParticleSystem:
           inWeight: 0.45318583
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.37668204
-          value: 0.69036275
+          time: 0.4745538
+          value: 0.6768525
           inSlope: 0.94680804
           outSlope: 0.94680804
           tangentMode: 0
@@ -1327,9 +1327,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.90090054}
+        key1: {r: 0.6994037, g: 0.8719655, b: 0.8773585, a: 0.90090054}
         key2: {r: 1, g: 1, b: 1, a: 0.21960784}
-        key3: {r: 0, g: 0, b: 0, a: 0.05882353}
+        key3: {r: 0, g: 0, b: 0, a: 0.015686275}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1345,7 +1345,7 @@ ParticleSystem:
         atime0: 0
         atime1: 5012
         atime2: 12143
-        atime3: 23708
+        atime3: 26792
         atime4: 65535
         atime5: 0
         atime6: 0
@@ -5135,7 +5135,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5852,8 +5852,8 @@ ParticleSystem:
           inWeight: 0.45318583
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.37668204
-          value: 0.69036275
+          time: 0.4745538
+          value: 0.6768525
           inSlope: 0.94680804
           outSlope: 0.94680804
           tangentMode: 0
@@ -6175,9 +6175,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.90090054}
+        key1: {r: 0.6994037, g: 0.8719655, b: 0.8773585, a: 0.90090054}
         key2: {r: 1, g: 1, b: 1, a: 0.21960784}
-        key3: {r: 0, g: 0, b: 0, a: 0.05882353}
+        key3: {r: 0, g: 0, b: 0, a: 0.015686275}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -6193,7 +6193,7 @@ ParticleSystem:
         atime0: 0
         atime1: 5012
         atime2: 12143
-        atime3: 23708
+        atime3: 26792
         atime4: 65535
         atime5: 0
         atime6: 0
@@ -11030,7 +11030,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 5012
+        atime1: 2120
         atime2: 12143
         atime3: 23708
         atime4: 65535
@@ -14822,7 +14822,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15539,8 +15539,8 @@ ParticleSystem:
           inWeight: 0.45318583
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.37668204
-          value: 0.69036275
+          time: 0.4745538
+          value: 0.6768525
           inSlope: 0.94680804
           outSlope: 0.94680804
           tangentMode: 0
@@ -15862,9 +15862,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.90090054}
+        key1: {r: 0.6994037, g: 0.8719655, b: 0.8773585, a: 0.90090054}
         key2: {r: 1, g: 1, b: 1, a: 0.21960784}
-        key3: {r: 0, g: 0, b: 0, a: 0.05882353}
+        key3: {r: 0, g: 0, b: 0, a: 0.015686275}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -15880,7 +15880,7 @@ ParticleSystem:
         atime0: 0
         atime1: 5012
         atime2: 12143
-        atime3: 23708
+        atime3: 26792
         atime4: 65535
         atime5: 0
         atime6: 0
@@ -19395,7 +19395,7 @@ GameObject:
   - component: {fileID: 1170532550926315456}
   - component: {fileID: 3992161210470157921}
   m_Layer: 7
-  m_Name: BottmRight (1)
+  m_Name: BottmRightBubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20717,7 +20717,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 5012
+        atime1: 2120
         atime2: 12143
         atime3: 23708
         atime4: 65535
@@ -24509,7 +24509,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -25226,8 +25226,8 @@ ParticleSystem:
           inWeight: 0.45318583
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.37668204
-          value: 0.69036275
+          time: 0.4745538
+          value: 0.6768525
           inSlope: 0.94680804
           outSlope: 0.94680804
           tangentMode: 0
@@ -25549,9 +25549,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.90090054}
+        key1: {r: 0.6994037, g: 0.8719655, b: 0.8773585, a: 0.90090054}
         key2: {r: 1, g: 1, b: 1, a: 0.21960784}
-        key3: {r: 0, g: 0, b: 0, a: 0.05882353}
+        key3: {r: 0, g: 0, b: 0, a: 0.015686275}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -25567,7 +25567,7 @@ ParticleSystem:
         atime0: 0
         atime1: 5012
         atime2: 12143
-        atime3: 23708
+        atime3: 26792
         atime4: 65535
         atime5: 0
         atime6: 0
@@ -29232,6 +29232,8 @@ MonoBehaviour:
   closedNet: {fileID: 2100000, guid: 4366fefadabd48342af1610d5cd3db0c, type: 2}
   closeNet: {fileID: 2800000, guid: 624896d2555812943a245ae7de3f4c0f, type: 3}
   netTime: 2
+  boatSoundBad: {fileID: 8300000, guid: 733df6e15b0a82f40af9dd68e8aec502, type: 3}
+  boatSoundGood: {fileID: 8300000, guid: dece2ab5636155c45a1fb61e77562afa, type: 3}
 --- !u!50 &6228573398569231122
 Rigidbody2D:
   serializedVersion: 4
@@ -30644,7 +30646,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 5012
+        atime1: 2120
         atime2: 12143
         atime3: 23708
         atime4: 65535
@@ -34245,7 +34247,7 @@ GameObject:
   - component: {fileID: 3160234003821088597}
   - component: {fileID: 5097009786132684489}
   m_Layer: 7
-  m_Name: BottomLeft (1)
+  m_Name: BottomLeftBubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35567,7 +35569,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 5012
+        atime1: 2120
         atime2: 12143
         atime3: 23708
         atime4: 65535

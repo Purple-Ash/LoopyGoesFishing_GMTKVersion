@@ -22,6 +22,8 @@ TagManager:
   - Speedometer
   - AudioManager
   - VillageCenter
+  - Ending
+  - OptionsManager
   layers:
   - Default
   - TransparentFX
