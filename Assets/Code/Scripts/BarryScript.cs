@@ -95,6 +95,11 @@ public class BarryScript : BaseNPCScript
         SpawnEntities();
         UpdatePrice();
         equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
+        TutorialScript tutorialScript = FindObjectOfType<TutorialScript>();
+        if (tutorialScript != null)
+        {
+            tutorialScript.enterredBarryShop = true; // Set the flag to true when entering the shop
+        }
     }
 
     public override void setShopUIInactive()
