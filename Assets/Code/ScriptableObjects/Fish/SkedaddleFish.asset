@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 6c1835d0042a16d43ad4494b34a77d13, type: 3}
   name: Skedaddlefish
-  description: Lives near islands, instinctively runs away when approached with close
-    proximity
+  description: Lives near islands, instinctively runs away when approached within
+    close proximity.
   price: 5
   weight: 1

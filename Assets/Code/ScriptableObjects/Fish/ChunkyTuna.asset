@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 4b263a31d24232140b9de4ac03503d73, type: 3}
   name: Chunky Tuna
-  description: Look at this thig. It's huge!
+  description: Look at this thing, It's huge! We couldn't even fit it in frame.
   price: 400
   weight: 25
