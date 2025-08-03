@@ -19,11 +19,14 @@ TagManager:
   - Center
   - Arrow
   - Maps
-<<<<<<< HEAD
   - Speedometer
-=======
   - AudioManager
->>>>>>> 8c3cbcceefd4dbebdf08ed66994637544a74a1a4
+  - VillageCenter
+<<<<<<< HEAD
+  - Ending
+=======
+  - OptionsManager
+>>>>>>> 2f3790464edb9c68451adb8e80c933be618408c9
   layers:
   - Default
   - TransparentFX
