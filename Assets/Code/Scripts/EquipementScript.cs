@@ -63,7 +63,8 @@ public class EquipementScript : MonoBehaviour
             Debug.LogWarning($"Random value {random} did not match any probability range.");
         }
 
-        Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");
+        /*
+        Debug.Log($"Fish data for {fishName} updated: Bad={fishDataDictionary[fishName][0]}, Normal={fishDataDictionary[fishName][1]}, Good={fishDataDictionary[fishName][2]}");*/
 
         UpdateMoneyAndWeight(); // Update money and weight display after adding fish data
 

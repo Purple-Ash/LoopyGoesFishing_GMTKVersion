@@ -132,19 +132,18 @@ public class OptionsManager : MonoBehaviour
 
     public void ChangeVolume()
     {
-        /*   
         AudioListener.volume = volumeSlider.value;
         Save();
-        Debug.Log("Volume changed to " +  volumeSlider.value);*/
+        Debug.Log("Volume changed to " +  volumeSlider.value);
     }
 
     private void Load()
     {
-        //volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
     private void Save()
     {
-        //PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }
