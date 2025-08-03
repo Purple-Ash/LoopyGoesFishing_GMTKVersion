@@ -16,6 +16,7 @@ public class BarryScript : BaseNPCScript
     // The Equipment View UI object
     public GameObject imageView;
     public GameObject equipmentView;
+    public GameObject backPanel;
 
     // A Map to store the current equipment data
     private Dictionary<NewFishData, int[]> fishDataDictionary;
@@ -89,6 +90,7 @@ public class BarryScript : BaseNPCScript
     {
         imageView.SetActive(true);
         equipmentView.SetActive(true); // Show the equipment view when the image view is opened
+        backPanel.SetActive(true);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
         UpdatePrice();
@@ -103,6 +105,7 @@ public class BarryScript : BaseNPCScript
 
         imageView.SetActive(false);
         equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
+        backPanel.SetActive(false );
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
 
         DestroyEntities();
