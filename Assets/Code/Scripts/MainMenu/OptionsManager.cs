@@ -9,8 +9,18 @@ using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour
 {
+    public enum Sliders
+    {
+        Master,
+        Music,
+        SFX,
+        Ambient
+    }
 
-    [SerializeField] Slider volumeSlider;
+    [SerializeField] Slider _masterVolume;
+    [SerializeField] Slider _musicVolume;
+    [SerializeField] Slider _sfxVolume;
+    [SerializeField] Slider _ambientVolume;
 
     [SerializeField] GameObject optionsMenu;
 
@@ -20,21 +30,74 @@ public class OptionsManager : MonoBehaviour
 
     private bool isOtherMenuOpen = false;
 
+    private string _masterVolumeKey = "MasterVolume";
+    private string _musicVolumeKey = "MusicVolume";
+    private string _sfxVolumeKey = "SFXVolume";
+    private string _ambientVolumeKey = "AmbientVolume";
+
+    [Header("Audio Parameters")]
+
+    [SerializeField]  float _startMasterVolume = 0.7f;
+    [SerializeField]  float _startMusicVolume = 1f;
+    [SerializeField] float _startSfxVolume = 1f;
+    [SerializeField]  float _startAmbientVolume = 1f;
+
+
+    private AudioManager _audioManager;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        AudioListener.volume = 1f;
-        if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            Load();
-        }
-        else
-        {
-            Load();
-        }
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        InitAllAudioSliders();
+        LoadAllAudioSliders();
+        ApplyAllSliders();
 
         SetQualityLevel(5);
+    }
+
+    private void InitAllAudioSliders()
+    {
+        if (!PlayerPrefs.HasKey(_masterVolumeKey))
+        {
+            PlayerPrefs.SetFloat(_masterVolumeKey, _startMasterVolume);
+            ChangeMasterVolume();
+            Debug.Log("NO INIT MASTER");
+        }
+        if (!PlayerPrefs.HasKey(_musicVolumeKey))
+        {
+            PlayerPrefs.SetFloat(_musicVolumeKey, _startMusicVolume);
+            ChangeMusicVolume();
+            Debug.Log("NO INIT MUSIC");
+        }
+        if (!PlayerPrefs.HasKey(_sfxVolumeKey))
+        {
+            PlayerPrefs.SetFloat(_sfxVolumeKey, _startSfxVolume);
+            ChangeSfxVolume();
+            Debug.Log("NO INIT SFX");
+        }
+        if (!PlayerPrefs.HasKey(_ambientVolumeKey))
+        {
+            PlayerPrefs.SetFloat(_ambientVolumeKey, _startAmbientVolume);
+            ChangeAmbientVolume();
+            Debug.Log("NO INIT AMBIENT");
+        }
+    }
+    private void LoadAllAudioSliders()
+    {
+        Load(Sliders.Master);
+        Load(Sliders.Music);
+        Load(Sliders.SFX);
+        Load(Sliders.Ambient);
+    }
+
+    private void ApplyAllSliders()
+    {
+        ChangeMasterVolume();
+        ChangeMusicVolume();
+        ChangeSfxVolume();
+        ChangeAmbientVolume();
     }
 
     private void Update()
@@ -130,20 +193,71 @@ public class OptionsManager : MonoBehaviour
         isOtherMenuOpen = false;
     }
 
-    public void ChangeVolume()
+    public void ChangeMasterVolume()
     {
-        AudioListener.volume = volumeSlider.value;
-        Save();
-        Debug.Log("Volume changed to " +  volumeSlider.value);
+        AudioListener.volume = _masterVolume.value;
+        Save(Sliders.Master);
+        Debug.Log("Master volume changed to " +  _masterVolume.value);
     }
 
-    private void Load()
+    public void ChangeMusicVolume()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+
+        Save(Sliders.Music);
+        _audioManager.SetVolume(AudioManager.Audio.Music, _musicVolume.value);
+        Debug.Log("Music volume changed to " + _musicVolume.value);
     }
 
-    private void Save()
+    public void ChangeAmbientVolume()
     {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        Save(Sliders.Ambient);
+        _audioManager.SetVolume(AudioManager.Audio.Ambient, _ambientVolume.value);
+        Debug.Log("Ambient volume changed to " + _ambientVolume.value);
+    }
+
+    public void ChangeSfxVolume()
+    {
+        Save(Sliders.SFX);
+        _audioManager.SetVolume(AudioManager.Audio.SFX, _sfxVolume.value);
+        Debug.Log("Sfx volume changed to " + _sfxVolume.value);
+    }
+
+    private void Load(Sliders slider)
+    {
+        switch (slider)
+        {
+            case Sliders.Master:
+                _masterVolume.value = PlayerPrefs.GetFloat(_masterVolumeKey);
+                return;
+            case Sliders.Music:
+                _musicVolume.value = PlayerPrefs.GetFloat(_musicVolumeKey);
+                return;
+            case Sliders.SFX:
+                _sfxVolume.value = PlayerPrefs.GetFloat(_sfxVolumeKey);
+                return;
+            case Sliders.Ambient:
+                _ambientVolume.value = PlayerPrefs.GetFloat(_ambientVolumeKey);
+                return;
+        }
+        
+    }
+    private void Save(Sliders slider)
+    {
+        switch (slider)
+        {
+            case Sliders.Master:
+                PlayerPrefs.SetFloat(_masterVolumeKey, _masterVolume.value);
+                return;
+            case Sliders.Music:
+                PlayerPrefs.SetFloat(_musicVolumeKey, _musicVolume.value);
+                return;
+            case Sliders.SFX:
+                PlayerPrefs.SetFloat(_sfxVolumeKey, _sfxVolume.value);
+                return;
+            case Sliders.Ambient:
+                PlayerPrefs.SetFloat(_ambientVolumeKey, _ambientVolume.value);
+                return;
+        }
+        
     }
 }

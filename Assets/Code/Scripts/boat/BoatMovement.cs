@@ -35,7 +35,7 @@ public class BoatMovement : MonoBehaviour
     {
         GameObject audioObject = GameObject.FindGameObjectWithTag("AudioManager");
         audioManager = audioObject.GetComponent<AudioManager>();
-        motorSound = audioManager.PlayLoopAtPosition(boatSoundBad, transform.position, 1f);
+        motorSound = audioManager.PlayLoopAtPosition(boatSoundBad, transform.position, boatVolumeMultip);
         rb = GetComponent<Rigidbody2D>();
         foreach (var emission in GetComponentsInChildren<ParticleSystem>())
         {

@@ -106,11 +106,11 @@ MonoBehaviour:
   _sideFlatten: 4.48
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 2
-  _maxAcceleration: 1
-  _skedaddleVelocity: 2.5
-  _skedaddleAcceleration: 1.25
-  _skedaddleRange: 1.875
+  _maxVelocity: 2.5
+  _maxAcceleration: 1.5
+  _skedaddleVelocity: 3.5
+  _skedaddleAcceleration: 2
+  _skedaddleRange: 2.5
   _fishData: {fileID: 11400000, guid: 4cbb535a6ea962a49ac7b87d877fa48e, type: 2}
   _despawnDistance: 70
 --- !u!70 &6067525564290845974
