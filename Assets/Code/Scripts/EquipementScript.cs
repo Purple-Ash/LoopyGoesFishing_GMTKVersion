@@ -170,7 +170,7 @@ public class EquipementScript : MonoBehaviour
 
     public void UpdateMoneyAndWeight()
     {
-        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMPro.TMP_Text>().SetText(money + "$");
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMPro.TMP_Text>().SetText(money.ToString("0.00") + "$");
         GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMPro.TMP_Text>().SetText(weight + "/" + capacity); // Update total weight text
     }
 }
