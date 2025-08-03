@@ -39,7 +39,7 @@ public class BensonScript : BaseNPCScript
         createEntities();
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         base.setShopUIActive();
-        transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.z);
+        transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.z);
     }
 
     void buyItem(string upgradeName)
