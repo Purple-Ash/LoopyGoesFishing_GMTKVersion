@@ -41,6 +41,12 @@ public class BuoySpawner : MonoBehaviour
 
     public void addBuoys(int numberOfBuoys, Color color)
     {
+        if (lastBuoy == null)
+        {
+            LastBuoy = Instantiate(buoyPrefab, transform.position + Vector3.down * firstBuoyOffset, Quaternion.identity).GetComponent<NetExtension>();
+            LastBuoy.followedPoint = this.gameObject; // Set the followed point to this spawner
+        }
+
         for (int i = 0; i < numberOfBuoys; i++)
         {
             // Calculate position for each buoy

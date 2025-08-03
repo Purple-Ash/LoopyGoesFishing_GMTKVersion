@@ -37,6 +37,7 @@ public class BensonScript : BaseNPCScript
     public override void setShopUIActive()
     {
         createEntities();
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         base.setShopUIActive();
         transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).position.z);
     }
@@ -72,6 +73,7 @@ public class BensonScript : BaseNPCScript
     {
         destroyEntities();
         base.setShopUIInactive();
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
         TutorialScript script = FindAnyObjectByType<TutorialScript>(); // Reset the flag when entering the shop
         if (script != null)
         {

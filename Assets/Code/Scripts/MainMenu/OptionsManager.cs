@@ -28,6 +28,8 @@ public class OptionsManager : MonoBehaviour
 
     [SerializeField] GameObject confirmationPopup;
 
+    private bool isOtherMenuOpen = false;
+
     private string _masterVolumeKey = "MasterVolume";
     private string _musicVolumeKey = "MusicVolume";
     private string _sfxVolumeKey = "SFXVolume";
@@ -102,8 +104,8 @@ public class OptionsManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Main Menu")
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
+            if(Input.GetKeyDown(KeyCode.Escape) && !isOtherMenuOpen)
+            { 
                 SwitchOptions();
             }
         }
@@ -181,6 +183,15 @@ public class OptionsManager : MonoBehaviour
         SceneManager.LoadScene(PlayerPrefs.GetString("StartingMenu"));
     }
 
+    public void OtherMenuOpen()
+    {
+        isOtherMenuOpen = true;
+    }
+
+    public void OtherMenuClose()
+    {
+        isOtherMenuOpen = false;
+    }
 
     public void ChangeMasterVolume()
     {

@@ -39,10 +39,21 @@ public class GlossaryScript : MonoBehaviour
             if (isOpen)
             {
                 Close();
+                GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuClose();
             }
             else
             {
                 Open();
+                GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuOpen();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isOpen)
+            {
+                Close();
+                GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuClose();
             }
         }
     }
