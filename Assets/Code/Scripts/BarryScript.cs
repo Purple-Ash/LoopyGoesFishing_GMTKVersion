@@ -81,6 +81,7 @@ public class BarryScript : BaseNPCScript
     {
         imageView.SetActive(true);
         equipmentView.SetActive(true); // Show the equipment view when the image view is opened
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
         UpdatePrice();
         equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
@@ -94,6 +95,7 @@ public class BarryScript : BaseNPCScript
 
         imageView.SetActive(false);
         equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
 
         DestroyEntities();
         
@@ -191,6 +193,7 @@ public class BarryScript : BaseNPCScript
         select.GetComponent<CheckScript>().isChecked = false;
         select.GetComponent<UnityEngine.UI.Image>().color = new Color(0.8f, 0.2f, 0.2f, 1f); // Reset the color to unchecked
         select.transform.GetChild(0).GetComponent<TMP_Text>().SetText("Select All"); // Reset the text to "Select All"
+        GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EQFishLoader>().UpdateValues();
     }
 
     public void UpdateValues()
