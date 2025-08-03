@@ -136,7 +136,8 @@ public class EQFishLoader : MonoBehaviour
 
             mass += f.Value[0] * f.Key.weight + f.Value[1] * f.Key.weight * 1.5f + f.Value[2] * f.Key.weight * 2;
         }
-        GameObject.FindGameObjectWithTag("FishWeight").GetComponent<TMP_Text>().SetText("Capacity: " + mass + "/" + GetComponent<EquipementScript>().capacity + "kg"); // Update total weight text
+        //Debug.Log(GameObject.FindGameObjectWithTag("FishWeight").name);
+        //GameObject.FindGameObjectWithTag("FishWeight").GetComponent<TMP_Text>().SetText("Capacity: " + mass + "/" + GetComponent<EquipementScript>().capacity + "kg"); // Update total weight text
     }
 
     public void UpdateValues()
