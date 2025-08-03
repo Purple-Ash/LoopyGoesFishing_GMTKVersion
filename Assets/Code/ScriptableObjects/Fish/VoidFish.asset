@@ -15,5 +15,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c9a12e0e79e3bc94888c9b76854f6047, type: 3}
   name: Void Fish
   description: Give it to me, now! Its worth fortune!
-  price: 1000
+  price: 600
   weight: 3
