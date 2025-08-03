@@ -49,6 +49,7 @@ public class OptionsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioListener.volume = _startMasterVolume;
         _audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         InitAllAudioSliders();
         LoadAllAudioSliders();
@@ -62,25 +63,36 @@ public class OptionsManager : MonoBehaviour
         if (!PlayerPrefs.HasKey(_masterVolumeKey))
         {
             PlayerPrefs.SetFloat(_masterVolumeKey, _startMasterVolume);
-            ChangeMasterVolume();
+            AudioListener.volume = _startMasterVolume;
+            _masterVolume.value = _startMasterVolume;
+            Save(Sliders.Master);
             Debug.Log("NO INIT MASTER");
         }
         if (!PlayerPrefs.HasKey(_musicVolumeKey))
         {
             PlayerPrefs.SetFloat(_musicVolumeKey, _startMusicVolume);
-            ChangeMusicVolume();
+            _audioManager.SetVolume(AudioManager.Audio.Music, _startMusicVolume);
+            _musicVolume.value = _startMusicVolume;
+            Save(Sliders.Music);
+
             Debug.Log("NO INIT MUSIC");
         }
         if (!PlayerPrefs.HasKey(_sfxVolumeKey))
         {
             PlayerPrefs.SetFloat(_sfxVolumeKey, _startSfxVolume);
-            ChangeSfxVolume();
+            _audioManager.SetVolume(AudioManager.Audio.SFX, _startSfxVolume);
+            _sfxVolume.value = _startSfxVolume;
+            Save(Sliders.SFX);
+            
             Debug.Log("NO INIT SFX");
         }
         if (!PlayerPrefs.HasKey(_ambientVolumeKey))
         {
             PlayerPrefs.SetFloat(_ambientVolumeKey, _startAmbientVolume);
-            ChangeAmbientVolume();
+            _audioManager.SetVolume(AudioManager.Audio.Ambient, _startAmbientVolume);
+            _ambientVolume.value = _startAmbientVolume;
+            Save(Sliders.Ambient);
+            
             Debug.Log("NO INIT AMBIENT");
         }
     }
