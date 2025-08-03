@@ -8512,7 +8512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1251447834998292598, guid: abf5dae6997c9c242bb00e0d932e1f41, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 261.84
+      value: 261.83997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251447834998292598, guid: abf5dae6997c9c242bb00e0d932e1f41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 48.393066
       objectReference: {fileID: 0}
     - target: {fileID: 1944239787373337017, guid: abf5dae6997c9c242bb00e0d932e1f41, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8664,7 +8668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6118832793954159636, guid: abf5dae6997c9c242bb00e0d932e1f41, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.7
+      value: 54.69995
       objectReference: {fileID: 0}
     - target: {fileID: 7789224431967901025, guid: abf5dae6997c9c242bb00e0d932e1f41, type: 3}
       propertyPath: m_Sprite
@@ -18878,6 +18882,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4864223108055228846, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a29bf1d127fd03459e6d9c7839aac83, type: 3}
+    - target: {fileID: 4864223108055228846, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864223108055228846, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864223108055228846, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5265693532613919979, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_text
       value: Exit to Menu
@@ -18945,6 +18965,10 @@ PrefabInstance:
     - target: {fileID: 8574365632561404037, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574365632561404037, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 8574365632561404037, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_ReferenceResolution.x
