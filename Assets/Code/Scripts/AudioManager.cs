@@ -31,8 +31,8 @@ public class AudioManager : MonoBehaviour
     }
 
     private AudioSource _musicSource;
-    private List<CorrectedVolumeAudio> _sfxSources;
-    private List<CorrectedVolumeAudio> _ambientSource;
+    private List<CorrectedVolumeAudio> _sfxSources = new List<CorrectedVolumeAudio>();
+    private List<CorrectedVolumeAudio> _ambientSource = new List<CorrectedVolumeAudio>();
 
     private float GetVolume(Audio volumeSetting)
     {
@@ -51,7 +51,8 @@ public class AudioManager : MonoBehaviour
         _sfxSources.RemoveAll(src => src.audioSource == null);
         foreach (var source in _sfxSources)
         {
-            source.audioSource.volume = source.volume * _sfxVolume;
+            if (source.audioSource != null)
+                source.audioSource.volume = source.volume * _sfxVolume;
         }
     }
 
@@ -91,6 +92,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAtPosition(AudioClip clip, Vector3 position, float relativeVolume)
     {
+        if (_sfxSources == null)
+        {
+            _sfxSources = new List<CorrectedVolumeAudio>();
+            Debug.Log("Zniknê³a Lista");
+        }
+
         GameObject sourceObject = new GameObject("TempAudio");
         sourceObject.transform.position = position;
         AudioSource src = sourceObject.AddComponent<AudioSource>();
@@ -116,7 +123,11 @@ public class AudioManager : MonoBehaviour
         CorrectedVolumeAudio audio = new CorrectedVolumeAudio();
         audio.audioSource = src;
         audio.volume = relativeVolume;
-        _sfxSources.Add(audio);
+        if(_sfxSources != null)
+        {
+            _sfxSources.Add(audio);
+        }
+
         Destroy(sourceObject, clip.length);
     }
 
@@ -170,8 +181,6 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        _sfxSources = new List<CorrectedVolumeAudio>();
-        _ambientSource = new List<CorrectedVolumeAudio>();
         _musicSource = gameObject.AddComponent<AudioSource>();
     }
 
