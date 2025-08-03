@@ -16,6 +16,11 @@ public class NetExtension : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (followedPoint == null)
+        {
+            followedPoint = GameObject.FindGameObjectWithTag("Boat");
+            return;
+        }
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, followedPoint.transform.position);
 

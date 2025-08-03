@@ -112,6 +112,7 @@ public class ChrisScript : BaseNPCScript
     {
         imageView.SetActive(true);
         equipmentView.SetActive(true); // Show the equipment view when the image view is opened
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         if (isChitchatting || isWaiting)
         {
             blueButton.SetActive(true);
@@ -141,6 +142,7 @@ public class ChrisScript : BaseNPCScript
     {
         imageView.SetActive(false);
         equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
         Time.timeScale = 1.0f; // Resume the game time
     }
 }
