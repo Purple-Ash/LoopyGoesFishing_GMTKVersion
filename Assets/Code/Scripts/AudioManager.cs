@@ -74,30 +74,53 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning("Unknown Volume Enum!");
     }
 
-    public void PlayAtPosition(AudioClip clip, Vector3 position)
+    public void PlayAtPosition(AudioClip clip, Vector3 position, float relativeVolume)
     {
         GameObject sourceObject = new GameObject("TempAudio");
         sourceObject.transform.position = position;
         AudioSource src = sourceObject.AddComponent<AudioSource>();
         src.clip = clip;
-        src.volume = 
+        src.volume = relativeVolume * _sfxVolume;
         src.spatialBlend = 1f; // 3D
         src.Play();
         _sfxSources.Add(src);
         Destroy(sourceObject, clip.length);
     }
 
-    public AudioSource PlayLoopAtPosition(AudioClip clip, Vector3 position)
+    public void PlayCenter(AudioClip clip, float relativeVolume)
+    {
+        GameObject sourceObject = new GameObject("TempAudio");
+        AudioSource src = sourceObject.AddComponent<AudioSource>();
+        src.clip = clip;
+        src.volume = relativeVolume * _sfxVolume;
+        src.spatialBlend = 0f; // 2D
+        src.Play();
+        _sfxSources.Add(src);
+        Destroy(sourceObject, clip.length);
+    }
+
+    public void SetRelativeVolume(AudioSource source, float relativeVolume)
+    {
+        source.volume = relativeVolume * _sfxVolume;
+    }
+
+    public AudioSource PlayLoopAtPosition(AudioClip clip, Vector3 position, float relativeVolume)
     {
         GameObject sourceObject = new GameObject("TempAudio");
         sourceObject.transform.position = position;
         AudioSource src = sourceObject.AddComponent<AudioSource>();
         src.clip = clip;
-        src.volume =
+        src.volume = relativeVolume * _sfxVolume;
         src.spatialBlend = 1f; // 3D
+        src.loop = true;
         src.Play();
         _sfxSources.Add(src);
         return src;
+    }
+
+    private void Awake()
+    {
+        _sfxSources = new List<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -110,8 +133,6 @@ public class AudioManager : MonoBehaviour
         _musicSource.volume = _musicVolume;
         _musicSource.Play();
         Debug.Log("Playing music");
-
-        _sfxSources = new List<AudioSource>();
 
         _ambientSource = gameObject.AddComponent<AudioSource>();
         _ambientSource.volume = _ambientVolume;

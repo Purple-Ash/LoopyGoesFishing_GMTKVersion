@@ -13,9 +13,18 @@ public class BensonScript : BaseNPCScript
 
     public Transform upgradeUIList;
 
+    [Header("Sounds")]
+    [SerializeField] protected AudioClip boughtSound;
+    [SerializeField] float boughtMultiplier = 0.5f;
+    [SerializeField] protected AudioClip hammerSound;
+    [SerializeField] float hammerMultiplier = 0.8f;
+
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         this.upgrades.Sort((x, y) => x.name.CompareTo(y.name)); // Sort upgrades by cost
     }
 
@@ -54,6 +63,9 @@ public class BensonScript : BaseNPCScript
         upgradeToBuy.ApplyUpgrade();
         upgrades.Remove(upgradeToBuy);
         refreshUpgradeItems();
+
+        audioManager.PlayCenter(boughtSound, boughtMultiplier);
+        audioManager.PlayCenter(hammerSound, hammerMultiplier);
     }
 
     public override void setShopUIInactive()

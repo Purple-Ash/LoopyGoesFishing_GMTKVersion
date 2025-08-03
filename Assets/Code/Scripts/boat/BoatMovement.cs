@@ -17,13 +17,25 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] protected float netTime = 2f;
     protected List<float> emissions = new List<float>();
 
+    [Header("Sound")]
+    [SerializeField] protected AudioClip boatSoundBad;
+    [SerializeField] protected AudioClip boatSoundGood;
+    [SerializeField] float boatVolumeMultip = 0.5f;
 
+    [SerializeField] protected AudioClip caught;
+    [SerializeField] float caughtMultip = 0.5f;
+
+    private AudioManager audioManager;
+    AudioSource motorSound;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject audioObject = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = audioObject.GetComponent<AudioManager>();
+        motorSound = audioManager.PlayLoopAtPosition(boatSoundBad, transform.position, 1f);
         rb = GetComponent<Rigidbody2D>();
         foreach (var emission in GetComponentsInChildren<ParticleSystem>())
         {
@@ -34,6 +46,13 @@ public class BoatMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        motorSound.transform.position = transform.position;
+
+        Debug.Log("pre volume: " + rb.velocity.magnitude / maxSpeedForward);
+        //motorSound.volume = rb.velocity.magnitude / maxSpeedForward;
+        audioManager.SetRelativeVolume(motorSound, rb.velocity.magnitude / maxSpeedForward * boatVolumeMultip);
+        Debug.Log("volume: " + motorSound.volume);
+
         if (Input.GetKey(KeyCode.W))
         {
             // Move the boat forward
@@ -60,7 +79,7 @@ public class BoatMovement : MonoBehaviour
         {
             // Turn the boat left
             transform.Rotate(Vector3.forward, turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude));
-            rb.velocity = Rotate(rb.velocity, turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude) * Mathf.Deg2Rad);
+            rb.velocity = Rotate(rb.velocity, turnSpeed * Time.deltaTime * GetTurnCoefficient(rb.velocity.magnitude) * Mathf.Deg2Rad);;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -178,6 +197,8 @@ public class BoatMovement : MonoBehaviour
                 fishCatcher.AddComponent<FishCatcher>().lifetime = netTime;
                 fishCatcher.GetComponent<FishCatcher>().colliderByoy = gameObject; // Set the collider buoy reference
             }
+
+            audioManager.PlayAtPosition(caught, transform.position, caughtMultip);
         }
     }
 
