@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: BuoyUpgrade3
   m_EditorClassIdentifier: 
   upgradeName: Plastic rope
-  description: Can't imagine this is safe for the environment. with all the microplastics
-    and stuff. I wonder what baryy would say about this? anyway I have 45 metors
+  description: Can't imagine this is safe for the environment. With all the microplastics
+    and stuff. I wonder what Baryy would say about this? Anyway I have 45 meters
     of it.
   cost: 120
   icon: {fileID: 21300000, guid: 7e41c33faecfa644d86e28a6e8b3f9f0, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 2a53a0a895f8a2a4faf9b8d4f4eafb89, type: 2}
-  numberOfBuoys: 50
+  numberOfBuoys: 40
   color: {r: 0.2509804, g: 0.7176471, b: 0.3372549, a: 1}
+  islandCatcher: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MoneyUpgrade1
   m_EditorClassIdentifier: 
   upgradeName: Insulated bag
-  description: This will help you keep your fish fresh, increasing their sell value.
-    Also grants a bit of extra space
+  description: This will help you keep your catches fresh, increasing the sell value
+    of all fish. You should also be able to carry a few more fish thanks to it.
   cost: 100
   icon: {fileID: 21300000, guid: 8715d2163fdba6d4da759be2976f52eb, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 54345b8e3c337d745bbac0657f93c4bf, type: 2}

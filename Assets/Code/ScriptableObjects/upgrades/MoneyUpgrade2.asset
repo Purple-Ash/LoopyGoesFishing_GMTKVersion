@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MoneyUpgrade2
   m_EditorClassIdentifier: 
   upgradeName: Travel fridge
-  description: This will help you keep your fish fresh, increasing their sell value.
-    Also grants a bit of extra space
+  description: Even more chill! Imagine how much Barry will be willing to pay, when
+    the fish are ice cold. If you dont use this for drinks, that is.
   cost: 800
   icon: {fileID: 21300000, guid: a3c0ee270449b4f4b97f14b91b5d470f, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 536dc84a521788e47b52871c2d42d8f2, type: 2}

@@ -22,6 +22,8 @@ public class IslandTowScript : MonoBehaviour
     bool triggerButton = false; // Flag to check if the button is triggered
     float timer = 0;
     public GameObject ending; // Reference to the ending GameObject
+    public AudioClip whoosh;
+    public float volume;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<FishCatcher>() != null && !isTowed && FindObjectOfType<BuoySpawner>().isIslandCatcher)
@@ -70,6 +72,7 @@ public class IslandTowScript : MonoBehaviour
             {
                 triggered = true; // Set the triggered flag to true when the island is close to the village center
                 triggerEnd = true; // Set the trigger end flag to true when close to the village center
+                FindAnyObjectByType<AudioManager>().PlayCenter(whoosh, volume); // Play the whoosh sound effect
             }
         }
 

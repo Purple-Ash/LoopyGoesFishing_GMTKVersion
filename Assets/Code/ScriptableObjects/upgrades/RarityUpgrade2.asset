@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Fish lures
   description: Attaching these to you boat will make sure the fish you catch are
-    even bigger!
+    even bigger! That means even more money from selling.
   cost: 500
   icon: {fileID: 21300000, guid: 9ccc367f100dbd74ba2aed7c44445afb, type: 3}
   nextUpgrade: {fileID: 0}

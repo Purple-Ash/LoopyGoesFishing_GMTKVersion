@@ -41,7 +41,7 @@ public class ChrisScript : BaseNPCScript
         if(!isResponding)
         {
             isChitchatting = false;
-            textbox.text = "Anyway I am, like, totally starving man. Any chance could get me any, like, " + fishDataList[fishIndex].name + " ? Like, no one size specifically. I'll give you, like, " + fishPrice + "$ for it.";
+            textbox.text = "Anyway I am, like, totally starving man. Any chance you could get me any, like, " + fishDataList[fishIndex].name + "? Like, any size will do, man. I'll give you, like, " + fishPrice + "$ for it.";
         }
         else
         {
