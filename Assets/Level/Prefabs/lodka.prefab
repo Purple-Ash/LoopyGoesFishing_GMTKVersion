@@ -29202,7 +29202,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ec0c8c9c585a1e54a9745d53a745232e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 353ed0ccb35e00f44bda98b87fe11379, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -29312,9 +29312,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buoyPrefab: {fileID: 261943537452717854, guid: 68ef8b65cbf595f498642bfad7bfa1c3, type: 3}
-  numberOfBuoys: 50
+  numberOfBuoys: 70
   spacing: 0.3
   firstBuoyOffset: 1
+  isIslandCatcher: 0
 --- !u!1 &8548794721969756551
 GameObject:
   m_ObjectHideFlags: 0

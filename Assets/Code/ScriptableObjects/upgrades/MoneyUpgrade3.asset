@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MoneyUpgrade3
   m_EditorClassIdentifier: 
   upgradeName: Transport refridgerator
-  description: This will help you keep your fish fresh, increasing their sell value.
-    Also grants a bit of extra space
+  description: Imagine, an industrial grade refridgerator installed within the hull
+    of your ship. The power drain on this thing is insane, but I do think Barry's
+    compansation will be more than enough to cover the costs.
   cost: 2000
   icon: {fileID: 21300000, guid: 4e8f4435b8ed87648ae8caabb3d70cf2, type: 3}
   nextUpgrade: {fileID: 0}

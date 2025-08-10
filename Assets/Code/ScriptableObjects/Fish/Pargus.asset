@@ -15,5 +15,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: cfeea3a3487eece4ba934b2cc46ebe34, type: 3}
   name: Pargus
   description: Pargus pargus
-  price: 36
+  price: 40
   weight: 4

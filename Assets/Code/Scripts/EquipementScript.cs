@@ -40,23 +40,23 @@ public class EquipementScript : MonoBehaviour
         }
         else if (random < probabilities[1] + probabilities[0])
         {
-            if (weight + fishName.weight * 1.5f > capacity)
+            if (weight + fishName.weight> capacity)
             {
                 Instantiate(notification, GameObject.FindGameObjectWithTag("Boat").transform.position, Quaternion.identity);
                 return false;
             }
             fishDataDictionary[fishName][1] += 1; // L
-            weight += fishName.weight * 1.5f; // Update the total weight
+            weight += fishName.weight; // Update the total weight
         }
         else if (random < probabilities[2] + probabilities[1] + probabilities[0])
         {
-            if (weight + fishName.weight * 2 > capacity)
+            if (weight + fishName.weight> capacity)
             {
                 Instantiate(notification, GameObject.FindGameObjectWithTag("Boat").transform.position, Quaternion.identity);
                 return false;
             }
             fishDataDictionary[fishName][2] += 1; // XL
-            weight += fishName.weight * 2; // Update the total weight
+            weight += fishName.weight; // Update the total weight
         }
         else
         {
@@ -122,12 +122,12 @@ public class EquipementScript : MonoBehaviour
                 }
                 else if (type == 1)
                 {
-                    weight -= skibid.Key.weight * 1.5f * skibid.Value[1];
+                    weight -= skibid.Key.weight * skibid.Value[1];
                     skibid.Value[1] = 0;
                 }
                 else if (type == 2)
                 {
-                    weight -= skibid.Key.weight * 2 * skibid.Value[2];
+                    weight -= skibid.Key.weight * skibid.Value[2];
                     skibid.Value[2] = 0;
                 }
             }
@@ -151,14 +151,14 @@ public class EquipementScript : MonoBehaviour
             if (skibid.Value[1])
             {
                 totalPrice += skibid.Key.price * moneyMult * 2 * fishDataDictionary[skibid.Key][1];
-                weight -= skibid.Key.weight * 1.5f * fishDataDictionary[skibid.Key][1]; // Update weight
+                weight -= skibid.Key.weight * fishDataDictionary[skibid.Key][1]; // Update weight
                 fishDataDictionary[skibid.Key][1] = 0; // Reset the count
                 skibid.Value[1] = false; // Reset the check state
             }
             if (skibid.Value[2])
             {
-                totalPrice += skibid.Key.price * moneyMult * 4 * fishDataDictionary[skibid.Key][2];
-                weight -= skibid.Key.weight * 2 * fishDataDictionary[skibid.Key][2]; // Update weight
+                totalPrice += skibid.Key.price * moneyMult * 3 * fishDataDictionary[skibid.Key][2];
+                weight -= skibid.Key.weight * fishDataDictionary[skibid.Key][2]; // Update weight
                 fishDataDictionary[skibid.Key][2] = 0; // Reset the count
                 skibid.Value[2] = false; // Reset the check state
             }
@@ -170,7 +170,7 @@ public class EquipementScript : MonoBehaviour
 
     public void UpdateMoneyAndWeight()
     {
-        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMPro.TMP_Text>().SetText(money + "$");
-        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMPro.TMP_Text>().SetText(weight + "/" + capacity); // Update total weight text
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMPro.TMP_Text>().SetText(money.ToString("0.00") + "$");
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMPro.TMP_Text>().SetText(weight.ToString("0.0") + "/" + capacity); // Update total weight text
     }
 }

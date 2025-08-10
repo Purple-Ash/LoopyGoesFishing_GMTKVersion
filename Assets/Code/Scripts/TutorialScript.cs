@@ -13,26 +13,31 @@ public class TutorialScript : MonoBehaviour
 
     public GameObject image; // Reference to the Image component in the tutorial panel
     public TMPro.TMP_Text text; // Reference to the Text component in the tutorial panel
+    public GameObject tutorialCircle;
+    public float scale;
+    public float scaleChange = 0.1f; // Amount to change the scale of the tutorial circle
+    public float scaleFreq = 0.5f; // Minimum scale for the tutorial circle
 
     public GameObject gooberFishes;
     public GameObject barryShop;
     public GameObject BensonShop;
 
-    public bool enterredShop = false; // Flag to check if the player has entered Barry's shop
+    public bool enterredBarryShop = false; // Flag to check if the player has entered Barry's shop
+    public bool enterredBensonShop = false; // Flag to check if the player has entered Barry's shop
     public bool exitedShop = false; // Flag to check if the player has exited Barry's shop
 
     public int currentStep = 0; // Current step in the tutorial
     // Start is called before the first frame update
     void Start()
     {
-        
+        scale = tutorialCircle.transform.localScale.x; // Store the initial scale of the tutorial circle
     }
 
     // Update is called once per frame
     void Update()
     {
         ShowPanel();
-        if (Input.GetMouseButtonDown(0) && expressions[currentStep] != null)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("return")) && expressions[currentStep] != null)
         {
             // Move to the next step when the mouse is clicked
             currentStep++;
@@ -50,11 +55,11 @@ public class TutorialScript : MonoBehaviour
             currentStep++;
         }
 
-        if (currentStep == 10 && enterredShop)
+        if (currentStep == 10 && enterredBarryShop)
         {
             // If the player reaches step 10 and has entered Barry's shop, skip the tutorial
             currentStep++;
-            enterredShop = false; // Reset the flag after skipping
+            enterredBarryShop = false; // Reset the flag after skipping
         }
 
         if (currentStep == 12 && exitedShop)
@@ -64,7 +69,7 @@ public class TutorialScript : MonoBehaviour
             exitedShop = false; // Reset the flag after skipping
         }
 
-        if (currentStep == 15 && enterredShop)
+        if (currentStep == 15 && enterredBensonShop)
         {
             // If the player reaches step 15 and has fish data, skip the tutorial
             currentStep++;
@@ -74,6 +79,10 @@ public class TutorialScript : MonoBehaviour
         {
             currentStep++;
         }
+
+        exitedShop = false; // Reset the flag after skipping
+        enterredBarryShop = false; // Reset the flag after skipping
+        enterredBensonShop = false; // Reset the flag after skipping
     }
 
     public void ShowPanel()
@@ -103,6 +112,9 @@ public class TutorialScript : MonoBehaviour
         {
             arrow.SetActive(true); // Show the arrow when reaching step 4
             arrow.GetComponent<ArrowScript>().targetPosition = gooberFishes.transform.position; // Set the target position for the arrow
+            tutorialCircle.SetActive(true); // Show the tutorial circle
+            float newScale = scale + Mathf.Sin(Time.timeSinceLevelLoad * scaleFreq) * scaleChange; // Clamp the scale to a reasonable range
+            tutorialCircle.transform.localScale = new Vector3(newScale, newScale, newScale ); // Set the position of the tutorial circle
         }
         else if (currentStep == 10)
         {
@@ -117,6 +129,7 @@ public class TutorialScript : MonoBehaviour
         else
         {
             arrow.SetActive(false); // Hide the arrow for other steps
+            tutorialCircle.SetActive(false); // Hide the tutorial circle
         }
     }
 
@@ -128,6 +141,7 @@ public class TutorialScript : MonoBehaviour
         // Hide the tutorial panel and arrow
         tutorialPanel.SetActive(false);
         arrow.SetActive(false);
+        tutorialCircle.SetActive(false); // Hide the tutorial circle
         // Optionally, you can also reset the current step
         currentStep = 0;
     }

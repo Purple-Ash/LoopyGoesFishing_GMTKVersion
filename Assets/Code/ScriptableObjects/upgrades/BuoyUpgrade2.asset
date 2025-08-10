@@ -20,3 +20,4 @@ MonoBehaviour:
   nextUpgrade: {fileID: 11400000, guid: 93b0edda1133f214986be5c13f66c192, type: 2}
   numberOfBuoys: 25
   color: {r: 0.94117653, g: 0.91372555, b: 0.909804, a: 1}
+  islandCatcher: 0

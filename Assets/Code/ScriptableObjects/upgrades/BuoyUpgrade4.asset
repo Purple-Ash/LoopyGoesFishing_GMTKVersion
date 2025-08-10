@@ -15,9 +15,10 @@ MonoBehaviour:
   upgradeName: Silk rope
   description: Loopy, did you know that silk is stronger than plastic and some metals?
     I find it quite fascinating. Well, if you need that strength, here's 66 meters
-    of it
+    of it.
   cost: 600
   icon: {fileID: 21300000, guid: 7b146529c03c3164084c42a4e3b73060, type: 3}
   nextUpgrade: {fileID: 11400000, guid: 9609b6d9bd60c39409642ed83942be86, type: 2}
   numberOfBuoys: 70
   color: {r: 0.21176472, g: 0.20392159, b: 0.21176472, a: 1}
+  islandCatcher: 0

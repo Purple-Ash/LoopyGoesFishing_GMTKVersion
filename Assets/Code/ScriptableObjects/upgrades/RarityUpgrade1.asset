@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RarityUpgrade1
   m_EditorClassIdentifier: 
   upgradeName: Fish food
-  description: I can make your boat slowly disperse fish food while driving. I'm
-    sure it'll make you catch bigger fish.
+  description: Throwing this overboard will guarantee you catch bigger fish more
+    often, Loopy. And bigger fish sell for more!
   cost: 100
   icon: {fileID: 21300000, guid: 3cc2e34f4599b134fa6b39c6f47f1dce, type: 3}
   nextUpgrade: {fileID: 11400000, guid: a9ea3b1bd0c9f6e49903a0a1f282dc10, type: 2}

@@ -16,6 +16,7 @@ public class BarryScript : BaseNPCScript
     // The Equipment View UI object
     public GameObject imageView;
     public GameObject equipmentView;
+    public GameObject backPanel;
 
     // A Map to store the current equipment data
     private Dictionary<NewFishData, int[]> fishDataDictionary;
@@ -89,10 +90,16 @@ public class BarryScript : BaseNPCScript
     {
         imageView.SetActive(true);
         equipmentView.SetActive(true); // Show the equipment view when the image view is opened
+        backPanel.SetActive(true);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
         UpdatePrice();
         equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
+        TutorialScript tutorialScript = FindObjectOfType<TutorialScript>();
+        if (tutorialScript != null)
+        {
+            tutorialScript.enterredBarryShop = true; // Set the flag to true when entering the shop
+        }
     }
 
     public override void setShopUIInactive()
@@ -103,6 +110,7 @@ public class BarryScript : BaseNPCScript
 
         imageView.SetActive(false);
         equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
+        backPanel.SetActive(false );
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
 
         DestroyEntities();
@@ -151,15 +159,15 @@ public class BarryScript : BaseNPCScript
             textFields[7].SetText(f.Value[2].ToString()); //XL Number
             textFields[8].SetText(f.Value[1].ToString()); //L Number
             textFields[9].SetText(f.Value[0].ToString()); //M Number
-            textFields[11].SetText(f.Value[2] * f.Key.weight * 2 + " kg"); // Total weight for XL
-            textFields[12].SetText(f.Value[1] * f.Key.weight * 1.5f + "kg"); // Total weight for L
+            textFields[11].SetText(f.Value[2] * f.Key.weight + " kg"); // Total weight for XL
+            textFields[12].SetText(f.Value[1] * f.Key.weight + "kg"); // Total weight for L
             textFields[13].SetText(f.Value[0] * f.Key.weight + "kg"); // Total weight for M
-            textFields[15].SetText(f.Value[2] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 4 + "$"); // Total price for XL
+            textFields[15].SetText(f.Value[2] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 3 + "$"); // Total price for XL
             textFields[16].SetText(f.Value[1] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 2 + "$"); // Total price for L
             textFields[17].SetText(f.Value[0] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult + "$"); // Total price for M
-            textFields[19].SetText(((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 4) * FindObjectOfType<EquipementScript>().moneyMult).ToString() + "$");
+            textFields[19].SetText(((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 3) * FindObjectOfType<EquipementScript>().moneyMult).ToString() + "$");
 
-            mass += f.Value[0] * f.Key.weight + f.Value[1] * f.Key.weight * 1.5f + f.Value[2] * f.Key.weight * 2;
+            mass += f.Value[0] * f.Key.weight + f.Value[1] * f.Key.weight + f.Value[2] * f.Key.weight;
         }
         
     }
@@ -184,7 +192,7 @@ public class BarryScript : BaseNPCScript
                     }
                     else if (i == 2) // XL
                     {
-                        totalPrice += f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * skibidi[f.Key][2] * 4;
+                        totalPrice += f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * skibidi[f.Key][2] * 3;
                     }
                 }
             }
