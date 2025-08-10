@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Skedaddlefish
   description: Lives near islands, instinctively runs away when approached within
     close proximity.
-  price: 5
+  price: 8
   weight: 1

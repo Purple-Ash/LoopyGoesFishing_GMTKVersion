@@ -75,12 +75,12 @@ public class ChrisScript : BaseNPCScript
             else if (equipementScript.fishDataDictionary[fishDataList[fishIndex]][1] > 0)
             {
                 equipementScript.fishDataDictionary[fishDataList[fishIndex]][1] -= 1; // Remove one fish of size L
-                equipementScript.weight -= fishDataList[fishIndex].weight * 1.5f; // Update the total weight based on size
+                equipementScript.weight -= fishDataList[fishIndex].weight; // Update the total weight based on size
             }
             else if (equipementScript.fishDataDictionary[fishDataList[fishIndex]][2] > 0)
             {
                 equipementScript.fishDataDictionary[fishDataList[fishIndex]][2] -= 1; // Remove one fish of size XL
-                equipementScript.weight -= fishDataList[fishIndex].weight * 2; // Update the total weight based on size
+                equipementScript.weight -= fishDataList[fishIndex].weight; // Update the total weight based on size
             }
             equipementScript.money += fishPrice; // Add the price to the player's money
             

@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Electric Eel
   description: 'Watch out, this rare species will zap you if you touch it with your
     bare hands! '
-  price: 50
+  price: 60
   weight: 6

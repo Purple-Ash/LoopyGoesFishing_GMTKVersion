@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Void Fish
   description: A fish of legends. Few fishermen have seen it, even fewer caught one.
     They say it can unhook itself and phase through nets.
-  price: 600
+  price: 1000
   weight: 3

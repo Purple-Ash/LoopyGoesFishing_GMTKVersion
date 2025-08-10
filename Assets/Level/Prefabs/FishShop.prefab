@@ -257,6 +257,7 @@ MonoBehaviour:
   contentTransform: {fileID: 5185199612496567357}
   imageView: {fileID: 3062642650368834499}
   equipmentView: {fileID: 2010836436333565530}
+  backPanel: {fileID: 0}
   TotalPrice: {fileID: 5535531329972972314}
   TotalPriceSmall: {fileID: 1771635823243382317}
   select: {fileID: 5699270301214335007}
@@ -1040,7 +1041,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1280}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3111133231187881589
 CanvasRenderer:
@@ -1776,7 +1777,7 @@ MonoBehaviour:
   m_text: 100$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64f77a76528c5554d9ed6afef0e0875f, type: 2}
-  m_sharedMaterial: {fileID: 7918533515704553503, guid: 37ebf5240c5156b4894b414529d72744, type: 2}
+  m_sharedMaterial: {fileID: 8623053681352189844, guid: 64f77a76528c5554d9ed6afef0e0875f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
