@@ -6,11 +6,12 @@ public class Notification : MonoBehaviour
 {
     [SerializeField] protected float lifetime = 2f; // Lifetime of the notification in seconds
     protected float timer = 0f; // Duration of the fade effect in seconds
-    [SerializeField]  protected float verticalVelocity = 0.5f; 
+    [SerializeField]  protected float verticalVelocity = 0.5f;
+    [SerializeField] private float notificationScale = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize * 0.1f, GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize * 0.1f, 1); // Set the scale of the notification
+        transform.localScale = new Vector3(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize * notificationScale, GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize * notificationScale, 1); // Set the scale of the notification
     }
 
     // Update is called once per frame

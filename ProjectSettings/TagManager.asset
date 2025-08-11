@@ -24,6 +24,7 @@ TagManager:
   - VillageCenter
   - Ending
   - OptionsManager
+  - NewFishNotification
   layers:
   - Default
   - TransparentFX
