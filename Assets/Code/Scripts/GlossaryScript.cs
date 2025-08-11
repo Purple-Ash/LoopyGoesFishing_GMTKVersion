@@ -17,6 +17,8 @@ public class GlossaryScript : MonoBehaviour
     
     [SerializeField] private TMP_Text totalText;
 
+    private List<NewFishData> knownBeforeFish = new List<NewFishData>();
+
     private bool isOpen = false;
 
     // Start is called before the first frame update
@@ -99,6 +101,23 @@ public class GlossaryScript : MonoBehaviour
                 textFields[3].SetText(f.price.ToString() + "$");
                 textFields[5].SetText(f.weight.ToString() + "kg");
                 caught++;
+
+                ColorUtility.TryParseHtmlString("#CFC2A1", out Color baseTextColor);
+
+                textFields[0].color = baseTextColor;
+                textFields[1].color = baseTextColor;
+                textFields[2].color = baseTextColor;
+                textFields[3].color = baseTextColor;
+                textFields[4].color = baseTextColor;
+                textFields[5].color = baseTextColor;
+
+                if (!knownBeforeFish.Contains(f))
+                {
+                    Debug.Log("New fish in glossary");
+                    fishImages[0].color = Color.red + Color.white * 0.50f;
+                    knownBeforeFish.Add(f);
+                }
+
             }
             else
             {
@@ -110,6 +129,15 @@ public class GlossaryScript : MonoBehaviour
 
                 textFields[3].SetText("???$");
                 textFields[5].SetText("???kg");
+
+                textFields[0].color = Color.gray * 0.70f;
+                textFields[1].color = Color.gray * 0.70f;
+                textFields[2].color = Color.gray * 0.70f;
+                textFields[3].color = Color.gray * 0.70f;
+                textFields[4].color = Color.gray * 0.70f;
+                textFields[5].color = Color.gray * 0.70f;
+
+                fishImages[0].color = Color.gray;
             }
 
             Debug.Log("Caught: " + caught + "/" + fishData.Count);

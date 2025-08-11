@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class FishScript : MonoBehaviour
 {
@@ -36,6 +38,9 @@ public class FishScript : MonoBehaviour
     [Header("Value and stuff")]
     [SerializeField] private NewFishData _fishData;
     [SerializeField] private float _despawnDistance = 70f;
+
+    [Header("Notification Objects")]
+    [SerializeField] internal GameObject _notification;
 
     public Vector2 Center 
     {
@@ -327,12 +332,14 @@ public class FishScript : MonoBehaviour
             return;
         }
         else
-        { 
+        {
             // Logic for catching the fish
             //Debug.Log("Fish caught: " + gameObject.name);
 
-
-                                                          // You can add additional logic here, such as playing an animation or sound
+            // You can add additional logic here, such as playing an animation or sound
+            GameObject inst = Instantiate(_notification, transform.position, Quaternion.identity);
+            SpriteRenderer fishImage = inst.GetComponentInChildren<SpriteRenderer>();
+            fishImage.sprite = _fishData.image;
             Destroy(gameObject); // Destroy the fish object after catching it
         }
     }
