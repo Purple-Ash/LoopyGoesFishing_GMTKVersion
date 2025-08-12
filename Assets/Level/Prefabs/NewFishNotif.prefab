@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 3
   verticalVelocity: 0.5
-  notificationScale: 0.025
+  notificationScale: 0.02
 --- !u!222 &2505402475566475117
 CanvasRenderer:
   m_ObjectHideFlags: 0

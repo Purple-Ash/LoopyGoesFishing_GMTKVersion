@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class ChrisScript : BaseNPCScript
     public List<string> chitchats;
     public List<string> responses;
     public List<NewFishData> fishDataList;
+    public NewFishData defaultFish;
     public int fishIndex;
     public float fishPrice;
 
@@ -31,6 +33,7 @@ public class ChrisScript : BaseNPCScript
 
     void Start()
     {
+        defaultFish = fishDataList[0]; // Default fish data
         fishIndex = Random.Range(0, fishDataList.Count);
         fishPrice = fishDataList[fishIndex].price * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
         originalTextColor = GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMP_Text>().color;
@@ -138,6 +141,12 @@ public class ChrisScript : BaseNPCScript
                 greenButton.transform.GetChild(0).GetComponent<TMP_Text>().text = "Yeah, just let me catch it.";
             }
         }
+
+        if (firstVisit)
+        {
+            fishIndex = Random.Range(0, fishDataList.Count);
+            fishPrice = fishDataList[fishIndex].price * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
+        }
         firstVisit = false;
 
         GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMP_Text>().color = new Color(0, 0, 0, 1);
@@ -154,5 +163,14 @@ public class ChrisScript : BaseNPCScript
         GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMP_Text>().color = originalTextColor;
         GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMP_Text>().color = originalTextColor;
         GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(2).GetComponent<Image>().color = originalTextColor;
+    }
+
+    private void Update()
+    {
+        fishDataList = FindAnyObjectByType<EquipementScript>().fishDataDictionary.Keys.ToList();
+        if (fishDataList.Count == 0)
+        {
+            fishDataList.Add(defaultFish);
+        }
     }
 }
