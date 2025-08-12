@@ -27,10 +27,13 @@ public class ChrisScript : BaseNPCScript
 
     public TMPro.TMP_Text textbox;
 
+    private Color originalTextColor;
+
     void Start()
     {
         fishIndex = Random.Range(0, fishDataList.Count);
         fishPrice = fishDataList[fishIndex].price * FindObjectOfType<EquipementScript>().moneyMult * Random.Range(4, 9) / 2f; // Price based on size
+        originalTextColor = GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMP_Text>().color;
     }
 
     public void onBlueButton()
@@ -136,6 +139,10 @@ public class ChrisScript : BaseNPCScript
             }
         }
         firstVisit = false;
+
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMP_Text>().color = new Color(0, 0, 0, 1);
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMP_Text>().color = new Color(0, 0, 0, 1);
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(2).GetComponent<Image>().color = new Color(0, 0, 0, 1);
     }
 
     public override void setShopUIInactive()
@@ -144,5 +151,8 @@ public class ChrisScript : BaseNPCScript
         equipmentView.SetActive(false); // Hide the equipment view when the image view is closed
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
         Time.timeScale = 1.0f; // Resume the game time
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(0).GetComponent<TMP_Text>().color = originalTextColor;
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(1).GetComponent<TMP_Text>().color = originalTextColor;
+        GameObject.FindGameObjectWithTag("MoneyWeight").transform.GetChild(2).GetComponent<Image>().color = originalTextColor;
     }
 }
