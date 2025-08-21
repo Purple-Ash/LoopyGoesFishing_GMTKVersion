@@ -40,7 +40,8 @@ public class FishScript : MonoBehaviour
     [SerializeField] private float _despawnDistance = 70f;
 
     [Header("Notification Objects")]
-    [SerializeField] internal GameObject _notification;
+    [SerializeField] private GameObject _notification;
+    [SerializeField] private Vector2 _notificationScale = new Vector2(1, 1);
 
     public Vector2 Center 
     {
@@ -337,9 +338,14 @@ public class FishScript : MonoBehaviour
             //Debug.Log("Fish caught: " + gameObject.name);
 
             // You can add additional logic here, such as playing an animation or sound
-            GameObject inst = Instantiate(_notification, transform.position, Quaternion.identity);
-            SpriteRenderer fishImage = inst.GetComponentInChildren<SpriteRenderer>();
-            fishImage.sprite = _fishData.image;
+            GameObject notification = Instantiate(_notification, transform.position, Quaternion.identity);
+            notification.GetComponent<SpriteRenderer>().sprite = _fishData.image;
+            notification.transform.position = new Vector3(
+                notification.transform.position.x,
+                notification.transform.position.y,
+                0);
+            notification.transform.localScale *= _notificationScale;
+
             Destroy(gameObject); // Destroy the fish object after catching it
         }
     }
