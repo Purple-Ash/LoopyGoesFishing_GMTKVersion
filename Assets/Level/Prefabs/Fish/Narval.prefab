@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6067525564290845974}
   - component: {fileID: 898220555598095339}
   m_Layer: 8
-  m_Name: GooberFish
+  m_Name: Narval
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f42a731cca7229488c0452236366ef0, type: 2}
+  - {fileID: 2100000, guid: 7b45305e48c78c747beeb3d9251ba15b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,21 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 1.09
-  _headDots: 9
-  _bodyDots: 19
-  _bodyLength: 0.3
-  _frontFlatten: 1
-  _sideFlatten: 2.25
+  _radious: 3.06
+  _headDots: 17
+  _bodyDots: 9
+  _bodyLength: 3.72
+  _frontFlatten: 0.16
+  _sideFlatten: 3.64
   _rotate: 0
   _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 2
-  _maxAcceleration: 1
-  _skedaddleVelocity: 2.5
-  _skedaddleAcceleration: 1.25
+  _maxVelocity: 5
+  _maxAcceleration: 2.5
+  _skedaddleVelocity: 8
+  _skedaddleAcceleration: 4
   _goalProximity: 0.2
-  _skedaddleRange: 1.125
-  _fishData: {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
+  _skedaddleRange: 5.75
+  _fishData: {fileID: 11400000, guid: 023a06b9fdd130f478e7ac0b5af31cb2, type: 2}
   _despawnDistance: 70
   _notification: {fileID: 8261973108796283770, guid: 58687e452e1293e4ca2dfda158e1e4a2, type: 3}
   _notificationScale: {x: 1, y: 1}
@@ -148,8 +148,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.027553651, y: -0.0006095288}
-  m_Size: {x: 0.27186465, y: 0.09838249}
+  m_Offset: {x: -0.492798, y: -0.0014454882}
+  m_Size: {x: 0.8266615, y: 0.26095405}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.03
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
