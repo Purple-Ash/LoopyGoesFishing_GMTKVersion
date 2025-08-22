@@ -99,4 +99,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 3
   verticalVelocity: 0.5
+<<<<<<< HEAD:Assets/Level/Prefabs/NewFishNotif.prefab
+  notificationScale: 0.02
+--- !u!222 &2505402475566475117
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069784939626420956}
+  m_CullTransparentMesh: 1
+=======
   notificationScale: 0.025
+>>>>>>> 95d4510571e37ab13d7bbea77a68f7b26ee6159f:Assets/Level/Prefabs/FishNotification.prefab
