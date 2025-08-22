@@ -113,7 +113,8 @@ MonoBehaviour:
   _skedaddleRange: 8
   _fishData: {fileID: 11400000, guid: db6bdf8fa057a0543b397a5fafc912cd, type: 2}
   _despawnDistance: 70
-  _notification: {fileID: 2069784939626420956, guid: 33f32dfac8b62c74faf14990b63ea15a, type: 3}
+  _notification: {fileID: 8261973108796283770, guid: 58687e452e1293e4ca2dfda158e1e4a2, type: 3}
+  _notificationScale: {x: 1, y: 1}
 --- !u!70 &6067525564290845974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
