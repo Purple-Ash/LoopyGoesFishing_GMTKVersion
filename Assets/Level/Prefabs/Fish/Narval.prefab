@@ -110,6 +110,7 @@ MonoBehaviour:
   _maxAcceleration: 2.5
   _skedaddleVelocity: 8
   _skedaddleAcceleration: 4
+  _goalProximity: 0.2
   _skedaddleRange: 5.75
   _fishData: {fileID: 11400000, guid: 023a06b9fdd130f478e7ac0b5af31cb2, type: 2}
   _despawnDistance: 70

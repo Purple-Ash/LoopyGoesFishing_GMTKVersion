@@ -69,7 +69,7 @@ Material:
     - _ColorMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Density: 3.24
+    - _Density: 3
     - _DetailNormalMapScale: 1
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
@@ -97,7 +97,7 @@ Material:
     - _SrcBlend: 1
     - _SrcFactor: 5
     - _UVSec: 0
-    - _Wave: 0.15
+    - _Wave: 0.1
     - _ZWrite: 1
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
