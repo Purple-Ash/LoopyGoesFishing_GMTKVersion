@@ -29,6 +29,8 @@ public class FishExpertScript : BaseNPCScript
 
     void Start()
     {
+        discoveredFish = new List<bool>();
+        talkedFish = new List<bool>();
         //SpawnEntities();
         fishData.Sort((f1, f2) => {
             if (f1.price > f2.price) return 1;
@@ -98,6 +100,12 @@ public class FishExpertScript : BaseNPCScript
                 textFields[0].color = baseTextColor;
                 textFields[1].color = baseTextColor;
 
+                Debug.Log(fishData.IndexOf(f));
+
+                if (!discoveredFish[fishData.IndexOf(f)] && (fishDataDictionary[f][0] != 0 || fishDataDictionary[f][1] != 0 || fishDataDictionary[f][2] != 0))
+                {
+                    inst.transform.GetChild(4).gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -109,8 +117,6 @@ public class FishExpertScript : BaseNPCScript
 
                 textFields[0].color = Color.gray * 0.70f;
                 textFields[1].color = Color.gray * 0.70f;
-
-                fishImages[0].color = Color.gray;
             }
         }
     }
