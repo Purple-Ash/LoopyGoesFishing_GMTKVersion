@@ -46,11 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
   _fishToSpawn: {fileID: 1530426190529337220, guid: b4e27ef96fa028740b6563c6d3cb0d78, type: 3}
-  _maxFishToSpawn: 7
-  _spawnTryDelay: 50
-  _spawnTryChance: 0.5
-  _minSpawnRadious: 9
-  _fishWanderRadious: 11
+  _maxFishToSpawn: 5
+  _spawnTryDelay: 4
+  _spawnTryChance: 0.7
+  _minSpawnRadious: 12
+  _fishWanderRadious: 15
   _minimumDistance: 20
   _maximumDistance: 50
   _cameraSpawnBuffer: 0.5
