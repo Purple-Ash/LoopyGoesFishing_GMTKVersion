@@ -667,7 +667,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1381182006}
         m_TargetAssemblyTypeName: GlossaryScript, Assembly-CSharp
-        m_MethodName: Open
+        m_MethodName: ToggleGlossary
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14552,6 +14552,11 @@ PrefabInstance:
       addedObject: {fileID: 849976221}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abf5dae6997c9c242bb00e0d932e1f41, type: 3}
+--- !u!1 &543576457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3062642650368834499, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+  m_PrefabInstance: {fileID: 1270045357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &543576458 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2752072607196595291, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
@@ -27489,7 +27494,7 @@ PrefabInstance:
     - target: {fileID: 4290945908025182434, guid: 78665d5ee5f851e47b1662b834528aaf, type: 3}
       propertyPath: calledEvent
       value: 
-      objectReference: {fileID: 395620222}
+      objectReference: {fileID: 1953684007}
     - target: {fileID: 6173487182590859024, guid: 78665d5ee5f851e47b1662b834528aaf, type: 3}
       propertyPath: m_Name
       value: Danny activator
@@ -31385,6 +31390,14 @@ PrefabInstance:
     - target: {fileID: 4325363292522645729, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1953684012}
+    - target: {fileID: 4325363292522645729, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: setShopUIInactive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325363292522645729, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FishExpertScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4620091939394918882, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
       propertyPath: m_SizeDelta.x
@@ -31561,9 +31574,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1926324591}
     - targetCorrespondingSourceObject: {fileID: 2752072607196595291, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 847005861}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 620863603018719709, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1953684012}
   m_SourcePrefab: {fileID: 100100000, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
 --- !u!1 &1270267784
 GameObject:
@@ -47836,11 +47852,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2537029833519262462, guid: 27fda73fe3780014795b7e105a62cfdf, type: 3}
   m_PrefabInstance: {fileID: 1584728994}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1953684007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 620863603018719709, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
+  m_PrefabInstance: {fileID: 1270045357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1953684011 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8520655838098528376, guid: fc613d7b32a66e649bd3c44960a33d90, type: 3}
   m_PrefabInstance: {fileID: 1270045357}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1953684012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953684007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b304e825f107f4689b68151381a83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCUI: {fileID: 0}
+  entityToSpawn: {fileID: 0}
+  contentTransform: {fileID: 1093107219}
+  imageView: {fileID: 543576457}
+  equipmentView: {fileID: 1926324590}
+  backPanel: {fileID: 1880032329}
+  discoverSound: {fileID: 0}
+  discoverMultiplier: 0.5
 --- !u!4 &1956063454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4258334936135420209, guid: 02a26fd5f8b6dc14f96f60dc2b2b03f2, type: 3}
