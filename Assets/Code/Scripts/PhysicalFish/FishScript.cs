@@ -31,6 +31,7 @@ public class FishScript : MonoBehaviour
     [SerializeField] protected float _maxAcceleration = 0.1f;
     [SerializeField] protected float _skedaddleVelocity = 0.2f;
     [SerializeField] protected float _skedaddleAcceleration = 0.5f;
+    [SerializeField] protected float _goalProximity = 0.2f;
 
     [Header("Skedaddle")]
     [SerializeField] private float _skedaddleRange;
@@ -293,7 +294,7 @@ public class FishScript : MonoBehaviour
             speedMultiplier = 1f;
         }
         Vector2 direction = _destination - (Vector2)transform.position;
-        if (direction.magnitude < 0.2f) RecalculateGoal();
+        if (direction.magnitude < _goalProximity) RecalculateGoal();
         else MoveTowards(direction, speedMultiplier);
         GetComponent<Rigidbody2D>().velocity = _velocity;
     }
@@ -311,7 +312,7 @@ public class FishScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    protected virtual void OnCollisionStay2D(Collision2D collision)
     {
         if(collision == null) return;
         if (collision.gameObject.tag == "Buoy")
