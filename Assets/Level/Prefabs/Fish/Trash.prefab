@@ -244,18 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 1.65
-  _headDots: 6
-  _bodyDots: 12
-  _bodyLength: 0.24
-  _frontFlatten: 1
-  _sideFlatten: 1
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
   _maxVelocity: 0
   _maxAcceleration: 0
   _skedaddleVelocity: 0
   _skedaddleAcceleration: 0
+  _goalProximity: 0.2
   _skedaddleRange: 0.75
   _fishData: {fileID: 11400000, guid: 335d3465411bc3d4daf88f11953ec409, type: 2}
   _despawnDistance: 70

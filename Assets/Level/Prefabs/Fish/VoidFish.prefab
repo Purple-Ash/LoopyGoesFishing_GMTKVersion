@@ -244,14 +244,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 2.13
-  _headDots: 19
-  _bodyDots: 30
-  _bodyLength: 0.27
-  _frontFlatten: 1.81
-  _sideFlatten: 3.54
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
+  config:
+    radious: 0.01
+    headDots: 1
+    bodyDots: 3
+    bodyLength: 0
+    frontFlatten: 0.1
+    sideFlatten: 0
+    rotate: 0
+    size: {x: 0, y: 0}
   _maxVelocity: 8
   _maxAcceleration: 4
   _skedaddleVelocity: 13
