@@ -33724,7 +33724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd88d39277ca3334a814316c27e0e02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityToSpawn: {fileID: 3619564659473494403, guid: 2562ca64a1b010b46ad93c75ad99cb12, type: 3}
+  entityToSpawn: {fileID: 3619564659473494403, guid: 99b98a43052ef434aac574343bb5db3c, type: 3}
   fishData:
   - {fileID: 11400000, guid: ba905ac67e42cc74b9ca4a554091b311, type: 2}
   - {fileID: 11400000, guid: db6bdf8fa057a0543b397a5fafc912cd, type: 2}
@@ -47875,11 +47875,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCUI: {fileID: 0}
-  entityToSpawn: {fileID: 0}
+  entityToSpawn: {fileID: 3619564659473494403, guid: 2562ca64a1b010b46ad93c75ad99cb12, type: 3}
   contentTransform: {fileID: 1093107219}
   imageView: {fileID: 543576457}
   equipmentView: {fileID: 1926324590}
   backPanel: {fileID: 1880032329}
+  fishData:
+  - {fileID: 11400000, guid: ba905ac67e42cc74b9ca4a554091b311, type: 2}
+  - {fileID: 11400000, guid: db6bdf8fa057a0543b397a5fafc912cd, type: 2}
+  - {fileID: 11400000, guid: ef5ad85218e6eb04c81183ea1dbe6d19, type: 2}
+  - {fileID: 11400000, guid: 4cbb535a6ea962a49ac7b87d877fa48e, type: 2}
+  - {fileID: 11400000, guid: 95ac70110996368419324cfd3d6c11b2, type: 2}
+  - {fileID: 11400000, guid: 4c44896d5185b9249bc559528efca052, type: 2}
+  - {fileID: 11400000, guid: 9e604aa83bf170949b925554c7621019, type: 2}
+  - {fileID: 11400000, guid: a8e992de6b6a4be49941abb5a48e9956, type: 2}
+  - {fileID: 11400000, guid: 617523a46a4034a45b998c24690a10ad, type: 2}
+  - {fileID: 11400000, guid: 335d3465411bc3d4daf88f11953ec409, type: 2}
   discoverSound: {fileID: 0}
   discoverMultiplier: 0.5
 --- !u!4 &1956063454 stripped
