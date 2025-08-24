@@ -30,9 +30,11 @@ public class FishExpertScript : BaseNPCScript
 
     private AudioManager audioManager;
     private int studies = 0;
+    private bool visited = false;
 
     void Start()
     {
+        visited = false;
         studies = 0;
         discoveredFish = new List<bool>();
         talkedFish = new List<bool>();
@@ -58,8 +60,10 @@ public class FishExpertScript : BaseNPCScript
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
         equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
-        text.SetText("Welcome back to my Lighthouse! Caught any new fish for us to study recently? Or maybe you want to pry me for some more information? I might just throw you a *red Herring*, heh heh.");
+        if(visited)
+            text.SetText("Welcome back to my Lighthouse! Caught any new fish for us to study recently? Or maybe you want to pry me for some more information? I might just throw you a *red Herring*, heh heh.");
         numText.SetText("Studied: " + studies + "/" + fishData.Count);
+        visited = true;
     }
 
     public override void setShopUIInactive()
@@ -191,17 +195,20 @@ public class FishExpertScript : BaseNPCScript
             {
                 fishDataDictionary[fish][1] -= 1;
                 discoveredFish[index] = true;
+                text.SetText(fish.infoDetails);
             }
             else if (fishDataDictionary[fish][0] != 0)
             {
                 fishDataDictionary[fish][0] -= 1;
                 discoveredFish[index] = true;
+                text.SetText(fish.infoDetails);
             }
             else
             {
                 Debug.LogError("Coœ siê potê¿nie zjeba³o, nie ma ¿adnych ryb w dictionary, a powinny byæ!");
             }
-
+            studies++;
+            numText.SetText("Studied: " + studies + "/" + fishData.Count);
         }
     }
 
