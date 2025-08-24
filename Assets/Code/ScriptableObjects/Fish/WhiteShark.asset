@@ -18,3 +18,6 @@ MonoBehaviour:
     isn't scared of anything.
   price: 600
   weight: 60
+  infoPrice: 200
+  infoPlace: 
+  infoDetails: 

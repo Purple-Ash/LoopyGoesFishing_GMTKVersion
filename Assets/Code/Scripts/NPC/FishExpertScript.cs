@@ -12,6 +12,8 @@ public class FishExpertScript : BaseNPCScript
     // Content container in which GameObjects are spawned
     public Transform contentTransform;
 
+    public TMPro.TMP_Text text;
+
     // The Equipment View UI object
     public GameObject imageView;
     public GameObject equipmentView;
@@ -53,6 +55,7 @@ public class FishExpertScript : BaseNPCScript
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
         equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
+        text.SetText("Welcome back to my Lighthouse! Caught any new fish for us to study recently? Or maybe you want to pry me for some more information? I might just throw you a *red Herring*, heh heh.");
     }
 
     public override void setShopUIInactive()
@@ -78,11 +81,11 @@ public class FishExpertScript : BaseNPCScript
     void SpawnEntities()
     {
         Dictionary<NewFishData, int[]> fishDataDictionary = GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().fishDataDictionary;
-        int caught = 0;
         foreach (NewFishData f in fishData)
         {
-
             GameObject inst = Instantiate(entityToSpawn, contentTransform.transform);
+
+            inst.GetComponent<LighthouseEntryManager>().newFishData = f;
 
             Image[] fishImages = inst.GetComponentsInChildren<Image>();
             TMP_Text[] textFields = inst.GetComponentsInChildren<TMP_Text>();
@@ -91,20 +94,22 @@ public class FishExpertScript : BaseNPCScript
                 fishImages[1].sprite = f.image;
 
                 textFields[0].SetText(f.name);
-                textFields[1].SetText(f.description);
-
-                caught++;
+                textFields[1].SetText("???");
 
                 ColorUtility.TryParseHtmlString("#CFC2A1", out Color baseTextColor);
 
                 textFields[0].color = baseTextColor;
-                textFields[1].color = baseTextColor;
-
-                Debug.Log(fishData.IndexOf(f));
+                textFields[1].color = Color.gray * 0.70f;
+                inst.transform.GetChild(4).gameObject.SetActive(false);
 
                 if (!discoveredFish[fishData.IndexOf(f)] && (fishDataDictionary[f][0] != 0 || fishDataDictionary[f][1] != 0 || fishDataDictionary[f][2] != 0))
                 {
                     inst.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (discoveredFish[fishData.IndexOf(f)])
+                {
+                    textFields[1].SetText(f.infoDetails);
+                    textFields[1].color = baseTextColor;
                 }
             }
             else
@@ -112,12 +117,87 @@ public class FishExpertScript : BaseNPCScript
                 fishImages[1].sprite = f.image;
                 fishImages[1].color = Color.black;
 
-                textFields[0].SetText("???");
                 textFields[1].SetText("???");
-
-                textFields[0].color = Color.gray * 0.70f;
+                
                 textFields[1].color = Color.gray * 0.70f;
+
+                if (talkedFish[fishData.IndexOf(f)])
+                {
+                    textFields[0].SetText(f.name);
+                    ColorUtility.TryParseHtmlString("#CFC2A1", out Color baseTextColor);
+                    textFields[0].color = baseTextColor;
+                }
+                else
+                {
+                    textFields[0].SetText("???");
+                    textFields[0].color = Color.gray * 0.70f;
+                }
             }
+
+
+            if (!talkedFish[fishData.IndexOf(f)])
+            {
+                inst.transform.GetChild(3).GetChild(0).GetComponent<TMP_Text>().SetText("Here's " + f.infoPrice + "$, Where do I find it?");
+            }
+            else
+            {
+                inst.transform.GetChild(3).GetChild(0).GetComponent<TMP_Text>().SetText("Remind me where to find them again?");
+            }
+        }
+    }
+
+    public bool onInfo(NewFishData fish)
+    {
+        int index = fishData.IndexOf(fish);
+        if (!talkedFish[index])
+        {
+            if (FindObjectOfType<EquipementScript>().money >= fish.infoPrice)
+            {
+                FindObjectOfType<EquipementScript>().money -= fish.infoPrice;
+                talkedFish[index] = true;
+                text.SetText(fish.infoPlace);
+                return true;
+            }
+            else
+            {
+                text.SetText("This seems a bit *fishy*, you don't have enough money to make that offer!");
+                return false;
+            }
+        }
+        else
+        {
+            text.SetText(fish.infoPlace);
+            return true;
+        }
+    }
+
+    public void onDiscover(NewFishData fish)
+    {
+        int index = fishData.IndexOf(fish);
+        Dictionary<NewFishData, int[]> fishDataDictionary = GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().fishDataDictionary;
+        if (!discoveredFish[index])
+        {
+            if (fishDataDictionary[fish][2] != 0)
+            {
+                fishDataDictionary[fish][2] -= 1;
+                discoveredFish[index] = true;
+                text.SetText(fish.infoDetails);
+            }
+            else if (fishDataDictionary[fish][1] != 0)
+            {
+                fishDataDictionary[fish][1] -= 1;
+                discoveredFish[index] = true;
+            }
+            else if (fishDataDictionary[fish][0] != 0)
+            {
+                fishDataDictionary[fish][0] -= 1;
+                discoveredFish[index] = true;
+            }
+            else
+            {
+                Debug.LogError("Coœ siê potê¿nie zjeba³o, nie ma ¿adnych ryb w dictionary, a powinny byæ!");
+            }
+
         }
     }
 

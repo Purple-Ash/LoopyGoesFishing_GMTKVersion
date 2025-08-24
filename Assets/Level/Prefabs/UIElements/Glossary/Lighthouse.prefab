@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 7795914491370074874}
   - component: {fileID: 975782453280764259}
   - component: {fileID: 4626645367278991020}
+  - component: {fileID: 1523729464235238709}
   m_Layer: 5
   m_Name: Lighthouse
   m_TagString: Untagged
@@ -557,6 +558,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1523729464235238709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3619564659473494403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc0c94e612de3b4e906821dde3a51a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewFishData: {fileID: 0}
 --- !u!1 &8012768512232179930
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +838,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1523729464235238709}
+        m_TargetAssemblyTypeName: LighthouseEntryManager, Assembly-CSharp
+        m_MethodName: onDelivery
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9206522136928458329
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +974,18 @@ MonoBehaviour:
       - m_Target: {fileID: 74273958774968852, guid: 6a7e352ab8f1dca48ba6a587792a2a01, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1523729464235238709}
+        m_TargetAssemblyTypeName: LighthouseEntryManager, Assembly-CSharp
+        m_MethodName: onInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

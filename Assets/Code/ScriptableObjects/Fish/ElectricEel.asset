@@ -18,3 +18,9 @@ MonoBehaviour:
     bare hands! '
   price: 60
   weight: 6
+  infoPrice: 150
+  infoPlace: "Now this might be a bit of a *shock*, but I\u2019ve seen these pretty
+    much only twice in my time around here. It\u2019s not a guarantee but I\u2019d
+    either search between the 2 western islands, or just above the one to the north-east,
+    with the reef."
+  infoDetails: 

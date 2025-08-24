@@ -18,3 +18,8 @@ MonoBehaviour:
     us on the woke games list.
   price: 18
   weight: 1.5
+  infoPrice: 15
+  infoPlace: "I\u2019ve just seen some right to the left of my lighthouse! But if
+    that\u2019s not enough, just try swimming around the outside of our beautiful
+    islands and I\u2019m sure you\u2019ll find some more."
+  infoDetails: 

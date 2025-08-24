@@ -18,3 +18,8 @@ MonoBehaviour:
     Huge dummy, barely even aware of the boat.
   price: 125
   weight: 12
+  infoPrice: 50
+  infoPlace: "Now, when you\u2019ve got a head like that, running into things is
+    pretty common, so these guys prefer to avoid land. If you look on the open waters
+    some might just take you for a *nail*, heheh."
+  infoDetails: 

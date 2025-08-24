@@ -17,3 +17,9 @@ MonoBehaviour:
   description: Look at this thing, It's huge! We couldn't even fit it in frame.
   price: 400
   weight: 25
+  infoPrice: 200
+  infoPlace: "These guys are so big that they can\u2019t comfortably swim between
+    the isles, so they mostly keep to the outside of the archipelago. Go far to the
+    north, south, east, or west and the ocean will be full of these. Just don\u2019t
+    get your ship *chunked* by the huge ocean waves, heh."
+  infoDetails: 

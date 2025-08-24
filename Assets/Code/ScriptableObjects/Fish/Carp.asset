@@ -17,3 +17,9 @@ MonoBehaviour:
   description: Bensons favourite Christmas snack. Lazy and fat. The fish, Not Benson.
   price: 6
   weight: 2
+  infoPrice: 5
+  infoPlace: "Carps are relatively common in the area, a bit weird you\u2019d need
+    help finding them. But alas, if you aren\u2019t *baiting* me right now, heh,
+    you can find some near the northern entrance to our bay or around the small island
+    at the centre of the archipelago."
+  infoDetails: 

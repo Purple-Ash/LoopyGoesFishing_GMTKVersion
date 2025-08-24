@@ -17,3 +17,9 @@ MonoBehaviour:
   description: Classic, iconic clownfish. Hides in corals to avoid predators.
   price: 20
   weight: 0.5
+  infoPrice: 50
+  infoPlace: "Now, I understand why you\u2019d need help finding the clownfish. They\u2019re
+    tiny, sneaky and pack themselves into coral like real *clowns*, heh heh. Just
+    look for any reefs in the area and you\u2019re bound to find some, and I heard
+    the strait running through the eastern isles has a one particularly beautiful."
+  infoDetails: 

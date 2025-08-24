@@ -19,4 +19,13 @@ public class NewFishData : ScriptableObject
 
     [SerializeField]
     public float weight;
+
+    [SerializeField]
+    public int infoPrice;
+
+    [SerializeField]
+    public string infoPlace;
+
+    [SerializeField]
+    public string infoDetails;
 }
