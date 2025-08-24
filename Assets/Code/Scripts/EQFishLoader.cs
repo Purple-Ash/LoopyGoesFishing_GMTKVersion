@@ -126,13 +126,13 @@ public class EQFishLoader : MonoBehaviour
             textFields[7].SetText(f.Value[2].ToString()); //XL Number
             textFields[8].SetText(f.Value[1].ToString()); //L Number
             textFields[9].SetText(f.Value[0].ToString()); //M Number
-            textFields[11].SetText(f.Value[2] * f.Key.weight + " kg"); // Total weight for XL
+            textFields[11].SetText(f.Value[2] * f.Key.weight + "kg"); // Total weight for XL
             textFields[12].SetText(f.Value[1] * f.Key.weight + "kg"); // Total weight for L
             textFields[13].SetText(f.Value[0] * f.Key.weight + "kg"); // Total weight for M
-            textFields[15].SetText(f.Value[2] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 3 + "$"); // Total price for XL
-            textFields[16].SetText(f.Value[1] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 2 + "$"); // Total price for L
-            textFields[17].SetText(f.Value[0] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult + "$"); // Total price for M
-            textFields[19].SetText(((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 3) * FindObjectOfType<EquipementScript>().moneyMult).ToString() + "$");
+            textFields[15].SetText((f.Value[2] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 3).ToString("0.00") + "$"); // Total price for XL
+            textFields[16].SetText((f.Value[1] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult * 2).ToString("0.00") + "$"); // Total price for L
+            textFields[17].SetText((f.Value[0] * f.Key.price * FindObjectOfType<EquipementScript>().moneyMult).ToString("0.00") + "$"); // Total price for M
+            textFields[19].SetText(((f.Key.price * f.Value[0] + f.Value[1] * f.Key.price * 2 + f.Value[2] * f.Key.price * 3) * FindObjectOfType<EquipementScript>().moneyMult).ToString("0.00") + "$");
 
             mass += f.Value[0] * f.Key.weight + f.Value[1] * f.Key.weight + f.Value[2] * f.Key.weight;
         }
