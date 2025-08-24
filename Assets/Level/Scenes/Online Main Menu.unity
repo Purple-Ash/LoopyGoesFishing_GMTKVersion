@@ -3368,6 +3368,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2066648086445644712, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSfxVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 2177291645124271155, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.6313726
@@ -3440,6 +3444,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6751214580568329420, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 6803388542070302506, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -200.99998
@@ -3503,6 +3511,10 @@ PrefabInstance:
     - target: {fileID: 8989175456305326883, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4288791247
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102395815579042241, guid: 24ab30c38711c5b4fb88d6595f9124a2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeAmbientVolume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
