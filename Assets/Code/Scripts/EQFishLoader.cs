@@ -85,7 +85,7 @@ public class EQFishLoader : MonoBehaviour
         transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position = new Vector3(transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.x, -2000, transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).position.z);
     }
 
-    void Close()
+    public void Close()
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().unlockZoom();
         DestroyEntities();
