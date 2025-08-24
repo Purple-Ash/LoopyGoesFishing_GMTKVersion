@@ -110,17 +110,22 @@ MonoBehaviour:
     headResolution: 12
     multiplyX: 1.68
     multiplyY: 1
-    finAmount: 1
+    finAmount: 2
     finPositions:
     - {x: 0, y: 0.19}
-    finArchetypes: 01000000
+    - {x: 0.89, y: 1}
+    finArchetypes: 0100000001000000
     finSize:
     - 1.12
+    - 1.39
     finOffset:
     - {x: 0.2, y: -5.42}
+    - {x: 0, y: 0}
     finFlattenX:
     - 1
+    - 1
     finFlattenY:
+    - 1
     - 1
   _maxVelocity: 2
   _maxAcceleration: 1
