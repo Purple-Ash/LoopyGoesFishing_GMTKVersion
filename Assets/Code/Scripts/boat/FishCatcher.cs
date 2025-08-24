@@ -37,7 +37,7 @@ public class FishCatcher : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Fish"))
+        if (collision.gameObject.CompareTag("Fish") || collision.gameObject.CompareTag("ScaryFish"))
         {
             FishScript fish = collision.gameObject.GetComponent<FishScript>();
             if (fish != null)
