@@ -209,6 +209,9 @@ public class FishExpertScript : BaseNPCScript
             }
             studies++;
             numText.SetText("Studied: " + studies + "/" + fishData.Count);
+            GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().weight -= fish.weight; // Reduce the weight of the equipment by the fish weight multiplied by the discover multiplier
+            GameObject.FindGameObjectWithTag("EquipementManager").GetComponent<EquipementScript>().UpdateMoneyAndWeight(); // Reduce the weight of the equipment by the fish weight multiplied by the discover multiplier
+
         }
     }
 

@@ -129,11 +129,17 @@ public class IslandTowScript : MonoBehaviour
             timer += Time.deltaTime; // Increment the timer
             ending.transform.GetChild(2).GetChild(1).GetComponent<Button>().GetComponent<Image>().color = new Color(1, 88f/255f, 0, timer / buttonFadeTime); // Fade in the button
             ending.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<TMP_Text>().color = new Color(0.2f, 0.2f, 0.2f, timer / buttonFadeTime); // Fade in the button
+
+            ending.transform.GetChild(2).GetChild(2).GetComponent<Button>().GetComponent<Image>().color = new Color(204f / 256f, 236f / 255f, 74f / 256f, timer / buttonFadeTime); // Set the button color to fully opaque
+            ending.transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<TMP_Text>().color = new Color(0.2f, 0.2f, 0.2f, timer / buttonFadeTime); // Fade in the button
             if (timer >= buttonFadeTime)
             {
                 triggerButton = false; // Reset the trigger button flag
                 ending.transform.GetChild(2).GetChild(1).GetComponent<Button>().GetComponent<Image>().color = new Color(1, 88f/255f, 0, 1); // Set the button color to fully opaque
                 ending.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<TMP_Text>().color = new Color(0.2f, 0.2f, 0.2f, 1); // Fade in the button
+
+                ending.transform.GetChild(2).GetChild(2).GetComponent<Button>().GetComponent<Image>().color = new Color(204f/256f, 236f / 255f, 74f / 256f, 1); // Set the button color to fully opaque
+                ending.transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<TMP_Text>().color = new Color(0.2f, 0.2f, 0.2f, 1); // Fade in the button
             }
         }
     }
