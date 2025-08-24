@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ public class FishScript : MonoBehaviour
     private Vector2 _destination = new Vector2(0f, 0f);
     protected Vector2 _velocity = new Vector2(0f, 0f);
     private float _colidingTimer = 0.0f;
-    private GameObject boat;
+    protected GameObject boat;
     private CenterOfTheWorld _centerOfTheWorld;
     [HideInInspector] internal FishSpawner _fishSpawner;
 
@@ -34,7 +35,7 @@ public class FishScript : MonoBehaviour
     [SerializeField] protected float _goalProximity = 0.2f;
 
     [Header("Skedaddle")]
-    [SerializeField] private float _skedaddleRange;
+    [SerializeField] protected float _skedaddleRange;
 
     [Header("Value and stuff")]
     [SerializeField] private NewFishData _fishData;
@@ -242,6 +243,20 @@ public class FishScript : MonoBehaviour
                 transform.position.y
             );
         float actualMaxVelocity = 1;
+
+        // finding all objects that cause skedaddle
+        List<GameObject> skedaddleObjects = GameObject.FindGameObjectsWithTag("ScaryFish").ToList();
+        
+        foreach (GameObject obj in skedaddleObjects)
+        {
+            Vector2 objPosition = new Vector2(obj.transform.position.x, obj.transform.position.y);
+            if ((objPosition - thisPosition).magnitude < (boatTransformPosition - thisPosition).magnitude)
+            {
+                boatTransformPosition = objPosition;
+                break; // Use the first object found within range
+            }
+        }
+
         if ((boatTransformPosition - thisPosition).magnitude < _skedaddleRange)
         {
             Vector2 boatDirection = thisPosition - boatTransformPosition;
