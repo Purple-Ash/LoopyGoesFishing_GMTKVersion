@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -74,10 +75,71 @@ public class FishScript : MonoBehaviour
     }
     private void EnforceConstraints()
     {
-        if (config.Radious < 0.01) config.Radious = 0.01f;
-        if (config.HeadDots < 1) config.HeadDots = 1;
-        if (config.BodyDots < 3) config.BodyDots = 3;
-        if (config.FrontFlatten < 0.1) config.FrontFlatten = 0.1f;
+        if (config.radious < 0.01) config.radious = 0.01f;
+        if (config.headResolution < 1) config.headResolution = 1;
+        if (config.bodyResolution < 3) config.bodyResolution = 3;
+        if (config.multiplyY < 0.1) config.multiplyY = 0.1f;
+
+        if (config.finPositions == null) config.finPositions = new List<Vector2>();
+        while (config.finPositions.Count > config.finAmount)
+        {
+            config.finPositions.RemoveAt(config.finAmount);
+        }
+        while(config.finPositions.Count < config.finAmount)
+        {
+            config.finPositions.Add(new Vector2(0, 0));
+        }
+
+        if (config.finArchetypes == null) config.finArchetypes = new List<MeshConfig.FinShape>();
+        while (config.finArchetypes.Count > config.finAmount)
+        {
+            config.finArchetypes.RemoveAt(config.finAmount);
+        }
+        while (config.finArchetypes.Count < config.finAmount)
+        {
+            config.finArchetypes.Add(MeshConfig.FinShape.Sharp);
+        }
+
+        if (config.finSize == null) config.finSize = new List<float>();
+        while (config.finSize.Count > config.finAmount)
+        {
+            config.finSize.RemoveAt(config.finAmount);
+        }
+        while (config.finSize.Count < config.finAmount)
+        {
+            config.finSize.Add(1);
+        }
+
+        if (config.finOffset == null) config.finOffset = new List<Vector2>();
+        while (config.finOffset.Count > config.finAmount)
+        {
+            config.finOffset.RemoveAt(config.finAmount);
+        }
+        while (config.finOffset.Count < config.finAmount)
+        {
+            config.finOffset.Add(new Vector2(0, 0));
+        }
+
+        if (config.finFlattenX == null) config.finFlattenX = new List<float>();
+        while (config.finFlattenX.Count > config.finAmount)
+        {
+            config.finFlattenX.RemoveAt(config.finAmount);
+        }
+        while (config.finFlattenX.Count < config.finAmount)
+        {
+            config.finFlattenX.Add(1);
+        }
+
+        if (config.finFlattenY == null) config.finFlattenY = new List<float>();
+        while (config.finFlattenY.Count > config.finAmount)
+        {
+            config.finFlattenY.RemoveAt(config.finAmount);
+        }
+        while (config.finFlattenY.Count < config.finAmount)
+        {
+            config.finFlattenY.Add(1);
+        }
+
     }
     private void CalculateMesh()
     {

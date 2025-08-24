@@ -99,14 +99,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    radious: 0.01
-    headDots: 1
-    bodyDots: 3
-    bodyLength: 0
-    frontFlatten: 0.1
-    sideFlatten: 0
+    radious: 1.2
+    translate: {x: 0.09, y: 0}
+    size: {x: 0.05, y: 0.05}
     rotate: 0
-    size: {x: 0, y: 0}
+    bodyResolution: 9
+    bodyLength: 7.8
+    bodyArchetype: 2
+    exponent: 2
+    headResolution: 11
+    multiplyX: 3.6
+    multiplyY: 1
+    finAmount: 2
+    finPositions:
+    - {x: -0.18, y: 0.15}
+    - {x: 0.47, y: 0.57}
+    finArchetypes: 0100000001000000
+    finSize:
+    - 1.54
+    - 0.88
+    finOffset:
+    - {x: 0.32, y: -0.36}
+    - {x: 0.09, y: -0.29}
+    finFlattenX:
+    - 1.35
+    - 1.85
+    finFlattenY:
+    - 2.62
+    - 1
   _maxVelocity: 4
   _maxAcceleration: 2
   _skedaddleVelocity: 7
@@ -149,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03096253, y: 0.00024270266}
-  m_Size: {x: 0.3911788, y: 0.10690587}
+  m_Offset: {x: 0.071111, y: 0.00024269048}
+  m_Size: {x: 0.32474324, y: 0.10690769}
   m_Direction: 1
 --- !u!50 &898220555598095339
 Rigidbody2D:

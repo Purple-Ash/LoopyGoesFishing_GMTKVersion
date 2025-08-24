@@ -175,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 1530426190529337220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.003, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -244,6 +244,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config:
+    radious: 1
+    translate: {x: 0, y: 0}
+    size: {x: 0.05, y: 0.05}
+    rotate: 0
+    bodyResolution: 3
+    bodyLength: 1
+    bodyArchetype: 1
+    exponent: 0
+    headResolution: 2
+    multiplyX: 1
+    multiplyY: 1
+    finAmount: 0
+    finPositions: []
+    finArchetypes: 
+    finSize: []
+    finOffset: []
+    finFlattenX: []
+    finFlattenY: []
   _maxVelocity: 0
   _maxAcceleration: 0
   _skedaddleVelocity: 0
