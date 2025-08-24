@@ -98,15 +98,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14c3762c6c310a49b0195bbff8a52e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 8.97
-  _headDots: 17
-  _bodyDots: 43
-  _bodyLength: 1.51
-  _frontFlatten: 1
-  _sideFlatten: 2.59
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
-  _maxVelocity: 7
+  config:
+    radious: 7.58
+    translate: {x: 1.1, y: 0}
+    size: {x: 0.05, y: 0.05}
+    rotate: 0
+    bodyResolution: 12
+    bodyLength: 64.93
+    bodyArchetype: 2
+    exponent: 2.17
+    headResolution: 12
+    multiplyX: 2.59
+    multiplyY: 1
+    finAmount: 4
+    finPositions:
+    - {x: 0.09, y: 0.26}
+    - {x: 0.3, y: 0.42}
+    - {x: 0.5, y: 0.6}
+    - {x: 0.9, y: 1}
+    finArchetypes: 01000000000000000100000001000000
+    finSize:
+    - 1.28
+    - 2.17
+    - 0.91
+    - 1
+    finOffset:
+    - {x: 0.13, y: 0}
+    - {x: -0.16, y: -4.56}
+    - {x: 0.06, y: 0}
+    - {x: 0, y: 0}
+    finFlattenX:
+    - 1
+    - 9.36
+    - 1
+    - 1
+    finFlattenY:
+    - 1
+    - 1.87
+    - 1
+    - 1
+  _maxVelocity: 7.26
   _maxAcceleration: 1.4
   _skedaddleVelocity: 7
   _skedaddleAcceleration: 1.4

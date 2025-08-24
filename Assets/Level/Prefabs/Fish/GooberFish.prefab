@@ -98,14 +98,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98536d352cccd554292e495f190f7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 1.09
-  _headDots: 9
-  _bodyDots: 19
-  _bodyLength: 0.3
-  _frontFlatten: 1
-  _sideFlatten: 2.25
-  _rotate: 0
-  _size: {x: 0.05, y: 0.05}
+  config:
+    radious: 1.09
+    translate: {x: 0, y: 0}
+    size: {x: 0.05, y: 0.05}
+    rotate: 0
+    bodyResolution: 6
+    bodyLength: 5.7
+    bodyArchetype: 2
+    exponent: 2
+    headResolution: 6
+    multiplyX: 2.25
+    multiplyY: 1
+    finAmount: 2
+    finPositions:
+    - {x: 0, y: 0.09}
+    - {x: 0.3, y: 0.45}
+    finArchetypes: 0000000000000000
+    finSize:
+    - 0.72
+    - 0.98
+    finOffset:
+    - {x: 0.07, y: 0}
+    - {x: 0.06, y: 0.02}
+    finFlattenX:
+    - 2.04
+    - 0.98
+    finFlattenY:
+    - 1.36
+    - 0.34
   _maxVelocity: 2
   _maxAcceleration: 1
   _skedaddleVelocity: 2.5
