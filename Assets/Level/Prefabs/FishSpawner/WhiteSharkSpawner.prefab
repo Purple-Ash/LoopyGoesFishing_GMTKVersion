@@ -47,10 +47,10 @@ MonoBehaviour:
   _camera: {fileID: 0}
   _fishToSpawn: {fileID: 1530426190529337220, guid: 1e293c23906527a4c905ccdce42686ed, type: 3}
   _maxFishToSpawn: 1
-  _spawnTryDelay: 1
+  _spawnTryDelay: 30
   _spawnTryChance: 1
-  _minSpawnRadious: 20
-  _fishWanderRadious: 24
+  _minSpawnRadious: 36
+  _fishWanderRadious: 40
   _minimumDistance: 20
   _maximumDistance: 50
   _cameraSpawnBuffer: 0.5

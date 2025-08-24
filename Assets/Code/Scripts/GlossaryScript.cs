@@ -60,13 +60,28 @@ public class GlossaryScript : MonoBehaviour
         }
     }
 
+    public void ToggleGlossary()
+    {
+        if (isOpen)
+        {
+            Close();
+            GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuClose();
+        }
+        else
+        {
+            Open();
+            GameObject.FindGameObjectWithTag("OptionsManager").GetComponent<OptionsManager>().OtherMenuOpen();
+        }
+    }
+
     public void Open()
     {
         Debug.Log("Opening Glossary");
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().blockZoom();
         SpawnEntities();
-        contentTransform.transform.position = new Vector3(contentTransform.transform.position.x, contentTransform.transform.position.y - 2000, contentTransform.transform.position.z);
+        Debug.Log("Moved Stuff"); 
         GlossaryPopup.SetActive(true);
+        contentTransform.transform.position = new Vector3(contentTransform.transform.position.x, contentTransform.transform.position.y - 2000, contentTransform.transform.position.z);
         isOpen = true;
     }
 

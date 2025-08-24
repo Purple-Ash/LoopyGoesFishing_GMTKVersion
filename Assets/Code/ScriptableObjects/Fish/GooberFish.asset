@@ -18,3 +18,11 @@ MonoBehaviour:
     awful.
   price: 2
   weight: 0.5
+  infoPrice: 5
+  infoPlace: "Y-you haven\u2019t noticed any gooberfish??? But you were just in the
+    bay! They\u2019re there, in the village bay, just turn around and look between
+    the shops. Even the tutorial highlighted them for you!"
+  infoDetails: "Oddly similar to sardines in many ways, just way gooier in texture.
+    As such even more people as disgusted by them, even though they\u2019re an amazing
+    source of nutrients. Some biologists say they\u2019re distant, shallow water,
+    cousins of the Blobfish."

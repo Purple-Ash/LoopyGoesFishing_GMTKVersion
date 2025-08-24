@@ -18,3 +18,10 @@ MonoBehaviour:
     Huge dummy, barely even aware of the boat.
   price: 125
   weight: 12
+  infoPrice: 50
+  infoPlace: "Now, when you\u2019ve got a head like that, running into things is
+    pretty common, so these guys prefer to avoid land. If you look on the open waters
+    some might just take you for a *nail*, heheh."
+  infoDetails: "The unique shape of this animal\u2019s skull makes it able to see
+    in the full 360 degrees around it. That must be so overwhelming for their little
+    brains. I bet that\u2019s why they have a reputation for being such dummies."
