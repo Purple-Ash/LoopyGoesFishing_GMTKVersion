@@ -129,8 +129,12 @@ public class GlossaryScript : MonoBehaviour
                 if (!knownBeforeFish.Contains(f))
                 {
                     Debug.Log("New fish in glossary");
-                    fishImages[0].color = Color.red + Color.white * 0.50f;
+                    fishImages[1].transform.GetChild(0).gameObject.SetActive(true);
                     knownBeforeFish.Add(f);
+                }
+                else
+                {
+                    fishImages[1].transform.GetChild(0).gameObject.SetActive(false);
                 }
 
             }
@@ -153,6 +157,7 @@ public class GlossaryScript : MonoBehaviour
                 textFields[5].color = Color.gray * 0.70f;
 
                 fishImages[0].color = Color.gray;
+                fishImages[1].transform.GetChild(0).gameObject.SetActive(false);
             }
 
             Debug.Log("Caught: " + caught + "/" + fishData.Count);
