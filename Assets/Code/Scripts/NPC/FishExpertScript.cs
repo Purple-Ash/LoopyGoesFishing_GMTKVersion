@@ -13,6 +13,7 @@ public class FishExpertScript : BaseNPCScript
     public Transform contentTransform;
 
     public TMPro.TMP_Text text;
+    public TMP_Text numText;
 
     // The Equipment View UI object
     public GameObject imageView;
@@ -28,9 +29,11 @@ public class FishExpertScript : BaseNPCScript
     [SerializeField] float discoverMultiplier = 0.5f;
 
     private AudioManager audioManager;
+    private int studies = 0;
 
     void Start()
     {
+        studies = 0;
         discoveredFish = new List<bool>();
         talkedFish = new List<bool>();
         //SpawnEntities();
@@ -56,6 +59,7 @@ public class FishExpertScript : BaseNPCScript
         SpawnEntities();
         equipmentView.transform.GetChild(0).GetChild(0).position = new Vector3(equipmentView.transform.GetChild(0).GetChild(0).position.x, -2000, equipmentView.transform.GetChild(0).GetChild(0).position.z);
         text.SetText("Welcome back to my Lighthouse! Caught any new fish for us to study recently? Or maybe you want to pry me for some more information? I might just throw you a *red Herring*, heh heh.");
+        numText.SetText("Studied: " + studies + "/" + fishData.Count);
     }
 
     public override void setShopUIInactive()

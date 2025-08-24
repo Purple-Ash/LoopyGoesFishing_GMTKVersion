@@ -19,5 +19,11 @@ MonoBehaviour:
   price: 600
   weight: 60
   infoPrice: 200
-  infoPlace: 
-  infoDetails: 
+  infoPlace: "I think this is more about it finding you and not the other way around.
+    It\u2019s the apex predator of the sea, my child, this is no joking matter. But
+    if you are dead set on finding it, I suggest looking in areas with a lot of other,
+    often smaller fish \u2013 its hunting grounds."
+  infoDetails: "Ahh, so you caught the real deal? Was it dangerous? They can smell
+    blood from up to 5 kilometres away after all! Did you also know that it\u2019s
+    the only species of shark to be warm-blooded? They even have special heat generating
+    muscles."

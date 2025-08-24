@@ -48743,6 +48743,7 @@ MonoBehaviour:
   entityToSpawn: {fileID: 3619564659473494403, guid: 2562ca64a1b010b46ad93c75ad99cb12, type: 3}
   contentTransform: {fileID: 1093107219}
   text: {fileID: 671370542}
+  numText: {fileID: 1019185740}
   imageView: {fileID: 543576457}
   equipmentView: {fileID: 1926324590}
   backPanel: {fileID: 1880032329}
