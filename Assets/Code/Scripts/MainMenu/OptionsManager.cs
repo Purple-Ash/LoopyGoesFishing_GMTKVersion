@@ -58,6 +58,13 @@ public class OptionsManager : MonoBehaviour
         SetQualityLevel(5);
     }
 
+    public void ReturnToGame()
+    {
+        GameObject.FindGameObjectWithTag("Ending").SetActive(false);
+        FindObjectOfType<BuoySpawner>().restoreBuoys();
+        Destroy(GameObject.FindGameObjectWithTag("EndingIsland"));
+    }
+
     private void InitAllAudioSliders()
     {
         if (!PlayerPrefs.HasKey(_masterVolumeKey))

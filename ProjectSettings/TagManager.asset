@@ -26,6 +26,7 @@ TagManager:
   - OptionsManager
   - NewFishNotification
   - ScaryFish
+  - EndingIsland
   layers:
   - Default
   - TransparentFX

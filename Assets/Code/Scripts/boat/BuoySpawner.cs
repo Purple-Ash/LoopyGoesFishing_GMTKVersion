@@ -19,10 +19,12 @@ public class BuoySpawner : MonoBehaviour
 
     private int totalBuoys = 0; // Total number of buoys spawned
     private int restoreNumberOfBuoys = 0; // Number of buoys to restore when the boat is restored
+    private Color RestoreColor;
 
     // Start is called before the first frame update
     void Start()
     {
+        RestoreColor = new Color(1, 1, 1, 1); // Default color for buoys if not set
         lastBuoy = null;
         for (int i = 0; i < numberOfBuoys; i++)
         {
@@ -51,7 +53,14 @@ public class BuoySpawner : MonoBehaviour
         totalBuoys += numberOfBuoys; // Update the total number of buoys
         if (totalBuoys > 500)
         {
-            restoreNumberOfBuoys = totalBuoys - numberOfBuoys; // Calculate how many buoys to restore
+            if (restoreNumberOfBuoys <= 100)
+                restoreNumberOfBuoys = totalBuoys - numberOfBuoys ; // Calculate how many buoys to restore
+            if (RestoreColor.Equals(new Color(1, 1, 1, 1)))
+            {
+                Debug.LogWarning("RestoreColor is not set, using last buoy color instead.");
+                RestoreColor = lastBuoy.gameObject.GetComponent<SpriteRenderer>().color; // Store the color of the last buoy
+                Debug.Log("RestoreColor set to: " + RestoreColor);
+            }
         }
         if (lastBuoy == null)
         {
@@ -84,7 +93,6 @@ public class BuoySpawner : MonoBehaviour
 
     public void restoreBuoys()
     {
-        UnityEngine.Color color = lastBuoy.gameObject.GetComponent<SpriteRenderer>().color; // Get the color of the last buoy
         totalBuoys = 0;
         while (lastBuoy != null)
         {
@@ -100,10 +108,10 @@ public class BuoySpawner : MonoBehaviour
         {
             gameObject.GetComponent<LineRenderer>().colorGradient = new Gradient
             {
-                colorKeys = new GradientColorKey[] { new GradientColorKey(color, 0.0f) },
+                colorKeys = new GradientColorKey[] { new GradientColorKey(RestoreColor, 0.0f) },
                 alphaKeys = new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f) }
             };
-            gameObject.GetComponent<SpriteRenderer>().color = color;
+            gameObject.GetComponent<SpriteRenderer>().color = RestoreColor;
             gameObject = gameObject.GetComponent<NetExtension>().followedPoint;
         }
     }
