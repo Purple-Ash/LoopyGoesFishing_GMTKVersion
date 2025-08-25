@@ -1,5 +1,7 @@
-# GMTK2025
-Game for [GMTK 2025](https://itch.io/jam/gmtk-2025)<br>
+# Loopy Goes Fishing
+The game is an [entry for GMTK 2025](https://itch.io/jam/gmtk-2025/rate/3779233)<br> 
+Currently under the developement as a standalone project. You can join our [discord server](https://discord.gg/EjGCwt9PU2) to get more information, get in touch with devs, send feedback, and see newest announcments.
+
 ## Running the Project
 
 - Unity Editor: **2022.3.56f1** (recommended)<br>
