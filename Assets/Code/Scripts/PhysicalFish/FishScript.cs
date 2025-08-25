@@ -33,7 +33,7 @@ public class FishScript : MonoBehaviour
 
     [Header("Value and stuff")]
     [SerializeField] private NewFishData _fishData;
-    [SerializeField] private float _despawnDistance = 70f;
+    [SerializeField] private float _despawnDistance = 100f;
 
     [Header("Notification Objects")]
     [SerializeField] private GameObject _notification;

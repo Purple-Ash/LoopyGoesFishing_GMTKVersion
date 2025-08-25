@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d2064cc07f3d2c439ee5bd5da4d9fbd, type: 3}
-  m_Name: Narval
+  m_Name: Narvhal
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 96b6d433ae49a864987dd0f524efc099, type: 3}
+  image: {fileID: 21300000, guid: ce46b94343d2f3e4ca1be6ef9dacc481, type: 3}
   name: Narwhal
   description: Unicorns of the sea, just way more slippery and actually exist. Inventors
     of the shish kebab.

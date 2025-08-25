@@ -12997,7 +12997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51397c5e7b4f9284eacd0153f451a01d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d569f62559b8f4d42b7dfd4e9a3ebcd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27952,6 +27952,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 501251357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1119806921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1164907207}
+    m_Modifications:
+    - target: {fileID: 1219058182545369249, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: _spawnTryChance
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: _minSpawnRadious
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219058182545369249, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: _fishWanderRadious
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -89.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736402624274566098, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+      propertyPath: m_Name
+      value: WhiteSharkSpawner (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+--- !u!4 &1119806922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4258334936135420209, guid: 2708544d2a9f1bc458deb540614b67b8, type: 3}
+  m_PrefabInstance: {fileID: 1119806921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1120129581
 GameObject:
   m_ObjectHideFlags: 0
@@ -29486,6 +29560,7 @@ Transform:
   - {fileID: 1755216978}
   - {fileID: 200974620}
   - {fileID: 1292830496}
+  - {fileID: 1119806922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1165132511
@@ -42316,7 +42391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d87e4b7c6d2c5d49bcf533def2bc1e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1cf9bffde9049f4c8cd16a270567c03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -53568,7 +53643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d87e4b7c6d2c5d49bcf533def2bc1e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1cf9bffde9049f4c8cd16a270567c03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
