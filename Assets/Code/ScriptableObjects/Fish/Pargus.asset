@@ -18,7 +18,7 @@ MonoBehaviour:
   price: 40
   weight: 4
   infoPrice: 40
-  infoPlace: "A bit of a rarer delicacy around these parts, though I\u2019m *shore*,
+  infoPlace: "A bit of a rarer delicacy around these parts, though I\u2019m <i>shore</i>,
     heh, that if you look close to the coast, in the shallow waters around the isles,
     you\u2019ll run into a few."
   infoDetails: Pargus Pargus

@@ -17446,8 +17446,8 @@ MonoBehaviour:
   m_text: Hello there! My name is Thadeus, but everyone here calls me Teddy. I've
     been manning this here lighthouse for many years now and it's given me a great
     vantage point on the ocean life around here. If you ever need help finding any
-    fish, or just want to learn more come to me and I'll *shed a little light* about
-    that, heh heh.
+    fish, or just want to learn more come to me and I'll <i>shed a little light</i>
+    about that, heh heh.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64f77a76528c5554d9ed6afef0e0875f, type: 2}
   m_sharedMaterial: {fileID: 8623053681352189844, guid: 64f77a76528c5554d9ed6afef0e0875f, type: 2}
